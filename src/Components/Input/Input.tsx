@@ -1,22 +1,17 @@
 import React, {
-  useState,
-  useCallback,
+  useState
 } from 'react';
 
-const Input = (label: string) => {
-  const [value, setValue] = useState('')
-  const handleChage = useCallback((event: React.FormEvent<HTMLInputElement>) => {
-    const x = event?.target as HTMLInputElement
-    setValue(x.value)
-  }, [])
+const Input = () => {
+  const [value, setValue] = useState('');
 
   return (
     <input
       type="text"
-      onChange={handleChage}
+      onChange={event => setValue((event.target as HTMLInputElement).value)}
       value={value}
       />
   )
 }
 
-export default Input
+export default Input;
