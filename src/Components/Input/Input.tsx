@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 export type InputProps = {
