@@ -8,18 +8,36 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Slate = Template.bind({});
-Slate.args = {
+export const SlateL = Template.bind({});
+SlateL.args = {
   type: 'Slate',
   label: 'E-mail',
 }
-export const Violet = Template.bind({});
-Violet.args = {
+export const SlateM = Template.bind({});
+SlateM.args = {
+  type: 'Slate',
+  label: 'E-mail',
+  size: 'M',
+}
+export const VioletL = Template.bind({});
+VioletL.args = {
   type: 'Violet',
   label: 'E-mail',
 }
-export const Gradient = Template.bind({});
-Gradient.args = {
+export const VioletM = Template.bind({});
+VioletM.args = {
+  type: 'Violet',
+  label: 'E-mail',
+  size: 'M',
+}
+export const GradientL = Template.bind({});
+GradientL.args = {
   type: 'Gradient',
   label: 'E-mail',
+}
+export const GradientM = Template.bind({});
+GradientM.args = {
+  type: 'Gradient',
+  label: 'E-mail',
+  size: 'M',
 }

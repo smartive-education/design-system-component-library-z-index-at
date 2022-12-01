@@ -31,17 +31,24 @@ const Button: FC<ButtonProps> = ({
     }
     return 'bg-slate-600'
   }, [type])
-console.log(toggleClicked)
+
+  const sizeClasses = useMemo(() => {
+    if(size === 'M') {
+        return 'w-[150px] h-10'
+    }
+    return 'w-[178px] h-12'
+  }, [size])
+
+console.log(size)
   return (
     <div className="flex flex-col">
       <button
         id={name}
         onClick={() => setToggleClicked(toggleClicked ? false : true)}
-        className={`border border-solid border-slate-200 w-[178px] h-12 rounded-md
-       hover:border-2 hover:border-violet-600 text-white
-       focus:outline-none focus:border-2 focus:border-violet-600
-       p-4
-       leading-none ${typeClasses}`}
+        className={`border border-solid border-slate-200 rounded-md
+        hover:border-2 hover:border-violet-600 text-white
+        focus:outline-none focus:border-2 focus:border-violet-600
+        leading-none ${typeClasses} ${sizeClasses}`}
       >{label}</button>
     </div>
   );
