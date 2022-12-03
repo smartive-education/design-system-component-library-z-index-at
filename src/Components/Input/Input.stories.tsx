@@ -10,5 +10,12 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const TextInput = Template.bind({});
 TextInput.args = {
-  label: 'E-Mail'
+  label: 'E-Mail',
+  type: 'email',
+  required: true,
+  minLength: 6,
+  maxLength: 20,
+  pattern: undefined,
+  errorMessage: 'ERROR'
+  
 }
