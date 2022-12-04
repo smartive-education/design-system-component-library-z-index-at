@@ -72,7 +72,7 @@ const Input: FC<InputProps> = ({
        p-4
        leading-none`}
       />
-      <span>{errorMessage}</span>
+      <span className="self-end text-rose-500">{errorMessage}</span>
     </div>
   );
 };

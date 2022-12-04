@@ -1,5 +1,6 @@
 import React, { ComponentMeta, ComponentStory } from "@storybook/react";
-import Input from ".";
+import Input from "./Input";
+
 
 export default {
   title: "Input",
@@ -15,7 +16,5 @@ TextInput.args = {
   required: true,
   minLength: 6,
   maxLength: 20,
-  pattern: undefined,
-  errorMessage: 'ERROR'
-  
+  pattern: undefined  
 }
