@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import { v4 as uuid } from "uuid";
+import Icon from "../Icon/Icon";
 import { getTranslationKeyForError } from "./input-validation.helpers";
 
 export type InputType = "text" | "password" | "email";
@@ -29,7 +30,7 @@ const Input: FC<InputProps> = ({
 
   const handleChange = (event: React.ChangeEvent) => {
     const element = event.target as HTMLInputElement;
-    const isElementValid = element.checkValidity()
+    const isElementValid = element.checkValidity();
     setValidity(() => isElementValid);
     setIsDirty(() => true);
     if (isElementValid) {
@@ -40,7 +41,7 @@ const Input: FC<InputProps> = ({
 
   const handleBlur = (event: React.FocusEvent) => {
     const element = event.target as HTMLInputElement;
-    const isElementValid = element.checkValidity()
+    const isElementValid = element.checkValidity();
     setValidity(() => isElementValid);
     if (!isElementValid && isDirty) {
       setErrorMessage(() => getTranslationKeyForError(element)); //TODO implement translation
@@ -52,17 +53,18 @@ const Input: FC<InputProps> = ({
       <label htmlFor={inputId} className="text-slate-700 font-semibold">
         {label}
       </label>
-      <input
-        id={inputId}
-        type={type}
-        required={required}
-        minLength={minLength}
-        maxLength={maxLength}
-        pattern={pattern}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        value={value}
-        className={`border border-solid border-slate-200
+      <div className="relative">
+        <input
+          id={inputId}
+          type={type}
+          required={required}
+          minLength={minLength}
+          maxLength={maxLength}
+          pattern={pattern}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={value}
+          className={`w-full border border-solid border-slate-200
        bg-slate-50 rounded-md 
        ${
          !isValid && isDirty
@@ -71,7 +73,15 @@ const Input: FC<InputProps> = ({
        }
        p-4
        leading-none`}
-      />
+        />
+        <span className="inline-block absolute z-10 top-1/2 -translate-y-1/2 right-6">
+          <Icon
+            size={14}
+            id={type === "password" ? "eye" : "close"}
+            color={type === "password" ? "#475569" : "#f43f5e"}
+          />
+        </span>
+      </div>
       <span className="self-end text-rose-500">{errorMessage}</span>
     </div>
   );
