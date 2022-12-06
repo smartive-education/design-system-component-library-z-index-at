@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-interface IconProps {
+export interface IconProps {
   size: number;
   id: string;
   color: string
