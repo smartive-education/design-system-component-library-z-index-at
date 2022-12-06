@@ -17,5 +17,5 @@
     "module": "esnext",
     "target": "esnext"
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["src/index.ts"]
 }
