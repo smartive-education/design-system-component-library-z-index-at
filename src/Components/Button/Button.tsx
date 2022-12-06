@@ -1,5 +1,5 @@
 import React, { FC, useState, useMemo } from "react";
-import Icon from "../Icon";
+import {Icon} from "../Icon";
 
 type ButtonProps = {
     name: string;
@@ -14,7 +14,7 @@ const defaultProps: Partial<ButtonProps> = {
     size: 'L',
 }
 
-const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
     label,
     name,
     type,
@@ -71,5 +71,3 @@ const Button: FC<ButtonProps> = ({
 };
 
 Button.defaultProps = defaultProps
-
-export default Button;

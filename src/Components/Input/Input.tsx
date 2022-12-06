@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { v4 as uuid } from "uuid";
-import Icon from "../Icon/Icon";
+import { Icon } from "../Icon/Icon";
 import { getTranslationKeyForError } from "./input-validation.helpers";
 
 export type InputType = "text" | "password" | "email";
@@ -14,7 +14,7 @@ export interface InputProps {
 }
 
 //TODO: add wrapper for email and password variants, add icons, add functions as props, add handlers which set state/validate and call input function
-const Input: FC<InputProps> = ({
+export const Input: FC<InputProps> = ({
   label,
   type,
   required,
@@ -86,5 +86,3 @@ const Input: FC<InputProps> = ({
     </div>
   );
 };
-
-export default Input;
