@@ -1,6 +1,7 @@
-import { FC, useState, useMemo } from "react";
+import React, { FC, useState, useMemo } from "react";
+import Icon from "../Icon";
 
-export type ButtonProps = {
+type ButtonProps = {
     name: string;
     label: string;
     type?: string,
@@ -34,22 +35,37 @@ const Button: FC<ButtonProps> = ({
 
   const sizeClasses = useMemo(() => {
     if(size === 'M') {
-        return 'w-[150px] h-10'
+        return {
+            button: 'w-[150px] h-10',
+            text: 'pt-1.5 pl-1.5 pb-1.5 pr-2',
+        }
     }
-    return 'w-[178px] h-12'
+    return {
+        button:'w-[178px] h-12',
+        text: 'pt-3 pl-3 pb-3 pr-4',
+    }
   }, [size])
 
-console.log(size)
   return (
     <div className="flex flex-col">
-      <button
+        <button
         id={name}
         onClick={() => setToggleClicked(toggleClicked ? false : true)}
         className={`border border-solid border-slate-200 rounded-md
         hover:border-2 hover:border-violet-600 text-white
         focus:outline-none focus:border-2 focus:border-violet-600
-        leading-none ${typeClasses} ${sizeClasses}`}
-      >{label}</button>
+        leading-none ${typeClasses} ${sizeClasses.button}`}
+      >
+            <div className="flex place-content-center items-center">
+                <div className={`fwhitespace-nowrap ${sizeClasses.text}`}>{label}</div>
+                <div className="w-4 h-4">
+                <Icon
+                    id= "mumble"
+                    size={16}
+                    color= '#fff'/>
+                </div>
+            </div>
+        </button>
     </div>
   );
 };
