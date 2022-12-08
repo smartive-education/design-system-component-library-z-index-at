@@ -1,5 +1,5 @@
 import React, { FC, useState, useMemo } from "react";
-import {Icon} from "../Icon";
+import {Icon, IconColor} from "../Icon";
 
 type ButtonProps = {
     name: string;
@@ -61,8 +61,9 @@ export const Button: FC<ButtonProps> = ({
                 <div className="w-4 h-4">
                 <Icon
                     id= "mumble"
-                    size={16}
-                    color= '#fff'/>
+                    width={16}
+                    height={16}
+                    color={IconColor.White}/>
                 </div>
             </div>
         </button>

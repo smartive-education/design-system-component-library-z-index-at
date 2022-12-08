@@ -1,15 +1,32 @@
 import React, { FC } from "react";
 
-export interface IconProps {
-  size: number;
-  id: string;
-  color: string
+export enum IconColor {
+  Gray = '#475569',
+  Red = '#f43f5e',
+  White= '#fff'
 }
 
-export const Icon: FC<IconProps> = ({ id, size, color }) => {
+export interface IconProps {
+  id: string;
+  width?: number;
+  height?: number;
+  color?: IconColor;
+  spritePath?: string;
+}
+
+const defaultProps: Partial<IconProps> = {
+  width: 14,
+  height: 14,
+  color: IconColor.Gray,
+  spritePath: '/icons.svg'
+}
+
+export const Icon: FC<IconProps> = ({ id, width, height, color, spritePath }) => {
   return (
-    <svg width={size} height={size} fill={color ? color : '#475569'}>
-       <use href={`/icons.svg#${id}`}></use>
+    <svg width={width} height={height} fill={color}>
+       <use href={`${spritePath}#${id}`}></use>
     </svg>
   );
 };
+
+Icon.defaultProps = defaultProps;
