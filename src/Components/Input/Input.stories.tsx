@@ -15,6 +15,7 @@ TextInput.args = {
   required: true,
   maxLength: 40,
   pattern: undefined,
+  placeholder: "Type in some text"
 };
 
 export const EmailInput = Template.bind({});
@@ -25,6 +26,7 @@ EmailInput.args = {
   minLength: 6,
   maxLength: 20,
   pattern: undefined,
+  placeholder: "Email address"
 };
 
 export const PasswordInput = Template.bind({});
@@ -35,4 +37,5 @@ PasswordInput.args = {
   minLength: 6,
   maxLength: 20,
   pattern: undefined,
+  placeholder: "Password"
 };

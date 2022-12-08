@@ -11,6 +11,7 @@ export interface InputProps {
   minLength?: number;
   maxLength?: number;
   pattern?: string;
+  placeholder?: string;
 }
 
 export const Input: FC<InputProps> = ({
@@ -20,6 +21,7 @@ export const Input: FC<InputProps> = ({
   minLength,
   maxLength,
   pattern,
+  placeholder
 }) => {
   const [value, setValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -65,6 +67,7 @@ export const Input: FC<InputProps> = ({
           minLength={minLength}
           maxLength={maxLength}
           pattern={pattern}
+          placeholder={placeholder}
           onChange={handleChange}
           onBlur={handleBlur}
           value={value}
