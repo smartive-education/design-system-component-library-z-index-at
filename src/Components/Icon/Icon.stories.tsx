@@ -6,34 +6,66 @@ export default {
   component: Icon,
 } as ComponentMeta<typeof Icon>;
 
-const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
+const sizes = [14, 32, 64];
 
-export const CloseSmall = Template.bind({});
-CloseSmall.args = {
-  id: "close"
-};
+const IconVariantTemplate = (args) => (
+  <ul className="flex">
+    {sizes.map((size) => (
+      <li className="px-4 flex">
+        <Icon size={size} id={args.id} color={args.color} />
+      </li>
+    ))}
+  </ul>
+);
 
-export const CloseMedium = Template.bind({});
-CloseMedium.args = {
+export const Close = IconVariantTemplate.bind({});
+Close.args = {
   id: "close",
-  size: 32
-};
-
-export const CloseLarge = Template.bind({});
-CloseLarge.args = {
-  id: "close",
-  size: 64
-};
-
-export const Delete = Template.bind({});
-Delete.args = {
-  id: "close",
-  size: 32,
   color: IconColor.Red,
 };
-
-export const Eye = Template.bind({});
-Eye.args = {
+export const Eyes = IconVariantTemplate.bind({});
+Eyes.args = {
   id: "eye",
-  size: 32
+  color: IconColor.Gray,
 };
+
+const iconIds = [
+  "close",
+  "eye",
+  "mumble",
+  "arrow",
+  "calendar",
+  "chat-empty",
+  "chat-full",
+  "check",
+  "down",
+  "up",
+  "left",
+  "right",
+  "heart-full",
+  "heart-empty",
+  "edit",
+  "enlarge",
+  "location",
+  "logout",
+  "profile",
+  "refresh",
+  "share",
+  "settings",
+  "profile",
+  "time",
+  "upload",
+];
+
+const IconListTemplate = () => (
+  <ul>
+    {iconIds.map((id) => (
+      <li className="flex pb-2">
+        <Icon size={20} id={id} />
+        <span className="-translate-y-1 pl-4">{id}</span>
+      </li>
+    ))}
+  </ul>
+);
+
+export const IconList = IconListTemplate.bind({});
