@@ -4,14 +4,17 @@ import {Icon, IconColor} from "../Icon";
 type ButtonProps = {
     name: string;
     label: string;
+    icon: string,
     type?: string,
     size?: string,
-    onClick: () => {}
+    className?: string,
+    onClick: () => void
 };
 
 const defaultProps: Partial<ButtonProps> = {
     type: 'Slate',
     size: 'L',
+    className: ''
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -19,6 +22,8 @@ export const Button: FC<ButtonProps> = ({
     name,
     type,
     size,
+    icon,
+    className,
     onClick,
  }) => {
   const [toggleClicked, setToggleClicked] = useState(false);
@@ -45,12 +50,12 @@ export const Button: FC<ButtonProps> = ({
         text: 'pt-3 pl-3 pb-3 pr-4',
     }
   }, [size])
-
+console.log(icon)
   return (
-    <div className="flex flex-col">
+    <div className={`flex flex-col ${className}`}>
         <button
         id={name}
-        onClick={() => setToggleClicked(toggleClicked ? false : true)}
+        onClick={onClick}
         className={`border border-solid border-slate-200 rounded-md
         hover:border-2 hover:border-violet-600 text-white
         focus:outline-none focus:border-2 focus:border-violet-600
@@ -60,7 +65,7 @@ export const Button: FC<ButtonProps> = ({
                 <div className={`fwhitespace-nowrap ${sizeClasses.text}`}>{label}</div>
                 <div className="w-4 h-4">
                 <Icon
-                    id= "mumble"
+                    id={icon}
                     size={16}
                     color={IconColor.White}/>
                 </div>
