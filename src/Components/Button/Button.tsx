@@ -1,4 +1,6 @@
 import React, { FC, useState, useMemo } from "react";
+import clsx from 'clsx'
+
 import {Icon, IconColor} from "../Icon";
 
 type ButtonProps = {
@@ -52,7 +54,7 @@ export const Button: FC<ButtonProps> = ({
   }, [size])
 console.log(icon)
   return (
-    <div className={`flex flex-col ${className}`}>
+    <div className={clsx("flex flex-col", className)}>
         <button
         id={name}
         onClick={onClick}
