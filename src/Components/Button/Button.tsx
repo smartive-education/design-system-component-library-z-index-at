@@ -52,7 +52,7 @@ export const Button: FC<ButtonProps> = ({
         text: 'pt-3 pl-3 pb-3 pr-4',
     }
   }, [size])
-console.log(icon)
+
   return (
     <div className={clsx("flex flex-col", className)}>
         <button
