@@ -33,7 +33,6 @@ const iconIds = [
   "close",
   "eye",
   "mumble",
-  "arrow",
   "calendar",
   "chat-empty",
   "chat-full",
@@ -55,6 +54,7 @@ const iconIds = [
   "profile",
   "time",
   "upload",
+  "send"
 ];
 
 const IconListTemplate = () => (
