@@ -61,8 +61,7 @@ export const Button: FC<ButtonProps> = ({
                 <div className="w-4 h-4">
                 <Icon
                     id= "mumble"
-                    width={16}
-                    height={16}
+                    size={16}
                     color={IconColor.White}/>
                 </div>
             </div>

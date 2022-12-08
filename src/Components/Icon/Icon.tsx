@@ -8,22 +8,20 @@ export enum IconColor {
 
 export interface IconProps {
   id: string;
-  width?: number;
-  height?: number;
+  size: number;
   color?: IconColor;
   spritePath?: string;
 }
 
 const defaultProps: Partial<IconProps> = {
-  width: 14,
-  height: 14,
+  size: 14,
   color: IconColor.Gray,
   spritePath: '/icons.svg'
 }
 
-export const Icon: FC<IconProps> = ({ id, width, height, color, spritePath }) => {
+export const Icon: FC<IconProps> = ({ id, size, color, spritePath }) => {
   return (
-    <svg width={width} height={height} fill={color}>
+    <svg width={size} height={size} fill={color}>
        <use href={`${spritePath}#${id}`}></use>
     </svg>
   );

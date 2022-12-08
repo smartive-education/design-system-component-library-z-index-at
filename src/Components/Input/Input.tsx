@@ -1,6 +1,6 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
-import { Icon } from "../Icon/Icon";
+import { Icon, IconColor } from "../Icon/Icon";
 import { getTranslationKeyForError } from "./input-validation.helpers";
 
 export type InputType = "text" | "password" | "email";
@@ -13,7 +13,6 @@ export interface InputProps {
   pattern?: string;
 }
 
-//TODO: add wrapper for email and password variants, add icons, add functions as props, add handlers which set state/validate and call input function
 export const Input: FC<InputProps> = ({
   label,
   type,
@@ -26,6 +25,8 @@ export const Input: FC<InputProps> = ({
   const [errorMessage, setErrorMessage] = useState("");
   const [isValid, setValidity] = useState(false);
   const [isDirty, setIsDirty] = useState(false);
+  const [originalType, setOriginalType] = useState(type);
+  const [currentType, setCurrentType] = useState(type);
   const inputId = uuid();
 
   const handleChange = (event: React.ChangeEvent) => {
@@ -48,6 +49,9 @@ export const Input: FC<InputProps> = ({
     }
   };
 
+  const resetValue = () => setValue(() => "");
+  const toggleType = () => setCurrentType(() => currentType === "password" ? "text" : "password");
+
   return (
     <div className="flex flex-col">
       <label htmlFor={inputId} className="text-slate-700 font-semibold">
@@ -56,7 +60,7 @@ export const Input: FC<InputProps> = ({
       <div className="relative">
         <input
           id={inputId}
-          type={type}
+          type={currentType}
           required={required}
           minLength={minLength}
           maxLength={maxLength}
@@ -74,13 +78,14 @@ export const Input: FC<InputProps> = ({
        p-4
        leading-none`}
         />
-        <span className="inline-block absolute z-10 top-1/2 -translate-y-1/2 right-6">
-          <Icon
-            size={14}
-            id={type === "password" ? "eye" : "close"}
-            color={type === "password" ? "#475569" : "#f43f5e"}
-          />
-        </span>
+        <button className="inline-block absolute z-10 top-1/2 -translate-y-1/2 right-6" onClick={originalType === "email" ? resetValue : toggleType}>
+          {originalType === "password" && (
+            <Icon size={14} id={"eye"} color={IconColor.Gray} />
+          )}
+          {(originalType === "email" && !isValid && isDirty && value) && (
+            <Icon size={14} id={"close"} color={IconColor.Red} />
+          )}
+        </button>
       </div>
       <span className="self-end text-rose-500">{errorMessage}</span>
     </div>
