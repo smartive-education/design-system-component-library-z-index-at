@@ -21,7 +21,7 @@ const IconVariantTemplate = (args) => (
 export const Close = IconVariantTemplate.bind({});
 Close.args = {
   id: "close",
-  color: IconColor.Red,
+  color: IconColor.Pink,
 };
 export const Eyes = IconVariantTemplate.bind({});
 Eyes.args = {
@@ -60,9 +60,9 @@ const iconIds = [
 const IconListTemplate = () => (
   <ul>
     {iconIds.map((id) => (
-      <li className="flex pb-2">
-        <Icon size={20} id={id} />
-        <span className="-translate-y-1 pl-4">{id}</span>
+      <li className="flex items-center pb-2">
+        <Icon size={20} id={id} color={IconColor.Violet} />
+        <span className="pl-4">{id}</span>
       </li>
     ))}
   </ul>
