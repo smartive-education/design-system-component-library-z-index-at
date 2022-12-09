@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { IconColor } from "../Icon/Icon";
-import { Interaction, TextColor } from "./Interaction";
+import { IconColor, IconHoverColor } from "../Icon/Icon";
+import { BackGroundColor, Interaction, TextColor, TextHoverColor } from "./Interaction";
 
 export default {
     title: 'Interaction',
@@ -13,7 +13,12 @@ const Template: ComponentStory<typeof Interaction> = (args) => <Interaction {...
 export const Comment = Template.bind({});
 Comment.args = {
     iconId: 'chat-empty',
-    label: 'Comment'
+    label: 'Comment',
+    backgroundColor: BackGroundColor.Gray,
+    iconColor: IconColor.LightGray,
+    textColor: TextColor.LightGray,
+    iconHoverColor: IconHoverColor.Gray,
+    textHoverColor: TextHoverColor.Gray
 }
 
 export const Comments = Template.bind({});
@@ -21,24 +26,21 @@ Comments.args = {
     iconId: 'chat-full',
     label: 'Comments',
     value: 32,
+    backgroundColor: BackGroundColor.Violet,
     iconColor: IconColor.Violet,
-    textColor: TextColor.Gray
+    textColor: TextColor.LightGray,
+    textHoverColor: TextHoverColor.Gray
 }
 
 export const Like = Template.bind({});
 Like.args = {
     iconId: 'heart-empty',
     label: 'Like',
-    iconColor: IconColor.LightPink,
-    textColor: TextColor.LightPink
-}
-
-export const Liked = Template.bind({});
-Liked.args = {
-    iconId: 'heart-full',
-    label: 'Liked',
-    iconColor: IconColor.Pink,
-    textColor: TextColor.Pink
+    iconColor: IconColor.Gray,
+    textColor: TextColor.Gray,
+    backgroundColor: BackGroundColor.Pink,
+    iconHoverColor: IconHoverColor.Pink,
+    textHoverColor: TextHoverColor.Pink
 }
 
 export const Likes = Template.bind({});
