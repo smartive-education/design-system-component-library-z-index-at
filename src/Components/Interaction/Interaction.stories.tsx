@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
 import { IconColor, IconHoverColor } from "../Icon/Icon";
-import { BackGroundColor, Interaction, TextColor, TextHoverColor } from "./Interaction";
+import { Interaction, TextColor, TextHoverColor } from "./Interaction";
 
 export default {
     title: 'Interaction',
@@ -16,6 +16,8 @@ UserName.args = {
     label: 'Username',
     iconColor: IconColor.Violet,
     textColor: TextColor.Violet,
+    iconHoverColor: IconHoverColor.DarkViolet,
+    textHoverColor: TextHoverColor.DarkViolet,
     size: 'small'
 }
 
@@ -25,5 +27,29 @@ Location.args = {
     label: 'Location',
     iconColor: IconColor.LightGray,
     textColor: TextColor.LightGray,
+    iconHoverColor: IconHoverColor.Gray,
+    textHoverColor: TextHoverColor.Gray,
+    size: 'small'
+}
+
+export const Joined = Template.bind({});
+Joined.args = {
+    iconId: 'calendar',
+    label: 'Mitglied seit 4 Wochen',
+    iconColor: IconColor.LightGray,
+    textColor: TextColor.LightGray,
+    iconHoverColor: IconHoverColor.Gray,
+    textHoverColor: TextHoverColor.Gray,
+    size: 'small'
+}
+
+export const Timestamp = Template.bind({});
+Timestamp.args = {
+    iconId: 'time',
+    label: 'vor 11 Minuten',
+    iconColor: IconColor.LightGray,
+    textColor: TextColor.LightGray,
+    iconHoverColor: IconHoverColor.Gray,
+    textHoverColor: TextHoverColor.Gray,
     size: 'small'
 }

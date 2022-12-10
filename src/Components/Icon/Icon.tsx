@@ -12,14 +12,12 @@ export enum IconColor {
 }
 
 export enum IconHoverColor {
-  LightGray = "group-hover:fill-slate-400",
   Gray = "group-hover:fill-slate-600",
   LightPink = "group-hover:fill-pink-500",
   Pink = "group-hover:fill-pink-600",
   DarkPink = "group-hover:fill-pink-900",
   Violet = "group-hover:fill-violet-600",
   DarkViolet = "group-hover:fill-violet-900",
-  White = "group-hover:fill-violet-50",
 }
 
 export interface IconProps {

@@ -14,13 +14,11 @@ export enum TextColor {
 
 export enum TextHoverColor {
     Gray = "hover:text-slate-600",
-    LightGray = "hover:text-slate-400",
     LightPink = "hover:text-pink-500",
     Pink = "hover:text-pink-600",
     DarkPink = "hover:text-pink-900",
     Violet = "hover:text-violet-600",
     DarkViolet = "hover:text-violet-900",
-    White = "hover:text-violet-50",
   }
 
 export enum BackGroundColor {
