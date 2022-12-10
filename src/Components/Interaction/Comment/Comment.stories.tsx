@@ -11,12 +11,7 @@ const Template: ComponentStory<typeof Comment> = (args) => (
   <Comment {...args} />
 );
 
-export const NoComment = Template.bind({});
-NoComment.args = {
+export const DynamicComment = Template.bind({});
+DynamicComment.args = {
     value:0
-};
-
-export const MultipleComment = Template.bind({});
-MultipleComment.args = {
-    value:32
 };

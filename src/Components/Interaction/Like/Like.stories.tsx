@@ -12,14 +12,8 @@ const Template: ComponentStory<typeof Like> = (args) => (
   <Like {...args} />
 );
 
-export const SingleLike = Template.bind({});
-SingleLike.args = {
+export const DynamicLike = Template.bind({});
+DynamicLike.args = {
     value:0,
     isLiked: false
-};
-
-export const MultipleLikes = Template.bind({});
-MultipleLikes.args = {
-    value:1,
-    isLiked: true
 };
