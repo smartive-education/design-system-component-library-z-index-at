@@ -41,7 +41,7 @@ export interface InteractionProps {
   backgroundColor?: BackGroundColor;
   size?: InteractionSize;
   value?: number;
-  onClickFn: () => {};
+  onClickFn: () => void;
 }
 
 export const defaultInteractionProps: Partial<InteractionProps> = {
