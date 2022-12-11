@@ -6,6 +6,7 @@ import { getTranslationKeyForError } from "./input-validation.helpers";
 export type InputType = "text" | "password" | "email";
 export interface InputProps {
   label: string;
+  name: string;
   type: InputType;
   required: boolean;
   minLength?: number;
@@ -16,6 +17,7 @@ export interface InputProps {
 
 export const Input: FC<InputProps> = ({
   label,
+  name,
   type,
   required,
   minLength,
@@ -55,13 +57,14 @@ export const Input: FC<InputProps> = ({
   const toggleType = () => setCurrentType(() => currentType === "password" ? "text" : "password");
 
   return (
-    <div className="flex flex-col">
+    <div className={`flex flex-col ${errorMessage ? "" : "mb-6" }`}>
       <label htmlFor={inputId} className="text-slate-700 font-semibold">
         {label}
       </label>
       <div className="relative">
         <input
           id={inputId}
+          name={name}
           type={currentType}
           required={required}
           minLength={minLength}
