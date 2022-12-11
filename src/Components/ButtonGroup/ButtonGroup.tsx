@@ -1,40 +1,41 @@
-import React, { FC, useCallback, useMemo } from "react";
+import React, { FC, useCallback } from "react";
 
-import {Button} from '../Button'
-
+import { Button } from "../Button";
 
 type ButtonGroupProps = {
-    name: string;
-    onClick: () => void
+  name: string;
+  onClick: () => void;
 };
 
-export const ButtonGroup: FC<ButtonGroupProps> = ({onClick}) => {
-
+export const ButtonGroup: FC<ButtonGroupProps> = ({ onClick }) => {
   const handleUpload = useCallback(() => {
-    onClick()
-  }, [])
+    onClick();
+  }, []);
   const handleSend = useCallback(() => {
-    onClick()
-  }, [])
+    onClick();
+  }, []);
 
   return (
     <div className="flex">
-      <Button
-        name="upload"
-        size="M"
-        label="Bild Hochladen"
-        onClick={handleUpload}
-        icon="upload"
-        className="pr-4"
-      />
-      <Button
-        name="send"
-        size="M"
-        type="Violet"
-        label="Absenden"
-        onClick={handleSend}
-        icon="send"
-      />
+      <div className="mr-1 w-1/2">
+        <Button
+          id="upload"
+          size="M"
+          label="Bild Hochladen"
+          onClick={handleUpload}
+          icon="upload"
+        />
+      </div>
+      <div className="ml-1 w-1/2">
+        <Button
+          id="send"
+          size="M"
+          color="Violet"
+          label="Absenden"
+          onClick={handleSend}
+          icon="send"
+        />
+      </div>
     </div>
-  )
+  );
 };

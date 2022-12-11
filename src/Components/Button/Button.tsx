@@ -1,80 +1,77 @@
-import React, { FC, useState, useMemo } from "react";
-import clsx from 'clsx'
+import React, { FC, useMemo } from "react";
 
-import {Icon, IconColor} from "../Icon";
+import { Icon, IconColor } from "../Icon";
+
+export type ButtonType = "button" | "submit" | "reset";
 
 type ButtonProps = {
-    name: string;
-    label: string;
-    icon: string,
-    type?: string,
-    size?: string,
-    className?: string,
-    onClick: () => void
+  id: string;
+  label: string;
+  icon: string;
+  type?: ButtonType;
+  color?: string;
+  size?: string;
+  onClick?: () => void;
 };
 
 const defaultProps: Partial<ButtonProps> = {
-    type: 'Slate',
-    size: 'L',
-    className: ''
-}
+  type: "button",
+  color: "Slate",
+  size: "L",
+};
 
 export const Button: FC<ButtonProps> = ({
-    label,
-    name,
-    type,
-    size,
-    icon,
-    className,
-    onClick,
- }) => {
-  const [toggleClicked, setToggleClicked] = useState(false);
-
-  const typeClasses = useMemo(() => {
-    if(type === 'Violet') {
-        return 'bg-violet-600'
+  label,
+  id,
+  type,
+  color,
+  size,
+  icon,
+  onClick,
+}) => {
+  const colorClasses = useMemo(() => {
+    if (color === "Violet") {
+      return "bg-violet-600 focus:border-violet-200 hover:bg-violet-700";
     }
-    if(type === 'Gradient') {
-        return 'bg-gradient-to-r from-pink-600 to-violet-600'
+    if (color === "Gradient") {
+      return "bg-gradient-to-r from-pink-500 to-violet-600 focus:border-violet-200 hover:bg-gradient-to-r hover:from-pink-600 hover:to-violet-700";
     }
-    return 'bg-slate-600'
-  }, [type])
+    return "bg-slate-600 focus:border-slate-200 hover:bg-slate-700";
+  }, [type]);
 
   const sizeClasses = useMemo(() => {
-    if(size === 'M') {
-        return {
-            button: 'w-[150px] h-10',
-            text: 'pt-1.5 pl-1.5 pb-1.5 pr-2',
-        }
+    if (size === "M") {
+      return {
+        text: "pr-2",
+        container: "px-4 py-2"
+      };
     }
     return {
-        button:'w-[178px] h-12',
-        text: 'pt-3 pl-3 pb-3 pr-4',
-    }
-  }, [size])
+      text: "pr-4",
+      container: "px-8 py-4"
+    };
+  }, [size]);
 
   return (
-    <div className={clsx("flex flex-col", className)}>
-        <button
-        id={name}
+    <div className={"flex"}>
+      <button
+        id={id}
+        type={type}
         onClick={onClick}
-        className={`border border-solid border-slate-200 rounded-md
-        hover:border-2 hover:border-violet-600 text-white
-        focus:outline-none focus:border-2 focus:border-violet-600
-        leading-none ${typeClasses} ${sizeClasses.button}`}
+        className={`w-full border border-solid border-slate-200 rounded-md
+         text-white
+        focus:outline-none focus:border-4
+        leading-none ${colorClasses}`}
       >
-            <div className="flex place-content-center items-center">
-                <div className={`fwhitespace-nowrap ${sizeClasses.text}`}>{label}</div>
-                <div className="w-4 h-4">
-                <Icon
-                    id={icon}
-                    size={16}
-                    color={IconColor.White}/>
-                </div>
-            </div>
-        </button>
+        <div className={`flex place-content-center items-center ${sizeClasses.container}`}>
+          <div className={`fwhitespace-nowrap ${sizeClasses.text}`}>
+            {label}
+          </div>
+          <Icon id={icon} size={16} color={IconColor.White} />
+        </div>
+      </button>
     </div>
   );
 };
 
-Button.defaultProps = defaultProps
+Button.defaultProps = defaultProps;
