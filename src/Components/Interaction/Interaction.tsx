@@ -63,9 +63,7 @@ export const Interaction: FC<InteractionProps> = ({
   return (
     <button
       onClick={onClickFn}
-      className={`group flex items-center px-3 py-4  hover:border-1 hover:border-solid rounded-full ${textColor} ${textHoverColor} ${
-        size === "standard" ? "h-4" : "h-2"
-      } ${backgroundColor}`}
+      className={`group flex items-center hover:border-1 hover:border-solid rounded-full ${textColor} ${textHoverColor} ${backgroundColor} ${size === "standard" ? "px-3 py-2" : ""}`}
     >
       <Icon
         id={iconId}
@@ -75,9 +73,7 @@ export const Interaction: FC<InteractionProps> = ({
       />
       <span className={`inline-block pl-1 text-inherit`}>{value}</span>
       <span
-        className={`inline-block ${
-          size === "standard" ? "pl-0.5" : ""
-        } text-inherit`}
+        className={`inline-block pl-1 text-inherit`}
       >
         {label}
       </span>
