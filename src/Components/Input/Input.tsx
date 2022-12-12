@@ -86,7 +86,7 @@ export const Input: FC<InputProps> = ({
             <Icon size={14} id={"eye"} color={IconColor.Gray} />
           )}
           {(originalType === "email" && !isValid && isDirty && value) && (
-            <Icon size={14} id={"close"} color={IconColor.Red} />
+            <Icon size={14} id={"close"} color={IconColor.LightPink} />
           )}
         </button>
       </div>
