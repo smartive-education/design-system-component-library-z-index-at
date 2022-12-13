@@ -20,18 +20,18 @@ export const EntryForm: FC<FormProps> = ({ isRegistered }) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     if(form.checkValidity()){
-      console.log( `Email: ${form.elements["login-email"].value}`);
-      console.log( `Password: ${form.elements["login-password"].value}`);
+      console.log( `Name: ${(form.elements.namedItem("login-email") as HTMLInputElement).value}`);
+      console.log( `Name: ${(form.elements.namedItem("login-password") as HTMLInputElement).value}`);
     }
   };
   const register = (event: FormEvent) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     if(form.checkValidity()){
-      console.log( `Name: ${form.elements["register-name"].value}`);
-      console.log( `User: ${form.elements["register-user"].value}`);
-      console.log( `Email: ${form.elements["register-email"].value}`);
-      console.log( `Password: ${form.elements["register-password"].value}`);
+      console.log( `Name: ${(form.elements.namedItem("register-name") as HTMLInputElement).value}`);
+      console.log( `Name: ${(form.elements.namedItem("register-user") as HTMLInputElement).value}`);
+      console.log( `Name: ${(form.elements.namedItem("register-email") as HTMLInputElement).value}`);
+      console.log( `Name: ${(form.elements.namedItem("register-password") as HTMLInputElement).value}`);
     }
   };
 
