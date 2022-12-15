@@ -7,7 +7,7 @@ export interface CommentProps {
 }
 
 export const Comment: FC<CommentProps> = ({ value }) => {
-  const navigateToComments = (): void => {
+  const navigateToComments = () => {
     console.log('Navigate to comments');
   }; // TODO implement navigation
 
