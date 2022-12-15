@@ -20,7 +20,8 @@
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006",
     "format": "prettier --write .",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -47,7 +48,7 @@
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.31.11",
-    "husky": "8.0.2",
+    "husky": "^8.0.2",
     "postcss": "^8.4.19",
     "prettier": "2.8.1",
     "pretty-quick": "3.1.3",
