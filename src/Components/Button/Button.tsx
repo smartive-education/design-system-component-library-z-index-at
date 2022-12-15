@@ -4,7 +4,7 @@ import { Icon, IconColor } from '../Icon';
 
 export type ButtonType = 'button' | 'submit' | 'reset';
 
-type ButtonProps = {
+interface ButtonProps {
   id: string;
   label: string;
   icon: string;
@@ -12,7 +12,7 @@ type ButtonProps = {
   color?: string;
   size?: string;
   onClick?: () => void;
-};
+}
 
 const defaultProps: Partial<ButtonProps> = {
   type: 'button',

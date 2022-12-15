@@ -11,7 +11,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked }) => {
   const [currentValue, setCurrentValue] = useState(value);
   const [isCurrentlyLiked, setIsCurrentlyLiked] = useState(isLiked);
 
-  const toggleLikedStatus = () => {
+  const toggleLikedStatus = (): void => {
     setIsCurrentlyLiked(() => !isCurrentlyLiked);
   };
 
@@ -22,7 +22,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked }) => {
   useEffect(() => setCurrentValue(() => value), [value]);
   useEffect(() => setIsCurrentlyLiked(() => isLiked), [isLiked]);
 
-  //TODO add translation for label
+  // TODO add translation for label
   return (
     <Interaction
       iconId={currentValue === 0 ? 'heart-empty' : 'heart-full'}

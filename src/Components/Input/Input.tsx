@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { Icon, IconColor } from '../Icon/Icon';
 import { getTranslationKeyForError } from './input-validation.helpers';
@@ -20,11 +20,11 @@ export const Input: FC<InputProps> = ({ label, name, type, required, minLength, 
   const [errorMessage, setErrorMessage] = useState('');
   const [isValid, setValidity] = useState(false);
   const [isDirty, setIsDirty] = useState(false);
-  const [originalType, setOriginalType] = useState(type);
+  const [originalType] = useState(type);
   const [currentType, setCurrentType] = useState(type);
   const inputId = uuid();
 
-  const handleChange = (event: React.ChangeEvent) => {
+  const handleChange = (event: React.ChangeEvent): void => {
     const element = event.target as HTMLInputElement;
     const isElementValid = element.checkValidity();
     setValidity(() => isElementValid);
@@ -35,17 +35,17 @@ export const Input: FC<InputProps> = ({ label, name, type, required, minLength, 
     setValue(() => element.value);
   };
 
-  const handleBlur = (event: React.FocusEvent) => {
+  const handleBlur = (event: React.FocusEvent): void => {
     const element = event.target as HTMLInputElement;
     const isElementValid = element.checkValidity();
     setValidity(() => isElementValid);
     if (!isElementValid && isDirty) {
-      setErrorMessage(() => getTranslationKeyForError(element)); //TODO implement translation
+      setErrorMessage(() => getTranslationKeyForError(element)); // TODO implement translation
     }
   };
 
-  const resetValue = () => setValue(() => '');
-  const toggleType = () => setCurrentType(() => (currentType === 'password' ? 'text' : 'password'));
+  const resetValue = (): void => setValue(() => '');
+  const toggleType = (): void => setCurrentType(() => (currentType === 'password' ? 'text' : 'password'));
 
   return (
     <div className={`flex flex-col ${errorMessage ? '' : 'mb-6'}`}>

@@ -7,9 +7,9 @@ export interface ShareProps {
 }
 
 export const Share: FC<ShareProps> = ({ value }) => {
-  const copyToClipBoard = () => {
+  const copyToClipBoard = (): void => {
     if (!isCopied) {
-      navigator.clipboard.writeText(value);
+      void navigator.clipboard.writeText(value);
       setIsCopied(() => true);
       setTimeout(() => setIsCopied(() => false), 3000);
     }
@@ -17,7 +17,7 @@ export const Share: FC<ShareProps> = ({ value }) => {
 
   const [isCopied, setIsCopied] = useState(false);
 
-  //TODO add translation for label
+  // TODO add translation for label
   return (
     <Interaction
       iconId={'share'}

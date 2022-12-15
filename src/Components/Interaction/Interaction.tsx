@@ -63,13 +63,13 @@ export const Interaction: FC<InteractionProps> = ({
   return (
     <button
       onClick={onClickFn}
-      className={`group flex items-center hover:border-1 hover:border-solid rounded-full ${textColor} ${textHoverColor} ${backgroundColor} ${
-        size === 'standard' ? 'px-3 py-2' : ''
-      }`}
+      className={`group flex items-center hover:border-1 hover:border-solid rounded-full ${textColor} ${
+        textHoverColor || ''
+      } ${backgroundColor || ''} ${size === 'standard' ? 'px-3 py-2' : ''}`}
     >
       <Icon id={iconId} size={size === 'standard' ? 16 : 12} color={iconColor} hoverColor={iconHoverColor} />
-      <span className={`inline-block pl-1 text-inherit`}>{value}</span>
-      <span className={`inline-block pl-1 text-inherit`}>{label}</span>
+      <span className={'inline-block pl-1 text-inherit'}>{value}</span>
+      <span className={'inline-block pl-1 text-inherit'}>{label}</span>
     </button>
   );
 };

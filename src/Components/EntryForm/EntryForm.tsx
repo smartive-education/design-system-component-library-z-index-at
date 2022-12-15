@@ -8,13 +8,13 @@ export interface FormProps {
   registerFn: () => void;
 }
 
-//TODO: Translate texts
+// TODO: Translate texts
 export const EntryForm: FC<FormProps> = ({ isRegistered }) => {
   const [showLogin, setShowLogin] = useState(isRegistered);
 
   useEffect(() => setShowLogin(() => isRegistered), [isRegistered]);
 
-  const login = (event: FormEvent) => {
+  const login = (event: FormEvent): void => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     if (form.checkValidity()) {
@@ -22,7 +22,7 @@ export const EntryForm: FC<FormProps> = ({ isRegistered }) => {
       console.log(`Name: ${(form.elements.namedItem('login-password') as HTMLInputElement).value}`);
     }
   };
-  const register = (event: FormEvent) => {
+  const register = (event: FormEvent): void => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     if (form.checkValidity()) {
@@ -33,7 +33,7 @@ export const EntryForm: FC<FormProps> = ({ isRegistered }) => {
     }
   };
 
-  const changeLayout = () => {
+  const changeLayout = (): void => {
     setShowLogin((showLogin) => !showLogin);
   };
 

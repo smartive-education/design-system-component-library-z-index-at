@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { Button } from '../Button';
 
-type ButtonGroupProps = {
+interface ButtonGroupProps {
   LId: string;
   LColor: string;
   LSize: string;
@@ -15,7 +15,7 @@ type ButtonGroupProps = {
   RLabel: string;
   RIcon: string;
   ROnClick: () => void;
-};
+}
 
 export const ButtonGroup: FC<ButtonGroupProps> = ({
   LId,

@@ -7,11 +7,11 @@ export interface CommentProps {
 }
 
 export const Comment: FC<CommentProps> = ({ value }) => {
-  const navigateToComments = () => {
+  const navigateToComments = (): void => {
     console.log('Navigate to comments');
-  }; //TODO implement navigation
+  }; // TODO implement navigation
 
-  //TODO add translation for label
+  // TODO add translation for label
   return (
     <Interaction
       iconId={value === 0 ? 'chat-empty' : 'chat-full'}

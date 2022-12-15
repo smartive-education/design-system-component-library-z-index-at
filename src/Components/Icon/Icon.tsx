@@ -36,8 +36,8 @@ const defaultProps: Partial<IconProps> = {
 
 export const Icon: FC<IconProps> = ({ id, size, color, hoverColor, spritePath }) => {
   return (
-    <svg width={size} height={size} className={`${color} ${hoverColor}`}>
-      <use href={`${spritePath}#${id}`}></use>
+    <svg width={size} height={size} className={`${color || ''} ${hoverColor || ''}`}>
+      <use href={`${spritePath || ''}#${id}`}></use>
     </svg>
   );
 };
