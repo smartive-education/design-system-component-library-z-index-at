@@ -1,11 +1,6 @@
-import React, { FC, useState } from "react";
-import { IconColor, IconHoverColor } from "../../Icon/Icon";
-import {
-  BackGroundColor,
-  Interaction,
-  TextColor,
-  TextHoverColor,
-} from "../Interaction";
+import React, { FC, useState } from 'react';
+import { IconColor, IconHoverColor } from '../../Icon/Icon';
+import { BackGroundColor, Interaction, TextColor, TextHoverColor } from '../Interaction';
 
 export interface ShareProps {
   value: string;
@@ -13,10 +8,10 @@ export interface ShareProps {
 
 export const Share: FC<ShareProps> = ({ value }) => {
   const copyToClipBoard = () => {
-    if(!isCopied){
+    if (!isCopied) {
       navigator.clipboard.writeText(value);
       setIsCopied(() => true);
-      setTimeout(() => setIsCopied(() => false), 3000)
+      setTimeout(() => setIsCopied(() => false), 3000);
     }
   };
 
@@ -25,8 +20,8 @@ export const Share: FC<ShareProps> = ({ value }) => {
   //TODO add translation for label
   return (
     <Interaction
-      iconId={"share"}
-      label={isCopied ? "Link is copied" : "Copy Link"}
+      iconId={'share'}
+      label={isCopied ? 'Link is copied' : 'Copy Link'}
       iconColor={IconColor.LightGray}
       textColor={TextColor.LightGray}
       iconHoverColor={IconHoverColor.Gray}
