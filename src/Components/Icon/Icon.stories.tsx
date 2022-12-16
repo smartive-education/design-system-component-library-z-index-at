@@ -1,8 +1,8 @@
-import React, { ComponentMeta } from "@storybook/react";
-import { Icon, IconColor } from "./Icon";
+import React, { ComponentMeta } from '@storybook/react';
+import { Icon, IconColor } from './Icon';
 
 export default {
-  title: "Icon",
+  title: 'Icon',
   component: Icon,
 } as ComponentMeta<typeof Icon>;
 
@@ -20,41 +20,41 @@ const IconVariantTemplate = (args) => (
 
 export const Close = IconVariantTemplate.bind({});
 Close.args = {
-  id: "close",
+  id: 'close',
   color: IconColor.Pink,
 };
 export const Eyes = IconVariantTemplate.bind({});
 Eyes.args = {
-  id: "eye",
+  id: 'eye',
   color: IconColor.Gray,
 };
 
 const iconIds = [
-  "close",
-  "eye",
-  "mumble",
-  "calendar",
-  "chat-empty",
-  "chat-full",
-  "check",
-  "down",
-  "up",
-  "left",
-  "right",
-  "heart-full",
-  "heart-empty",
-  "edit",
-  "enlarge",
-  "location",
-  "logout",
-  "profile",
-  "refresh",
-  "share",
-  "settings",
-  "profile",
-  "time",
-  "upload",
-  "send"
+  'close',
+  'eye',
+  'mumble',
+  'calendar',
+  'chat-empty',
+  'chat-full',
+  'check',
+  'down',
+  'up',
+  'left',
+  'right',
+  'heart-full',
+  'heart-empty',
+  'edit',
+  'enlarge',
+  'location',
+  'logout',
+  'profile',
+  'refresh',
+  'share',
+  'settings',
+  'profile',
+  'time',
+  'upload',
+  'send',
 ];
 
 const IconListTemplate = () => (

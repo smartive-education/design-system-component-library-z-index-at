@@ -1,9 +1,9 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import React from "react";
-import { ButtonGroup } from "./ButtonGroup";
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+import { ButtonGroup } from './ButtonGroup';
 
 export default {
-  title: "ButtonGroup",
+  title: 'ButtonGroup',
   component: ButtonGroup,
 } as ComponentMeta<typeof ButtonGroup>;
 

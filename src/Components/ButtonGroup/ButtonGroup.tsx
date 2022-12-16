@@ -1,21 +1,21 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { Button } from "../Button";
+import { Button } from '../Button';
 
-type ButtonGroupProps = {
-  LId: string,
-  LColor: string,
-  LSize: string,
-  LLabel: string,
-  LIcon: string,
-  LOnClick: () => void,
-  RId: string,
-  RColor: string,
-  RSize: string,
-  RLabel: string,
-  RIcon: string,
-  ROnClick: () => void,
-};
+interface ButtonGroupProps {
+  LId: string;
+  LColor: string;
+  LSize: string;
+  LLabel: string;
+  LIcon: string;
+  LOnClick: () => void;
+  RId: string;
+  RColor: string;
+  RSize: string;
+  RLabel: string;
+  RIcon: string;
+  ROnClick: () => void;
+}
 
 export const ButtonGroup: FC<ButtonGroupProps> = ({
   LId,
@@ -31,25 +31,10 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
   RIcon,
   ROnClick,
 }) => {
-
   return (
     <div className="grid grid-cols-2 gap-2">
-      <Button
-        id={LId}
-        color={LColor}
-        size={LSize}
-        label={LLabel}
-        onClick={LOnClick}
-        icon={LIcon}
-      />
-      <Button
-        id={RId}
-        color={RColor}
-        size={RSize}
-        label={RLabel}
-        onClick={ROnClick}
-        icon={RIcon}
-      />
+      <Button id={LId} color={LColor} size={LSize} label={LLabel} onClick={LOnClick} icon={LIcon} />
+      <Button id={RId} color={RColor} size={RSize} label={RLabel} onClick={ROnClick} icon={RIcon} />
     </div>
   );
 };
