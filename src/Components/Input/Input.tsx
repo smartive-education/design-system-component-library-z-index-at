@@ -70,7 +70,7 @@ export const Input: FC<InputProps> = ({ label, name, type, required, minLength, 
        ${
          !isValid && isDirty
            ? 'border-2 border-rose-500 focus:outline-none focus:border-2 focus:border-violet-600'
-           : 'hover:border-2 hover:border-violet-600 focus:outline-none focus:border-2 focus:border-violet-600'
+           : 'border-2 hover:border-2 hover:border-violet-600 focus:outline-none focus:border-2 focus:border-violet-600'
        }
        p-4
        leading-none`}
