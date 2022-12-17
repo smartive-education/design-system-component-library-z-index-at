@@ -7,3 +7,5 @@ export * from './Components/Interaction/Comment';
 export * from './Components/Interaction/Like';
 export * from './Components/Interaction/Share';
 export * from './Components/EntryForm';
+export * from './Components/Post';
+export * from './Components/Post/ProfileHeader';
