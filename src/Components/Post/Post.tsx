@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Like } from '../Interaction/Like/Like';
 import { Share } from '../Interaction/Share/Share';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
@@ -13,8 +13,8 @@ export interface PostProps {
   likeCount: number;
   isLiked: boolean;
   link: string;
-  hashtags: string[];
-  pictureSrc?: string;
+  hashtags?: string[];
+  children?: ReactNode;
 }
 
 export const Post: FC<PostProps> = ({
@@ -27,17 +27,29 @@ export const Post: FC<PostProps> = ({
   isLiked,
   link,
   hashtags,
-  pictureSrc,
+  children,
 }) => {
   return (
-    <div className='py-8 px-12'>
-        <ProfileHeader name={name} userName={userName} postCreationTime={postCreationTime} />
-        <p className='py-4'>{content}</p>
-        <div className='flex relative -left-3'>
-            <Comment value={commentCount}/>
-            <Like value={likeCount} isLiked={isLiked} />
-            <Share value={link} />
+    <div className="py-8 px-12">
+      <ProfileHeader name={name} userName={userName} postCreationTime={postCreationTime} />
+      <p className="mb-4 text-2xl">{content}</p>
+      {children && (
+        <div className="mb-4 max-h-80 w-full border-1 border-transparent rounded-xl overflow-hidden object-contain">
+          {children}
         </div>
+      )}
+      {hashtags && (
+        <div className="mb-4">
+          {hashtags.map((hashtag: string, index: number) => (
+            <span className="mr-2 text-violet-600 text-2xl" key={index}>{`#${hashtag}`}</span>
+          ))}
+        </div>
+      )}
+      <div className="flex relative -left-3">
+        <Comment value={commentCount} />
+        <Like value={likeCount} isLiked={isLiked} />
+        <Share value={link} />
+      </div>
     </div>
   );
 };

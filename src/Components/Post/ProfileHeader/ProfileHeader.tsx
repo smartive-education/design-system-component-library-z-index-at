@@ -26,7 +26,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
   openProfile,
 }) => {
   return (
-    <div>
+    <div className='mb-4'>
       <h4 className={`${isProfilePageHeader ? 'text-3xl font-bold' : 'text-2xl font-medium'}`}>{name}</h4>
       <div className='flex'>
         <Interaction
