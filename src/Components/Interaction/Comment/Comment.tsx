@@ -22,6 +22,7 @@ export const Comment: FC<CommentProps> = ({ value }) => {
       iconHoverColor={IconHoverColor.Violet}
       textHoverColor={TextHoverColor.Violet}
       backgroundColor={BackGroundColor.Violet}
+      size='standard'
       onClickFn={navigateToComments}
     />
   );

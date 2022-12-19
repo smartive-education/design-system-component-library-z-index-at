@@ -39,6 +39,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked }) => {
       iconHoverColor={IconHoverColor.Pink}
       textHoverColor={TextHoverColor.Pink}
       backgroundColor={BackGroundColor.Pink}
+      size='standard'
       onClickFn={toggleLikedStatus}
     />
   );

@@ -25,6 +25,7 @@ export enum BackGroundColor {
   Pink = 'hover:bg-pink-50',
   Violet = 'hover:bg-violet-50',
   Gray = 'hover:bg-slate-100',
+  None = ''
 }
 
 export type InteractionSize = 'small' | 'standard';
@@ -32,8 +33,8 @@ export type InteractionSize = 'small' | 'standard';
 export interface InteractionProps {
   iconId: string;
   label: string;
-  iconColor: IconColor;
-  textColor: TextColor;
+  iconColor?: IconColor;
+  textColor?: TextColor;
   iconHoverColor?: IconHoverColor;
   textHoverColor?: TextHoverColor;
   backgroundColor?: BackGroundColor;
@@ -41,12 +42,6 @@ export interface InteractionProps {
   value?: number;
   onClickFn?: () => void;
 }
-
-export const defaultInteractionProps: Partial<InteractionProps> = {
-  size: 'standard',
-  iconColor: IconColor.Gray,
-  textColor: TextColor.Gray,
-};
 
 export const Interaction: FC<InteractionProps> = ({
   iconId,
@@ -64,13 +59,11 @@ export const Interaction: FC<InteractionProps> = ({
     <button
       onClick={onClickFn}
       className={`group flex items-center hover:border-1 hover:border-solid rounded-full mr-4
-      ${textColor} ${textHoverColor || ''} ${backgroundColor || ''} ${size === 'standard' ? 'px-3 py-2' : ''}`}
+      ${textColor || TextColor.LightGray} ${textHoverColor || TextHoverColor.Gray} ${backgroundColor || BackGroundColor.None} ${size === 'standard' ? 'px-3 py-2' : ''}`}
     >
       <Icon id={iconId} size={size === 'standard' ? 16 : 12} color={iconColor} hoverColor={iconHoverColor} />
-      <span className={'inline-block pl-0.5 text-inherit'}>{value}</span>
-      <span className={'inline-block pl-0.5 text-inherit'}>{label}</span>
+      <span className={`inline-block text-inherit ${size === 'standard' ? 'pl-1' : 'pl-0.5'}`}>{value}</span>
+      <span className={`inline-block text-inherit ${size === 'standard' ? 'pl-1' : 'pl-0.5'}`}>{label}</span>
     </button>
   );
 };
-
-Interaction.defaultProps = defaultInteractionProps;

@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
-import { IconColor, IconHoverColor } from '../../Icon/Icon';
-import { BackGroundColor, Interaction, TextColor, TextHoverColor } from '../Interaction';
+import { BackGroundColor, Interaction } from '../Interaction';
 
 export interface ShareProps {
   value: string;
@@ -22,11 +21,8 @@ export const Share: FC<ShareProps> = ({ value }) => {
     <Interaction
       iconId={'share'}
       label={isCopied ? 'Link is copied' : 'Copy Link'}
-      iconColor={IconColor.LightGray}
-      textColor={TextColor.LightGray}
-      iconHoverColor={IconHoverColor.Gray}
-      textHoverColor={TextHoverColor.Gray}
       backgroundColor={BackGroundColor.Gray}
+      size='standard'
       onClickFn={copyToClipBoard}
     />
   );
