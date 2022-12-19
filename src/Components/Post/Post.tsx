@@ -30,7 +30,7 @@ export const Post: FC<PostProps> = ({
   children,
 }) => {
   return (
-    <div className="py-8 px-12">
+    <div className="py-8 px-12 bg-white border-1 border-transparent rounded-xl">
       <ProfileHeader name={name} userName={userName} postCreationTime={postCreationTime} />
       <p className="mb-4 text-2xl">{content}</p>
       {children && (
@@ -45,10 +45,10 @@ export const Post: FC<PostProps> = ({
           ))}
         </div>
       )}
-      <div className="flex relative -left-3">
-        <Comment value={commentCount} />
-        <Like value={likeCount} isLiked={isLiked} />
-        <Share value={link} />
+      <div className="grid grid-cols-12 relative -left-3">
+        <div className='col-span-4 truncate'><Comment value={commentCount} /></div>
+        <div className='col-span-3 truncate'><Like value={likeCount} isLiked={isLiked} /></div>
+        <div className='col-span-3'><Share value={link} /></div>
       </div>
     </div>
   );
