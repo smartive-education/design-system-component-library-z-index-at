@@ -9,3 +9,4 @@ export * from './Components/Interaction/Share';
 export * from './Components/EntryForm';
 export * from './Components/Post';
 export * from './Components/Post/ProfileHeader';
+export * from './Components/ProfilePicture';
