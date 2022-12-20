@@ -40,6 +40,7 @@ export const Post: FC<PostProps> = ({
         userName={userName}
         postCreationTime={postCreationTime}
         src={src}
+        size='medium'
         openProfile={openProfile}
       />
       <p className="mb-4 text-2xl">{content}</p>
