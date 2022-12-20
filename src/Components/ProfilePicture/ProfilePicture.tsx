@@ -20,12 +20,13 @@ const getClasses = ((size: string) => {
   if(size === 'small') {
     return {
       size: 'h-10 w-10',
+      div: 'h-10',
     }
   }
   if(size ==='medium') {
     return {
       size: 'h-16 w-16',
-      div: 'outline outline-8 outline-slate-100',
+      div: 'outline outline-8 outline-slate-100 h-16',
     }
   }
   return {
@@ -33,14 +34,25 @@ const getClasses = ((size: string) => {
     image: 'outline outline-8 outline-slate-100'
   }
 })
+const getImage = (src: string, size: string) => {
+  if(!src && size === 'large') {
+    return '/assets/images/profile/no.image.png'
+  }
+  if(!src) {
+    return undefined
+  }
+  return src
+}
+
 export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src, size, onClick, edit, onEdit }) => {
   const sizes = getClasses(size)
+  const immageSrc = getImage(src, size)
 
   return (
     <div className={`relative ${sizes.size}`}>
     <div
-      className={`cursor-pointer rounded-full object-cover overflow-hidden ${sizes.div}`}>
-      <img src={src} alt={name} onClick={onClick} className="hover:scale-125 duration-700 ease-in-out" />
+      className={`cursor-pointer rounded-full object-cover overflow-hidden ${sizes.div} ${!immageSrc && 'bg-pink-300'}`}>
+      {immageSrc && <img src={immageSrc} alt={name} onClick={onClick} className="hover:scale-125 duration-700 ease-in-out" />}
     </div>
       {edit && size === 'large' &&
        (
