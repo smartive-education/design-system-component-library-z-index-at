@@ -9,21 +9,13 @@ export default {
   
   const Template: ComponentStory<typeof ProfileHeader> = (args) => <div className="ml-20"><ProfileHeader {...args} /></div>;
   
-  export const PostHeader = Template.bind({});
-  PostHeader.args = {
-    name: 'Robert Vogt',
-    userName: 'robertvogt',
-    postCreationTime: 'vor 11 Minuten',
-    src: '/assets/images/profile/r.vogt.jpg',
-  }
-
-  export const ProfilePageHeader = Template.bind({});
-  ProfilePageHeader.args = {
+  export const Profile = Template.bind({});
+  Profile.args = {
     name: 'Robert Vogt',
     userName: 'robertvogt',
     postCreationTime: 'vor 11 Minuten',
     src: '/assets/images/profile/r.vogt.jpg',
     location: 'Zürich',
     memberSince: 'Mitglied seit 4 Wochen',
-    isProfilePageHeader: true
+    size: 'medium'
   }

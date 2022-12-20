@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ProfilePicture } from '../../ProfilePicture';
+import { AvatarSize, ProfilePicture } from '../../ProfilePicture';
 import { IconColor, IconHoverColor } from '../../../Components/Icon';
 import { Interaction, TextColor, TextHoverColor } from '../../../Components/Interaction';
 
@@ -7,16 +7,12 @@ export interface ProfileHeaderProps {
   name: string;
   userName: string;
   src: string;
-  isProfilePageHeader?: boolean;
+  size: AvatarSize;
   location?: string;
   memberSince?: string;
   postCreationTime?: string;
   openProfile: () => void;
 }
-
-const defaultProfileHeader: Partial<ProfileHeaderProps> = {
-  isProfilePageHeader: false,
-};
 
 export const ProfileHeader: FC<ProfileHeaderProps> = ({
   name,
@@ -25,14 +21,14 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
   location,
   memberSince,
   postCreationTime,
-  isProfilePageHeader,
+  size,
   openProfile,
 }) => {
   return (
-    <div className="relative -left-20 flex mb-4">
-      <ProfilePicture name={name} onClick={openProfile} src={src} hasOutline={!isProfilePageHeader} />
+    <div className="relative -left-20 flex items-center mb-4">
+      {size !== 'large' && <ProfilePicture name={name} onClick={openProfile} src={src} size={size} /> }
       <div className='ml-4'>
-        <h4 className={`${isProfilePageHeader ? 'text-3xl font-bold' : 'text-2xl font-medium'}`}>{name}</h4>
+        <h4 className={`${size === 'large' ? 'text-3xl font-bold' : size === 'medium' ? 'text-2xl font-semibold' : 'font-semibold text-base'}`}>{name}</h4>
         <div className="flex">
           <Interaction
             iconId="profile"
@@ -44,7 +40,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
             size="small"
             onClickFn={openProfile}
           />
-          {isProfilePageHeader ? (
+          {size === 'large' ? (
             <>
               <Interaction
                 iconId="location"
@@ -65,7 +61,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
                 size="small"
               />
             </>
-          ) : (
+          ) : size === 'medium' && (
             <Interaction
               iconId="time"
               iconColor={IconColor.LightGray}
@@ -81,5 +77,3 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
     </div>
   );
 };
-
-ProfileHeader.defaultProps = defaultProfileHeader;

@@ -9,15 +9,9 @@ export default {
 
 const Template: ComponentStory<typeof ProfilePicture> = (args) => <ProfilePicture {...args} />;
 
-export const ProfileAvatar = Template.bind({});
-ProfileAvatar.args = {
-  src:'/assets/images/profile/r.vogt.jpg',
-  name:'Robert Vogt'
-};
-
-export const PostAvatar = Template.bind({});
-PostAvatar.args = {
+export const Avatar = Template.bind({});
+Avatar.args = {
   src:'/assets/images/profile/r.vogt.jpg',
   name:'Robert Vogt',
-  hasOutline: true
+  size: 'small'
 };

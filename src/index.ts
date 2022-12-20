@@ -10,3 +10,4 @@ export * from './Components/EntryForm';
 export * from './Components/Post';
 export * from './Components/Post/ProfileHeader';
 export * from './Components/ProfilePicture';
+export * from './Components/Navigation';
