@@ -19,16 +19,18 @@ export enum TextHoverColor {
   DarkPink = 'hover:text-pink-900',
   Violet = 'hover:text-violet-600',
   DarkViolet = 'hover:text-violet-900',
+  White = 'text-violet-50',
 }
 
 export enum BackGroundColor {
   Pink = 'hover:bg-pink-50',
   Violet = 'hover:bg-violet-50',
+  DarkViolet = 'hover:bg-violet-900',
   Gray = 'hover:bg-slate-100',
   None = '',
 }
 
-export type InteractionSize = 'small' | 'standard' | 'large';
+export type InteractionSize = 'small' | 'standard';
 
 export interface InteractionProps {
   iconId: string;
@@ -62,20 +64,11 @@ export const Interaction: FC<InteractionProps> = ({
       ${textColor || TextColor.LightGray} ${textHoverColor || TextHoverColor.Gray}
       ${backgroundColor || BackGroundColor.None} ${size === 'standard' ? 'px-3 py-2 font-semibold max-h-9' : 'mr-4'}`}
     >
-      <Icon
-        id={iconId}
-        size={size === 'standard' ? 16 : size === 'large' ? 40 : 12}
-        color={iconColor}
-        hoverColor={iconHoverColor}
-      />
+      <Icon id={iconId} size={size === 'standard' ? 16 : 12} color={iconColor} hoverColor={iconHoverColor} />
       <span className={`inline-block text-inherit ${size === 'standard' ? 'pl-1' : 'pl-0.5 text-base font-semibold'}`}>
         {value}
       </span>
-      <span
-        className={`inline-block text-inherit ${
-          size === 'standard' ? 'pl-1' : size === 'large' ? 'pl-2 text-3xl font-bold' : 'pl-0.5 text-base font-semibold'
-        }`}
-      >
+      <span className={`inline-block text-inherit ${size === 'standard' ? 'pl-1' : 'pl-0.5 text-base font-semibold'}`}>
         {label}
       </span>
     </button>

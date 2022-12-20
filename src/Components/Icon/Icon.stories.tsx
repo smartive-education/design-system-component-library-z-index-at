@@ -55,6 +55,7 @@ const iconIds = [
   'time',
   'upload',
   'send',
+  'logout-start'
 ];
 
 const IconListTemplate = () => (
