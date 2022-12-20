@@ -28,18 +28,10 @@ export interface IconProps {
   spritePath?: string;
 }
 
-const defaultProps: Partial<IconProps> = {
-  size: 14,
-  color: IconColor.Gray,
-  spritePath: '/icons.svg',
-};
-
 export const Icon: FC<IconProps> = ({ id, size, color, hoverColor, spritePath }) => {
   return (
-    <svg width={size} height={size} className={`${color || ''} ${hoverColor || ''}`}>
-      <use href={`${spritePath || ''}#${id}`}></use>
+    <svg width={size || 14} height={size || 14} className={`${color || IconColor.LightGray} ${hoverColor || IconHoverColor.Gray}`}>
+      <use href={`${spritePath || '/icons.svg'}#${id}`}></use>
     </svg>
   );
 };
-
-Icon.defaultProps = defaultProps;

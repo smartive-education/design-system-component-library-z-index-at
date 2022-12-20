@@ -17,39 +17,23 @@ UserName.args = {
   iconColor: IconColor.Violet,
   textColor: TextColor.Violet,
   iconHoverColor: IconHoverColor.DarkViolet,
-  textHoverColor: TextHoverColor.DarkViolet,
-  size: 'small',
+  textHoverColor: TextHoverColor.DarkViolet
 };
 
 export const Location = Template.bind({});
 Location.args = {
   iconId: 'location',
-  label: 'Location',
-  iconColor: IconColor.LightGray,
-  textColor: TextColor.LightGray,
-  iconHoverColor: IconHoverColor.Gray,
-  textHoverColor: TextHoverColor.Gray,
-  size: 'small',
+  label: 'Location'
 };
 
 export const Joined = Template.bind({});
 Joined.args = {
   iconId: 'calendar',
-  label: 'Mitglied seit 4 Wochen',
-  iconColor: IconColor.LightGray,
-  textColor: TextColor.LightGray,
-  iconHoverColor: IconHoverColor.Gray,
-  textHoverColor: TextHoverColor.Gray,
-  size: 'small',
+  label: 'Mitglied seit 4 Wochen'
 };
 
 export const Timestamp = Template.bind({});
 Timestamp.args = {
   iconId: 'time',
-  label: 'vor 11 Minuten',
-  iconColor: IconColor.LightGray,
-  textColor: TextColor.LightGray,
-  iconHoverColor: IconHoverColor.Gray,
-  textHoverColor: TextHoverColor.Gray,
-  size: 'small',
+  label: 'vor 11 Minuten'
 };

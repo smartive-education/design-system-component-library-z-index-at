@@ -11,6 +11,13 @@ const Template: ComponentStory<typeof ProfilePicture> = (args) => <ProfilePictur
 
 export const ProfileAvatar = Template.bind({});
 ProfileAvatar.args = {
-  src:'/assets/images/profile/rvogt.jpg',
+  src:'/assets/images/profile/r.vogt.jpg',
   name:'Robert Vogt'
+};
+
+export const PostAvatar = Template.bind({});
+PostAvatar.args = {
+  src:'/assets/images/profile/r.vogt.jpg',
+  name:'Robert Vogt',
+  hasOutline: true
 };

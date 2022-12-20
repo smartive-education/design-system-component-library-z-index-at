@@ -4,16 +4,17 @@ import { ProfileHeader } from "./ProfileHeader";
 
 export default {
     title: 'ProfileHeader',
-    component: ProfileHeader,
+    component: ProfileHeader
   } as ComponentMeta<typeof ProfileHeader>;
   
-  const Template: ComponentStory<typeof ProfileHeader> = (args) => <ProfileHeader {...args} />;
+  const Template: ComponentStory<typeof ProfileHeader> = (args) => <div className="ml-20"><ProfileHeader {...args} /></div>;
   
   export const PostHeader = Template.bind({});
   PostHeader.args = {
     name: 'Robert Vogt',
     userName: 'robertvogt',
-    postCreationTime: 'vor 11 Minuten'
+    postCreationTime: 'vor 11 Minuten',
+    src: '/assets/images/profile/r.vogt.jpg',
   }
 
   export const ProfilePageHeader = Template.bind({});
@@ -21,6 +22,7 @@ export default {
     name: 'Robert Vogt',
     userName: 'robertvogt',
     postCreationTime: 'vor 11 Minuten',
+    src: '/assets/images/profile/r.vogt.jpg',
     location: 'Zürich',
     memberSince: 'Mitglied seit 4 Wochen',
     isProfilePageHeader: true

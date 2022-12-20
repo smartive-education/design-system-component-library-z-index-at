@@ -33,12 +33,13 @@ export const Like: FC<LikeProps> = ({ value, isLiked }) => {
           ? 'Liked'
           : 'Likes'
       }
-      value={currentValue > 0 ? currentValue : undefined}
+      value={currentValue === 1 && isCurrentlyLiked ? undefined : currentValue > 0 ? currentValue : undefined}
       iconColor={currentValue === 0 ? IconColor.Gray : IconColor.Pink}
       textColor={currentValue === 0 ? TextColor.Gray : TextColor.DarkPink}
       iconHoverColor={IconHoverColor.Pink}
       textHoverColor={TextHoverColor.Pink}
       backgroundColor={BackGroundColor.Pink}
+      size='standard'
       onClickFn={toggleLikedStatus}
     />
   );

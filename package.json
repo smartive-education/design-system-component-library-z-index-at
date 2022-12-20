@@ -1,6 +1,6 @@
 {
   "name": "@smartive-education/design-system-component-z-index",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com",
