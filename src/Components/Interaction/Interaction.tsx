@@ -28,7 +28,7 @@ export enum BackGroundColor {
   None = '',
 }
 
-export type InteractionSize = 'small' | 'standard';
+export type InteractionSize = 'small' | 'standard' | 'large';
 
 export interface InteractionProps {
   iconId: string;
@@ -62,9 +62,22 @@ export const Interaction: FC<InteractionProps> = ({
       ${textColor || TextColor.LightGray} ${textHoverColor || TextHoverColor.Gray}
       ${backgroundColor || BackGroundColor.None} ${size === 'standard' ? 'px-3 py-2 font-semibold max-h-9' : 'mr-4'}`}
     >
-      <Icon id={iconId} size={size === 'standard' ? 16 : 12} color={iconColor} hoverColor={iconHoverColor} />
-      <span className={`inline-block text-inherit ${size === 'standard' ? 'pl-1' : 'pl-0.5 text-base font-semibold'}`}>{value}</span>
-      <span className={`inline-block text-inherit ${size === 'standard' ? 'pl-1' : 'pl-0.5 text-base font-semibold'}`}>{label}</span>
+      <Icon
+        id={iconId}
+        size={size === 'standard' ? 16 : size === 'large' ? 40 : 12}
+        color={iconColor}
+        hoverColor={iconHoverColor}
+      />
+      <span className={`inline-block text-inherit ${size === 'standard' ? 'pl-1' : 'pl-0.5 text-base font-semibold'}`}>
+        {value}
+      </span>
+      <span
+        className={`inline-block text-inherit ${
+          size === 'standard' ? 'pl-1' : size === 'large' ? 'pl-2 text-3xl font-bold' : 'pl-0.5 text-base font-semibold'
+        }`}
+      >
+        {label}
+      </span>
     </button>
   );
 };
