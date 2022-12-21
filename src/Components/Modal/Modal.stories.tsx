@@ -32,5 +32,5 @@ const Template: ComponentStory<typeof Modal> = (args) => {
 
 export const ModalFrame = Template.bind({});
 ModalFrame.args = {
-  title: 'Einstellungen',
+  title: 'Modal Frame',
 };
