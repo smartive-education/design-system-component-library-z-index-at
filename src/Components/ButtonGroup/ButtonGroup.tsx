@@ -4,31 +4,31 @@ import { Button } from '../Button';
 
 interface ButtonGroupProps {
   LId: string;
-  LColor: string;
-  LSize: string;
+  LColor?: string;
+  LSize?: string;
   LLabel: string;
-  LIcon: string;
+  LIcon?: string;
   LOnClick: () => void;
   RId: string;
-  RColor: string;
-  RSize: string;
+  RColor?: string;
+  RSize?: string;
   RLabel: string;
-  RIcon: string;
+  RIcon?: string;
   ROnClick: () => void;
 }
 
 export const ButtonGroup: FC<ButtonGroupProps> = ({
   LId,
-  LColor,
-  LSize,
+  LColor = 'Slate',
+  LSize = 'M',
   LLabel,
-  LIcon,
+  LIcon = 'upload',
   LOnClick,
   RId,
-  RColor,
-  RSize,
+  RColor = 'Violet',
+  RSize = 'M',
   RLabel,
-  RIcon,
+  RIcon = 'send',
   ROnClick,
 }) => {
   return (

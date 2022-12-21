@@ -12,3 +12,4 @@ export * from './Components/Post';
 export * from './Components/Post/ProfileHeader';
 export * from './Components/ProfilePicture';
 export * from './Components/Navigation';
+export * from './Components/Modal';
