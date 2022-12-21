@@ -19,11 +19,21 @@ export const Navigation: FC<NavigationProps> = ({
   logout,
 }) => {
   return (
-    <div className="bg-violet-600 h-20 md:grid md:grid-cols-12 md:content-center">
-      <div className="col-start-3 col-end-5 flex items-center">
+    <div className="bg-violet-600 h-20 flex justify-around md:grid md:grid-cols-12 md:content-center">
+      <div className="hidden md:flex items-center md:col-start-3 md:col-end-5 ">
         <Effect
           iconId="mumble"
           label="Mumble"
+          size="large"
+          effect="group-hover:scale-125 ease-out duration-500"
+          squared={false}
+          navigate={navigateToFeed}
+        />
+      </div>
+      <div className="md:hidden flex items-center">
+        <Effect
+          iconId="mumble"
+          label=""
           size="large"
           effect="group-hover:scale-125 ease-out duration-500"
           squared={false}
