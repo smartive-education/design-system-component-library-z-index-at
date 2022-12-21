@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 
 import { Icon, IconColor } from '../Icon';
 
@@ -16,7 +16,9 @@ const defaultProps: Partial<ProfilePictureProps> = {
   edit: false,
 };
 
-const getClasses = ((size: string) => {
+
+export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src, size, onClick, edit, onEdit }) => {
+const getClasses = useCallback(((size: string) => {
   if(size === 'small') {
     return {
       size: 'h-10 w-10',
@@ -31,10 +33,12 @@ const getClasses = ((size: string) => {
   }
   return {
     size: 'h-40 w-40',
+    div: '',
     image: 'outline outline-8 outline-slate-100'
   }
-})
-const getImage = (src: string, size: string) => {
+}), [])
+
+const getImage = useCallback((src: string, size: string) => {
   if(!src && size === 'large') {
     return '/assets/images/profile/no.image.png'
   }
@@ -42,17 +46,13 @@ const getImage = (src: string, size: string) => {
     return undefined
   }
   return src
-}
-
-export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src, size, onClick, edit, onEdit }) => {
-  const sizes = getClasses(size)
-  const immageSrc = getImage(src, size)
+}, [])
 
   return (
-    <div className={`relative ${sizes.size}`}>
+    <div className={`relative ${getClasses(size).size}`}>
     <div
-      className={`cursor-pointer rounded-full object-cover overflow-hidden ${sizes.div} ${!immageSrc && 'bg-pink-300'}`}>
-      {immageSrc && <img src={immageSrc} alt={name} onClick={onClick} className="hover:scale-125 duration-700 ease-in-out" />}
+      className={`cursor-pointer rounded-full object-cover overflow-hidden ${getClasses(size).div} ${!getImage(src, size) && 'bg-pink-300' || ''}`}>
+      {getImage(src, size) && <img src={getImage(src, size)} alt={name} onClick={onClick} className="hover:scale-125 duration-700 ease-in-out" />}
     </div>
       {edit && size === 'large' &&
        (
