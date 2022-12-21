@@ -21,7 +21,6 @@ Mumble.args = {
   effect: 'group-hover:scale-125 ease-out duration-500',
 };
 
-
 export const Settings = Template.bind({});
 Settings.args = {
   iconId: 'settings',
@@ -29,7 +28,7 @@ Settings.args = {
   size: 'normal',
   squared: true,
   effect: 'group-hover:rotate-180 ease-out duration-500',
-  backgroundColor: BackGroundColor.DarkViolet
+  backgroundColor: BackGroundColor.DarkViolet,
 };
 
 export const Logout = Template.bind({});

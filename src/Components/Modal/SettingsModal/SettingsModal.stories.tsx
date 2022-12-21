@@ -1,19 +1,19 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useState } from 'react';
-import { Navigation } from '../Navigation';
-import { Modal } from './Modal';
+import { Navigation } from '../../Navigation';
+import { SettingsModal } from './SettingsModal';
 
 export default {
-  title: 'Modal',
-  component: Modal,
+  title: 'SettingsModal',
+  component: SettingsModal,
   parameters: {
     backgrounds: { default: 'grey' },
   },
-} as ComponentMeta<typeof Modal>;
+} as ComponentMeta<typeof SettingsModal>;
 
 const noop = () => {};
 
-const Template: ComponentStory<typeof Modal> = (args) => {
+const Template: ComponentStory<typeof SettingsModal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -25,12 +25,12 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         logout={noop}
         openSettings={() => setIsOpen(true)}
       />
-      <Modal {...args} isOpen={isOpen} close={() => setIsOpen(false)} />
+      <SettingsModal {...args} isOpen={isOpen} close={() => setIsOpen(false)} />
     </div>
   );
 };
 
-export const ModalFrame = Template.bind({});
-ModalFrame.args = {
+export const Settings = Template.bind({});
+Settings.args = {
   title: 'Einstellungen',
 };

@@ -20,7 +20,7 @@ export const Share: FC<ShareProps> = ({ value }) => {
   // TODO add translation for label
   return (
     <div>
-      <div className='hidden md:block'>
+      <div className="hidden md:block">
         <Interaction
           iconId={'share'}
           label={isCopied ? 'Link is copied' : 'Copy Link'}
@@ -31,7 +31,7 @@ export const Share: FC<ShareProps> = ({ value }) => {
           onClickFn={copyToClipBoard}
         />
       </div>
-      <div className='block md:hidden'>
+      <div className="block md:hidden">
         <Interaction
           iconId={'share'}
           label=""

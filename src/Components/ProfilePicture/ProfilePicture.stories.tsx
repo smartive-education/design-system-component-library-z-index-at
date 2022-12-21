@@ -11,7 +11,7 @@ const Template: ComponentStory<typeof ProfilePicture> = (args) => <ProfilePictur
 
 export const Avatar = Template.bind({});
 Avatar.args = {
-  src:'/assets/images/profile/r.vogt.jpg',
-  name:'Robert Vogt',
-  size: 'small'
+  src: '/assets/images/profile/r.vogt.jpg',
+  name: 'Robert Vogt',
+  size: 'small',
 };

@@ -25,7 +25,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked }) => {
   // TODO add translation for label
   return (
     <div>
-      <div className='hidden md:block'>
+      <div className="hidden md:block">
         <Interaction
           iconId={currentValue === 0 ? 'heart-empty' : 'heart-full'}
           label={
@@ -45,7 +45,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked }) => {
           onClickFn={toggleLikedStatus}
         />
       </div>
-      <div className='block md:hidden'>
+      <div className="block md:hidden">
         <Interaction
           iconId={currentValue === 0 ? 'heart-empty' : 'heart-full'}
           label=""

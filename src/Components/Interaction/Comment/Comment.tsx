@@ -14,7 +14,7 @@ export const Comment: FC<CommentProps> = ({ value }) => {
   // TODO add translation for label
   return (
     <div>
-      <div className='hidden md:block'>
+      <div className="hidden md:block">
         <Interaction
           iconId={value === 0 ? 'chat-empty' : 'chat-full'}
           label={value && value > 1 ? 'Comments' : 'Comment'}
@@ -28,7 +28,7 @@ export const Comment: FC<CommentProps> = ({ value }) => {
           onClickFn={navigateToComments}
         />
       </div>
-      <div className='block md:hidden'>
+      <div className="block md:hidden">
         <Interaction
           iconId={value === 0 ? 'chat-empty' : 'chat-full'}
           label=""
