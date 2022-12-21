@@ -25,7 +25,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
   openProfile,
 }) => {
   return (
-    <div className="relative -left-20 flex items-center mb-4">
+    <div className="relative md:-left-20 flex items-center mb-4">
       {size !== 'large' && <ProfilePicture name={name} onClick={openProfile} src={src} size={size} /> }
       <div className='ml-4'>
         <h4 className={`${size === 'large' ? 'text-3xl font-bold' : size === 'medium' ? 'text-2xl font-semibold' : 'font-semibold text-base'}`}>{name}</h4>

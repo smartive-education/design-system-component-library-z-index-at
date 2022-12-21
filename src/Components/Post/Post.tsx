@@ -34,16 +34,28 @@ export const Post: FC<PostProps> = ({
   children,
 }) => {
   return (
-    <div className="py-8 px-12 bg-white border-1 border-transparent rounded-xl">
-      <ProfileHeader
-        name={name}
-        userName={userName}
-        postCreationTime={postCreationTime}
-        src={src}
-        size='medium'
-        openProfile={openProfile}
-      />
-      <p className="mb-4 text-2xl">{content}</p>
+    <div className="py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl">
+      <div className="hidden md:block">
+        <ProfileHeader
+          name={name}
+          userName={userName}
+          postCreationTime={postCreationTime}
+          src={src}
+          size="medium"
+          openProfile={openProfile}
+        />
+      </div>
+      <div className="block md:hidden">
+        <ProfileHeader
+          name={name}
+          userName={userName}
+          postCreationTime={postCreationTime}
+          src={src}
+          size="small"
+          openProfile={openProfile}
+        />
+      </div>
+      <p className="mb-4 md:text-2xl">{content}</p>
       {children && (
         <div className="mb-4 max-h-80 w-full border-1 border-transparent rounded-xl overflow-hidden object-contain">
           {children}
@@ -52,18 +64,18 @@ export const Post: FC<PostProps> = ({
       {hashtags && (
         <div className="mb-4">
           {hashtags.map((hashtag: string, index: number) => (
-            <span className="mr-2 text-violet-600 text-2xl" key={index}>{`#${hashtag}`}</span>
+            <span className="mr-2 text-violet-600 md:text-2xl" key={index}>{`#${hashtag}`}</span>
           ))}
         </div>
       )}
-      <div className="grid grid-cols-12 relative -left-3">
-        <div className="col-span-4 truncate">
+      <div className="flex md:grid md:grid-cols-12 relative -left-3">
+        <div className="md:col-span-4 truncate">
           <Comment value={commentCount} />
         </div>
-        <div className="col-span-3 truncate">
+        <div className="md:col-span-3 truncate">
           <Like value={likeCount} isLiked={isLiked} />
         </div>
-        <div className="col-span-4">
+        <div className="md:col-span-4">
           <Share value={link} />
         </div>
       </div>
