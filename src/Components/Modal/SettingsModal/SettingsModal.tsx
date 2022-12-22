@@ -27,8 +27,13 @@ export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, closeFn, submitF
     }
   };
 
+  const handleClose = (): void => {
+    setValidationTrigger(() => 0);
+    closeFn();
+  };
+
   return (
-    <Modal isOpen={isOpen} title="Einstellungen" closeFn={closeFn} submitFn={handleSubmit}>
+    <Modal isOpen={isOpen} title="Einstellungen" closeFn={handleClose} submitFn={handleSubmit}>
       <h3 className="mb-2 font-semibold text-2xl leading-6">{'Persönliche Einstellungen'}</h3>
       <div className="mb-6">
         <Input
@@ -56,7 +61,7 @@ export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, closeFn, submitF
         <Input
           name="settings-bio"
           label="Biografie"
-          type="text"
+          type="textarea"
           required={false}
           validationTrigger={validationTrigger}
         />

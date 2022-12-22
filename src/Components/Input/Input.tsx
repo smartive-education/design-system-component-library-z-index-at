@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { Icon, IconColor } from '../Icon/Icon';
 import { getTranslationKeyForError } from './input-validation.helpers';
 
-export type InputType = 'text' | 'password' | 'email';
+export type InputType = 'text' | 'password' | 'email' | 'textarea' | 'file';
 export interface InputProps {
   label: string;
   name: string;
@@ -77,20 +77,19 @@ export const Input: FC<InputProps> = ({
         {label}
       </label>
       <div className="relative">
-        <input
-          ref={inputRef}
-          id={inputId}
-          name={name}
-          type={currentType}
-          required={required}
-          minLength={minLength}
-          maxLength={maxLength}
-          pattern={pattern}
-          placeholder={placeholder}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={value}
-          className={`w-full h-12 border border-solid border-slate-200
+        {type === 'textarea' ? (
+          <textarea
+            id={inputId}
+            name={name}
+            required={required}
+            minLength={minLength}
+            maxLength={maxLength}
+            placeholder={placeholder}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={value}
+            rows={4}
+            className={`w-full border border-solid border-slate-200
        bg-slate-50 rounded-md 
        ${
          !isValid && isDirty
@@ -99,7 +98,33 @@ export const Input: FC<InputProps> = ({
        }
        p-4
        leading-none`}
-        />
+          ></textarea>
+        ) : (
+          <input
+            ref={inputRef}
+            id={inputId}
+            name={name}
+            type={currentType}
+            required={required}
+            minLength={minLength}
+            maxLength={maxLength}
+            pattern={pattern}
+            placeholder={placeholder}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={value}
+            className={`w-full h-12 border border-solid border-slate-200
+       bg-slate-50 rounded-md 
+       ${
+         !isValid && isDirty
+           ? 'border-2 border-rose-500 focus:outline-none focus:border-2 focus:border-violet-600'
+           : 'border-2 hover:border-2 hover:border-violet-600 focus:outline-none focus:border-2 focus:border-violet-600'
+       }
+       p-4
+       leading-none`}
+          />
+        )}
+
         <button
           type="button"
           className="inline-block absolute z-10 top-1/2 -translate-y-1/2 right-6"
