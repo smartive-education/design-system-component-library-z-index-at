@@ -11,13 +11,11 @@ export function getTranslationKeyForError(element: HTMLInputElement): string {
   return translationKey ? errors[translationKey] : 'error.validation.unknown';
 }
 
-export function isFileSizeValid(element: HTMLInputElement, allowedFileSize: number): boolean {
-  const selectedFile = element.files?.item(0);
+export function isFileSizeValid(selectedFile: File | null | undefined, allowedFileSize: number): boolean {
   return !!selectedFile && selectedFile.size <= allowedFileSize * 1000 * 1000;
 }
 
-export function isFileExtensionValid(element: HTMLInputElement, allowedExtensions: RegExp): boolean {
-  const selectedFilePath = element.value;
+export function isFileExtensionValid(selectedFilePath: string, allowedExtensions: RegExp): boolean {
   return !!selectedFilePath && !!selectedFilePath.match(allowedExtensions);
 }
 

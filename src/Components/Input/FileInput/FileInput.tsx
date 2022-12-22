@@ -10,7 +10,6 @@ export interface FileInputProps {
   label: string;
   allowedFileSize: number;
   allowedExtensions: RegExp;
-  uploadFn: () => void;
 }
 
 export const FileInput: FC<FileInputProps> = ({
@@ -18,7 +17,7 @@ export const FileInput: FC<FileInputProps> = ({
   restrictions,
   label,
   allowedFileSize = defaultFileSize,
-  allowedExtensions = defaultExtensions
+  allowedExtensions = defaultExtensions,
 }) => {
   const [value, setValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -31,9 +30,9 @@ export const FileInput: FC<FileInputProps> = ({
 
   const handleChange = (event: React.ChangeEvent): void => {
     const element = event.target as HTMLInputElement;
-    if (!isFileSizeValid(element, allowedFileSize)) {
+    if (!isFileSizeValid(element.files?.item(0), allowedFileSize)) {
       setErrorMessage(() => 'error.validation.sizeOverflow');
-    } else if (!isFileExtensionValid(element, allowedExtensions)) {
+    } else if (!isFileExtensionValid(element.value, allowedExtensions)) {
       setErrorMessage(() => 'error.validation.invalidExtension');
     } else {
       setErrorMessage(() => '');
@@ -41,14 +40,42 @@ export const FileInput: FC<FileInputProps> = ({
     }
   };
 
+  const preventBrowserDefaults = (event: React.DragEvent): void => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
+  const handleDrop = (event: React.DragEvent): void => {
+    preventBrowserDefaults(event);
+    const files = event.dataTransfer.files;
+
+    if(files.length > 1){
+      setErrorMessage(() => 'error.validation.tooManyFiles');
+    } else if (!isFileSizeValid(files[0], allowedFileSize)) {
+      setErrorMessage(() => 'error.validation.sizeOverflow');
+    } else if (!isFileExtensionValid(files[0].name, allowedExtensions)) {
+      setErrorMessage(() => 'error.validation.invalidExtension');
+    } else {
+      setErrorMessage(() => '');
+      setValue(() => inputRef.current?.value ?? '');
+    }
+
+  };
+
   return (
     <div className={`flex flex-col`}>
-      <div className='flex flex-col items-center border-2 border-dotted rounded-lg mb-4 p-6 bg-slate-100'>
+      <div
+        onDrop={handleDrop}
+        onDragOver={preventBrowserDefaults}
+        onDragEnter={preventBrowserDefaults}
+        onDragLeave={preventBrowserDefaults}
+        className="flex flex-col items-center border-2 border-dotted rounded-lg mb-4 p-6 bg-slate-100"
+      >
         <div>
           <Icon id="upload" color={IconColor.Gray} size={30} />
         </div>
-        <h4 className='text-2xl text-slate-500 font-semibold'>{title}</h4>
-        <p className='text-slate-400'>{restrictions}</p>
+        <h4 className="text-2xl text-slate-500 font-semibold">{title}</h4>
+        <p className="text-slate-400">{restrictions}</p>
       </div>
       <div>
         <input
@@ -58,6 +85,7 @@ export const FileInput: FC<FileInputProps> = ({
           value={value}
           onChange={handleChange}
           accept="image/png, image/jpeg, image/jpg"
+          multiple={false}
           className="hidden"
         />
         <Button id="upload" label={label} icon="upload" size="M" onClick={forwardInputButtonClick} />
