@@ -12,4 +12,6 @@ const Template: ComponentStory<typeof FileInput> = (args) => <FileInput {...args
 export const DragAndDrop = Template.bind({});
 DragAndDrop.args = {
   label: '... oder Datei auswählen',
+  title: 'Datei hierhin ziehen',
+  restrictions: 'JPEG oder PNG, maximal 50 MB'
 };
