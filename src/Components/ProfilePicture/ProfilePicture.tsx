@@ -51,7 +51,7 @@ const getImage = useCallback((src: string, size: string) => {
   return (
     <div className={`relative ${getClasses(size).size}`}>
     <div
-      className={`cursor-pointer rounded-full object-cover overflow-hidden ${getClasses(size).div} ${!getImage(src, size) && 'bg-pink-300' || ''}`}>
+      className={`cursor-pointer rounded-full object-cover overflow-hidden ${getClasses(size).div} ${getImage(src, size) ? '' : 'bg-violet-100'}`}>
       {getImage(src, size) && <img src={getImage(src, size)} alt={name} onClick={onClick} className="hover:scale-125 duration-700 ease-in-out" />}
     </div>
       {edit && size === 'large' &&
