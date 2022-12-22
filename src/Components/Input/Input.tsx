@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { Icon, IconColor } from '../Icon/Icon';
 import { getTranslationKeyForError } from './input-validation.helpers';
 
-export type InputType = 'text' | 'password' | 'email' | 'textarea' | 'file';
+export type InputType = 'text' | 'password' | 'email' | 'textarea';
 export interface InputProps {
   label: string;
   name: string;
