@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { Icon, IconColor } from '../Icon/Icon';
 import { getTranslationKeyForError } from './input-validation.helpers';
@@ -9,13 +9,24 @@ export interface InputProps {
   name: string;
   type: InputType;
   required: boolean;
+  validationTrigger: number;
   minLength?: number;
   maxLength?: number;
   pattern?: string;
   placeholder?: string;
 }
 
-export const Input: FC<InputProps> = ({ label, name, type, required, minLength, maxLength, pattern, placeholder }) => {
+export const Input: FC<InputProps> = ({
+  label,
+  name,
+  type,
+  required,
+  validationTrigger,
+  minLength,
+  maxLength,
+  pattern,
+  placeholder,
+}) => {
   const [value, setValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isValid, setValidity] = useState(false);
@@ -23,6 +34,19 @@ export const Input: FC<InputProps> = ({ label, name, type, required, minLength, 
   const [originalType] = useState(type);
   const [currentType, setCurrentType] = useState(type);
   const inputId = uuid();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const input = inputRef.current;
+    if (input && validationTrigger > 0) {
+      const isElementValid = input.checkValidity();
+      setValidity(() => isElementValid);
+      setIsDirty(() => true);
+      if (!isElementValid) {
+        setErrorMessage(() => getTranslationKeyForError(input));
+      }
+    }
+  }, [validationTrigger]);
 
   const handleChange = (event: React.ChangeEvent): void => {
     const element = event.target as HTMLInputElement;
@@ -48,12 +72,13 @@ export const Input: FC<InputProps> = ({ label, name, type, required, minLength, 
   const toggleType = (): void => setCurrentType(() => (currentType === 'password' ? 'text' : 'password'));
 
   return (
-    <div className={`flex flex-col ${errorMessage ? '' : 'mb-6'}`}>
+    <div className={`flex flex-col ${errorMessage ? '' : 'mb-4'}`}>
       <label htmlFor={inputId} className="text-slate-700 font-semibold">
         {label}
       </label>
       <div className="relative">
         <input
+          ref={inputRef}
           id={inputId}
           name={name}
           type={currentType}
@@ -65,7 +90,7 @@ export const Input: FC<InputProps> = ({ label, name, type, required, minLength, 
           onChange={handleChange}
           onBlur={handleBlur}
           value={value}
-          className={`w-full border border-solid border-slate-200
+          className={`w-full h-12 border border-solid border-slate-200
        bg-slate-50 rounded-md 
        ${
          !isValid && isDirty
@@ -76,16 +101,17 @@ export const Input: FC<InputProps> = ({ label, name, type, required, minLength, 
        leading-none`}
         />
         <button
+          type="button"
           className="inline-block absolute z-10 top-1/2 -translate-y-1/2 right-6"
           onClick={originalType === 'email' ? resetValue : toggleType}
         >
-          {originalType === 'password' && <Icon size={14} id={'eye'} color={IconColor.Gray} />}
+          {originalType === 'password' && <Icon size={16} id={'eye'} color={IconColor.Gray} />}
           {originalType === 'email' && !isValid && isDirty && value && (
             <Icon size={14} id={'close'} color={IconColor.LightPink} />
           )}
         </button>
       </div>
-      <span className="self-end text-rose-500">{errorMessage}</span>
+      <span className="self-end text-rose-500 text-xs">{errorMessage}</span>
     </div>
   );
 };

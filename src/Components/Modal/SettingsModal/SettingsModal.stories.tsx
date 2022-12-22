@@ -25,7 +25,7 @@ const Template: ComponentStory<typeof SettingsModal> = (args) => {
         logout={noop}
         openSettings={() => setIsOpen(true)}
       />
-      <SettingsModal {...args} isOpen={isOpen} close={() => setIsOpen(false)} />
+      <SettingsModal {...args} isOpen={isOpen} closeFn={() => setIsOpen(false)} />
     </div>
   );
 };
@@ -33,4 +33,6 @@ const Template: ComponentStory<typeof SettingsModal> = (args) => {
 export const Settings = Template.bind({});
 Settings.args = {
   title: 'Einstellungen',
+  closeFn: noop,
+  submitFn: noop,
 };

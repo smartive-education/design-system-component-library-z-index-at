@@ -10,3 +10,7 @@ export function getTranslationKeyForError(element: HTMLInputElement): string {
   const translationKey = Object.keys(errors).find((key: string) => element.validity[key as keyof ValidityState]);
   return translationKey ? errors[translationKey] : 'error.validation.unknown';
 }
+
+export const emailPattern = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$"
+// eslint-disable-next-line no-useless-escape
+export const passwordPattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"

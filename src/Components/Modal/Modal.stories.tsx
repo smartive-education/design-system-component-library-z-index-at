@@ -25,7 +25,7 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         logout={noop}
         openSettings={() => setIsOpen(true)}
       />
-      <Modal {...args} isOpen={isOpen} close={() => setIsOpen(false)} />
+      <Modal {...args} isOpen={isOpen} closeFn={() => setIsOpen(false)} />
     </div>
   );
 };
@@ -33,4 +33,6 @@ const Template: ComponentStory<typeof Modal> = (args) => {
 export const ModalFrame = Template.bind({});
 ModalFrame.args = {
   title: 'Modal Frame',
+  closeFn: noop,
+  submitFn: noop,
 };

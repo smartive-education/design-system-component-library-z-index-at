@@ -1,51 +1,85 @@
-import React, { FC } from 'react';
+import React, { FC, FormEvent, useState } from 'react';
+import { emailPattern, passwordPattern } from '../../../Components/Input/input-validation.helpers';
 import { Input } from '../../Input';
 import { Modal } from '../Modal';
 
 export interface SettingsModalProps {
   isOpen: boolean;
-  close: () => void;
-  submit: () => void;
+  closeFn: () => void;
+  submitFn: () => void;
 }
 
-export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, close, submit }) => {
+export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, closeFn, submitFn }) => {
+  const [validationTrigger, setValidationTrigger] = useState(0);
+
+  const handleSubmit = (event: FormEvent): void => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    setValidationTrigger((trigger) => trigger + 1);
+    if (form.checkValidity()) {
+      submitFn();
+      console.log(`Name: ${(form.elements.namedItem('settings-name') as HTMLInputElement).value}`);
+      console.log(`Email: ${(form.elements.namedItem('settings-email') as HTMLInputElement).value}`);
+      console.log(`Location: ${(form.elements.namedItem('settings-location') as HTMLInputElement).value}`);
+      console.log(`Bio: ${(form.elements.namedItem('settings-bio') as HTMLInputElement).value}`);
+      console.log(`Altes Passwort: ${(form.elements.namedItem('old-password') as HTMLInputElement).value}`);
+      console.log(`Neues Passwort: ${(form.elements.namedItem('new-password') as HTMLInputElement).value}`);
+    }
+  };
+
   return (
-    <Modal isOpen={isOpen} title="Einstellungen" close={close} submit={submit}>
-      <form className="mb-6" noValidate>
-        <h3 className="mb-4 font-semibold text-2xl">{'Persönliche Einstellungen'}</h3>
-        <div className="mb-6">
-          <Input key="settings-name" name="settings-name" label="Name Vorname" type="text" required={false} />
-          <Input
-            key="settings-email"
-            name="settings-email"
-            label="Email Addresse"
-            type="email"
-            required={true}
-            pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-          />
-          <Input key="settings-location" name="settings-location" label="Ortschaft" type="text" required={false} />
-          <Input key="settings-bio" name="settings-bio" label="Biografie" type="text" required={false} />
-        </div>
-        <div className="mb-4">
-        <h3 className="mb-6 font-semibold text-2xl">{'Passwort Ändern'}</h3>
-          <Input
-            key="old-password"
-            name="old-password"
-            label="Altes Passwort"
-            type="password"
-            required={true}
-            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
-          />
-          <Input
-            key="new-password"
-            name="new-password"
-            label="Neues Passwort"
-            type="password"
-            required={true}
-            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
-          />
-        </div>
-      </form>
+    <Modal isOpen={isOpen} title="Einstellungen" closeFn={closeFn} submitFn={handleSubmit}>
+      <h3 className="mb-2 font-semibold text-2xl leading-6">{'Persönliche Einstellungen'}</h3>
+      <div className="mb-6">
+        <Input
+          name="settings-name"
+          label="Name Vorname"
+          type="text"
+          required={false}
+          validationTrigger={validationTrigger}
+        />
+        <Input
+          name="settings-email"
+          label="Email Addresse"
+          type="email"
+          required={true}
+          validationTrigger={validationTrigger}
+          pattern={emailPattern}
+        />
+        <Input
+          name="settings-location"
+          label="Ortschaft"
+          type="text"
+          required={false}
+          validationTrigger={validationTrigger}
+        />
+        <Input
+          name="settings-bio"
+          label="Biografie"
+          type="text"
+          required={false}
+          validationTrigger={validationTrigger}
+        />
+      </div>
+      <div>
+        <h3 className="mb-2 font-semibold text-2xl leading-6">{'Passwort Ändern'}</h3>
+        <Input
+          name="old-password"
+          label="Altes Passwort"
+          type="password"
+          required={true}
+          validationTrigger={validationTrigger}
+          pattern={passwordPattern}
+        />
+        <Input
+          name="new-password"
+          label="Neues Passwort"
+          type="password"
+          required={true}
+          validationTrigger={validationTrigger}
+          pattern={passwordPattern}
+        />
+      </div>
     </Modal>
   );
 };
