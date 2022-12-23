@@ -33,8 +33,8 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
 }) => {
   return (
     <div className="grid grid-cols-2 gap-2">
-      <Button type='button' id={LId} color={LColor} size={LSize} label={LLabel} onClick={LOnClick} icon={LIcon} />
-      <Button type='submit' id={RId} color={RColor} size={RSize} label={RLabel} onClick={ROnClick} icon={RIcon} />
+      <Button type="button" id={LId} color={LColor} size={LSize} label={LLabel} onClick={LOnClick} icon={LIcon} />
+      <Button type="submit" id={RId} color={RColor} size={RSize} label={RLabel} onClick={ROnClick} icon={RIcon} />
     </div>
   );
 };

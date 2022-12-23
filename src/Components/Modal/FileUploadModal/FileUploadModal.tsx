@@ -4,12 +4,12 @@ import { Modal } from '../Modal';
 
 export interface FileUploadModalProps {
   isOpen: boolean;
-  header: string,
+  header: string;
   title: string;
   restrictions: string;
   label: string;
   closeFn: () => void;
-  submitFn: (file:File) => void;
+  submitFn: (file: File) => void;
 }
 
 export const FileUploadModal: FC<FileUploadModalProps> = ({

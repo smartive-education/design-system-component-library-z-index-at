@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "npm run format && npm run lint && tsc",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006",
     "format": "prettier --write .",

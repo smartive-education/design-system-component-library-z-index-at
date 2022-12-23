@@ -83,7 +83,7 @@ export const FileInput: FC<FileInputProps> = ({
   };
 
   return (
-    <div className='flex flex-col'>
+    <div className="flex flex-col">
       <div
         onDrop={handleDrop}
         onDragOver={handleDragEnter}
