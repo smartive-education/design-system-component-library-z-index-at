@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { Icon, IconColor } from '../Icon/Icon';
-import { getTranslationKeyForError } from './input-validation.helpers';
+import { defaultErrorMessages, getTranslationKeyForError } from './input-validation.helpers';
 
 export type InputType = 'text' | 'password' | 'email' | 'textarea';
 export interface InputProps {
@@ -10,6 +10,7 @@ export interface InputProps {
   type: InputType;
   required: boolean;
   validationTrigger: number;
+  errorTranslations?: Record<string, string>;
   minLength?: number;
   maxLength?: number;
   pattern?: string;
@@ -22,6 +23,7 @@ export const Input: FC<InputProps> = ({
   type,
   required,
   validationTrigger,
+  errorTranslations = defaultErrorMessages,
   minLength,
   maxLength,
   pattern,
@@ -43,7 +45,7 @@ export const Input: FC<InputProps> = ({
       setValidity(() => isElementValid);
       setIsDirty(() => true);
       if (!isElementValid) {
-        setErrorMessage(() => getTranslationKeyForError(input));
+        setErrorMessage(() => showErrorMessage(getTranslationKeyForError(input)));
       }
     }
   }, [validationTrigger]);
@@ -64,12 +66,13 @@ export const Input: FC<InputProps> = ({
     const isElementValid = element.checkValidity();
     setValidity(() => isElementValid);
     if (!isElementValid && isDirty) {
-      setErrorMessage(() => getTranslationKeyForError(element)); // TODO implement translation
+      setErrorMessage(() => showErrorMessage(getTranslationKeyForError(element)));
     }
   };
 
   const resetValue = (): void => setValue(() => '');
   const toggleType = (): void => setCurrentType(() => (currentType === 'password' ? 'text' : 'password'));
+  const showErrorMessage = (key: string):string => errorTranslations[key] || key;
 
   return (
     <div className={`flex flex-col ${errorMessage ? '' : 'mb-4'}`}>

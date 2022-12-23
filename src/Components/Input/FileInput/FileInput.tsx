@@ -1,7 +1,13 @@
 import React, { FC, useRef, useState } from 'react';
 import { Button } from '../../Button/index';
 import { v4 as uuid } from 'uuid';
-import { defaultExtensions, defaultFileSize, isFileExtensionValid, isFileSizeValid } from '../input-validation.helpers';
+import {
+  defaultErrorMessages,
+  defaultExtensions,
+  defaultFileSize,
+  isFileExtensionValid,
+  isFileSizeValid,
+} from '../input-validation.helpers';
 import { Icon, IconColor } from '../../Icon';
 
 export interface FileInputProps {
@@ -9,6 +15,7 @@ export interface FileInputProps {
   restrictions: string;
   label: string;
   addFileFn: (file: File) => void;
+  errorTranslations?: Record<string, string>;
   allowedFileSize?: number;
   allowedExtensions?: RegExp;
 }
@@ -17,6 +24,7 @@ export const FileInput: FC<FileInputProps> = ({
   title,
   restrictions,
   label,
+  errorTranslations = defaultErrorMessages,
   allowedFileSize = defaultFileSize,
   allowedExtensions = defaultExtensions,
   addFileFn,
@@ -37,9 +45,9 @@ export const FileInput: FC<FileInputProps> = ({
     const file = element.files?.item(0);
     if (file) {
       if (!isFileSizeValid(file, allowedFileSize)) {
-        setErrorMessage(() => 'error.validation.sizeOverflow');
+        setErrorMessage(() => showErrorMessage('error.validation.sizeOverflow'));
       } else if (!isFileExtensionValid(element.value, allowedExtensions)) {
-        setErrorMessage(() => 'error.validation.invalidExtension');
+        setErrorMessage(() => showErrorMessage('error.validation.invalidExtension'));
       } else {
         setErrorMessage(() => '');
         setIsFileSelected(() => true);
@@ -59,11 +67,11 @@ export const FileInput: FC<FileInputProps> = ({
     const files = event.dataTransfer.files;
     setIsOverDragArea(() => false);
     if (files.length > 1) {
-      setErrorMessage(() => 'error.validation.tooManyFiles');
+      setErrorMessage(() => showErrorMessage('error.validation.tooManyFiles'));
     } else if (!isFileSizeValid(files[0], allowedFileSize)) {
-      setErrorMessage(() => 'error.validation.sizeOverflow');
+      setErrorMessage(() => showErrorMessage('error.validation.sizeOverflow'));
     } else if (!isFileExtensionValid(files[0].name, allowedExtensions)) {
-      setErrorMessage(() => 'error.validation.invalidExtension');
+      setErrorMessage(() => showErrorMessage('error.validation.invalidExtension'));
     } else {
       setErrorMessage(() => '');
       setIsFileSelected(() => true);
@@ -81,6 +89,8 @@ export const FileInput: FC<FileInputProps> = ({
     preventBrowserDefaults(event);
     setIsOverDragArea(() => false);
   };
+
+  const showErrorMessage = (key: string): string => errorTranslations[key] || key;
 
   return (
     <div className="flex flex-col">
@@ -102,7 +112,7 @@ export const FileInput: FC<FileInputProps> = ({
             <p className="text-slate-400">{restrictions}</p>
           </div>
         ) : (
-          <div className="h-20 flex flex-col justify-center items-center">
+          <div className="h-20 flex flex-col justify-center items-center truncate">
             <div className="rounded-lg bg-slate-300 pt-4 px-2 pb-2 mb-2">
               <Icon id="check" color={IconColor.Gray} size={30} />
             </div>

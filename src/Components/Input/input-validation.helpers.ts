@@ -24,3 +24,15 @@ export const emailPattern = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[
 export const passwordPattern = '(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}';
 export const defaultFileSize = 5;
 export const defaultExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+export const defaultErrorMessages: Record<string, string> = {
+  'error.validation.valueMissing': 'Bitte geben Sie einen Wert ein.',
+  'error.validation.tooLong': 'Wert zu lang.',
+  'error.validation.tooShort': 'Wert zu kurz.',
+  'error.validation.typeMismatch': 'Der eingegebene Wert entspricht nicht dem Feld Typ.',
+  'error.validation.patternMismatch': 'Das Input Format stimmt nicht.',
+  'error.validation.sizeOverflow': 'File ist zu gross.',
+  'error.validation.invalidExtension': 'File Typ ist nicht erlaubt.',
+  'error.validation.tooManyFiles': 'Bitte wählen Sie nur ein File aus.',
+  'error.validation.unknown': 'Unbekannter Fehler'
+};
