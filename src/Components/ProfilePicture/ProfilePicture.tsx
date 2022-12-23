@@ -35,7 +35,7 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src, size, edit 
 
   const getImage = useCallback((src: string, size: string) => {
     if (!src && size === 'large') {
-      return '/assets/images/profile/no.image.png';
+      return 'assets/images/profile/no.image.png';
     }
     if (!src) {
       return undefined;
