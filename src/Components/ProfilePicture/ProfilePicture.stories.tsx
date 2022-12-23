@@ -15,3 +15,8 @@ Avatar.args = {
   name: 'Robert Vogt',
   size: 'small',
 };
+export const NoImage = Template.bind({});
+NoImage.args = {
+  name:'Robert Vogt',
+  size: 'large',
+};
