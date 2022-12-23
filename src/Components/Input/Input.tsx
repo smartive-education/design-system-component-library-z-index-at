@@ -72,7 +72,7 @@ export const Input: FC<InputProps> = ({
 
   const resetValue = (): void => setValue(() => '');
   const toggleType = (): void => setCurrentType(() => (currentType === 'password' ? 'text' : 'password'));
-  const showErrorMessage = (key: string):string => errorTranslations[key] || key;
+  const showErrorMessage = (key: string): string => errorTranslations[key] || key;
 
   return (
     <div className={`flex flex-col ${errorMessage ? '' : 'mb-4'}`}>

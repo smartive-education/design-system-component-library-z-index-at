@@ -7,7 +7,9 @@ export function getTranslationKeyForError(element: HTMLInputElement): string {
     patternMismatch: 'error.validation.patternMismatch',
   };
 
-  const translationKey = Object.keys(errors).find((key: string) => element.validity[key as keyof ValidityState]);
+  const translationKey = Object.keys(errors).find(
+    (key: string) => element?.validity && element.validity[key as keyof ValidityState]
+  );
   return translationKey ? errors[translationKey] : 'error.validation.unknown';
 }
 
@@ -34,5 +36,5 @@ export const defaultErrorMessages: Record<string, string> = {
   'error.validation.sizeOverflow': 'File ist zu gross.',
   'error.validation.invalidExtension': 'File Typ ist nicht erlaubt.',
   'error.validation.tooManyFiles': 'Bitte wählen Sie nur ein File aus.',
-  'error.validation.unknown': 'Unbekannter Fehler'
+  'error.validation.unknown': 'Unbekannter Fehler',
 };
