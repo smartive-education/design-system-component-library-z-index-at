@@ -24,6 +24,7 @@ export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, closeFn, submitF
       console.log(`Bio: ${(form.elements.namedItem('settings-bio') as HTMLInputElement).value}`);
       console.log(`Altes Passwort: ${(form.elements.namedItem('old-password') as HTMLInputElement).value}`);
       console.log(`Neues Passwort: ${(form.elements.namedItem('new-password') as HTMLInputElement).value}`);
+      closeFn();
     }
   };
 

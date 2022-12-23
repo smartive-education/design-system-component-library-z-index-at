@@ -33,6 +33,5 @@ const Template: ComponentStory<typeof SettingsModal> = (args) => {
 export const Settings = Template.bind({});
 Settings.args = {
   title: 'Einstellungen',
-  closeFn: noop,
   submitFn: noop,
 };

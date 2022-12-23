@@ -8,9 +8,9 @@ export interface FileInputProps {
   title: string;
   restrictions: string;
   label: string;
-  allowedFileSize: number;
-  allowedExtensions: RegExp;
   addFileFn: (file: File) => void;
+  allowedFileSize?: number;
+  allowedExtensions?: RegExp;
 }
 
 export const FileInput: FC<FileInputProps> = ({
