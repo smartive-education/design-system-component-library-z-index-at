@@ -13,6 +13,6 @@ export const DragAndDrop = Template.bind({});
 DragAndDrop.args = {
   label: '... oder Datei auswählen',
   title: 'Datei hierhin ziehen',
-  restrictions: 'JPEG oder PNG, maximal 50 MB',
+  restrictions: 'JPEG oder PNG, maximal 5 MB',
   addFileFn: (file: File) => console.log(file) 
 };
