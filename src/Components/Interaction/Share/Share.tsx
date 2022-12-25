@@ -19,14 +19,29 @@ export const Share: FC<ShareProps> = ({ value }) => {
 
   // TODO add translation for label
   return (
-    <Interaction
-      iconId={'share'}
-      label={isCopied ? 'Link is copied' : 'Copy Link'}
-      iconColor={IconColor.Gray}
-      textColor={TextColor.Gray}
-      backgroundColor={BackGroundColor.Gray}
-      size='standard'
-      onClickFn={copyToClipBoard}
-    />
+    <div>
+      <div className="hidden md:block">
+        <Interaction
+          iconId={'share'}
+          label={isCopied ? 'Link is copied' : 'Copy Link'}
+          iconColor={IconColor.Gray}
+          textColor={TextColor.Gray}
+          backgroundColor={BackGroundColor.Gray}
+          size="standard"
+          onClickFn={copyToClipBoard}
+        />
+      </div>
+      <div className="block md:hidden">
+        <Interaction
+          iconId={'share'}
+          label=""
+          iconColor={IconColor.Gray}
+          textColor={TextColor.Gray}
+          backgroundColor={BackGroundColor.Gray}
+          size="standard"
+          onClickFn={copyToClipBoard}
+        />
+      </div>
+    </div>
   );
 };

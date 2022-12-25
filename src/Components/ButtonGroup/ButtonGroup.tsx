@@ -4,37 +4,37 @@ import { Button } from '../Button';
 
 interface ButtonGroupProps {
   LId: string;
-  LColor: string;
-  LSize: string;
+  LColor?: string;
+  LSize?: string;
   LLabel: string;
-  LIcon: string;
+  LIcon?: string;
   LOnClick: () => void;
   RId: string;
-  RColor: string;
-  RSize: string;
+  RColor?: string;
+  RSize?: string;
   RLabel: string;
-  RIcon: string;
-  ROnClick: () => void;
+  RIcon?: string;
+  ROnClick?: () => void;
 }
 
 export const ButtonGroup: FC<ButtonGroupProps> = ({
   LId,
-  LColor,
-  LSize,
+  LColor = 'Slate',
+  LSize = 'M',
   LLabel,
-  LIcon,
+  LIcon = 'upload',
   LOnClick,
   RId,
-  RColor,
-  RSize,
+  RColor = 'Violet',
+  RSize = 'M',
   RLabel,
-  RIcon,
+  RIcon = 'send',
   ROnClick,
 }) => {
   return (
     <div className="grid grid-cols-2 gap-2">
-      <Button id={LId} color={LColor} size={LSize} label={LLabel} onClick={LOnClick} icon={LIcon} />
-      <Button id={RId} color={RColor} size={RSize} label={RLabel} onClick={ROnClick} icon={RIcon} />
+      <Button type='button' id={LId} color={LColor} size={LSize} label={LLabel} onClick={LOnClick} icon={LIcon} />
+      <Button type='submit' id={RId} color={RColor} size={RSize} label={RLabel} onClick={ROnClick} icon={RIcon} />
     </div>
   );
 };

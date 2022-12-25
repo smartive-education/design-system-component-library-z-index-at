@@ -17,23 +17,23 @@ UserName.args = {
   iconColor: IconColor.Violet,
   textColor: TextColor.Violet,
   iconHoverColor: IconHoverColor.DarkViolet,
-  textHoverColor: TextHoverColor.DarkViolet
+  textHoverColor: TextHoverColor.DarkViolet,
 };
 
 export const Location = Template.bind({});
 Location.args = {
   iconId: 'location',
-  label: 'Location'
+  label: 'Location',
 };
 
 export const Joined = Template.bind({});
 Joined.args = {
   iconId: 'calendar',
-  label: 'Mitglied seit 4 Wochen'
+  label: 'Mitglied seit 4 Wochen',
 };
 
 export const Timestamp = Template.bind({});
 Timestamp.args = {
   iconId: 'time',
-  label: 'vor 11 Minuten'
+  label: 'vor 11 Minuten',
 };

@@ -7,6 +7,12 @@ export default {
   component: EntryForm,
 } as ComponentMeta<typeof EntryForm>;
 
+const noop = () => {};
+
 const Template: ComponentStory<typeof EntryForm> = (args) => <EntryForm {...args} />;
 
 export const DynamicForm = Template.bind({});
+DynamicForm.args = {
+  loginFn: noop,
+  registerFn: noop,
+};

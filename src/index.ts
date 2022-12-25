@@ -1,4 +1,5 @@
 export * from './Components/Input';
+export * from './Components/Input/FileInput';
 export * from './Components/Icon';
 export * from './Components/Button';
 export * from './Components/ButtonGroup';
@@ -12,3 +13,6 @@ export * from './Components/Post';
 export * from './Components/Post/ProfileHeader';
 export * from './Components/ProfilePicture';
 export * from './Components/Navigation';
+export * from './Components/Modal';
+export * from './Components/Modal/SettingsModal';
+export * from './Components/Modal/FileUploadModal';

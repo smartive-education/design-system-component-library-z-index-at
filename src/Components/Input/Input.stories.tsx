@@ -1,5 +1,6 @@
 import React, { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Input } from './Input';
+import { emailPattern, passwordPattern } from './input-validation.helpers';
 
 export default {
   title: 'Input',
@@ -14,7 +15,15 @@ TextInput.args = {
   type: 'text',
   required: true,
   maxLength: 40,
-  pattern: undefined,
+  placeholder: 'Type in some text',
+};
+
+export const TextAreaInput = Template.bind({});
+TextAreaInput.args = {
+  label: 'Textarea',
+  type: 'textarea',
+  required: true,
+  maxLength: 200,
   placeholder: 'Type in some text',
 };
 
@@ -25,7 +34,7 @@ EmailInput.args = {
   required: true,
   minLength: 6,
   maxLength: 20,
-  pattern: undefined,
+  pattern: emailPattern,
   placeholder: 'Email address',
 };
 
@@ -36,6 +45,6 @@ PasswordInput.args = {
   required: true,
   minLength: 6,
   maxLength: 20,
-  pattern: undefined,
+  pattern: passwordPattern,
   placeholder: 'Password',
 };

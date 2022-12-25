@@ -8,16 +8,16 @@ interface ProfilePictureProps {
   name: string;
   src: string;
   size: AvatarSize;
+  edit: boolean;
   onClick: () => void;
   onEdit: () => void;
-  edit: boolean;
 }
 const defaultProps: Partial<ProfilePictureProps> = {
   edit: false,
 };
 
 
-export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src, size, onClick, edit, onEdit }) => {
+export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src, size, edit, onClick, onEdit }) => {
 const getClasses = useCallback(((size: string) => {
   if(size === 'small') {
     return {
@@ -33,8 +33,7 @@ const getClasses = useCallback(((size: string) => {
   }
   return {
     size: 'h-40 w-40',
-    div: '',
-    image: 'outline outline-8 outline-slate-100'
+    div: 'outline outline-8 outline-slate-100'
   }
 }), [])
 

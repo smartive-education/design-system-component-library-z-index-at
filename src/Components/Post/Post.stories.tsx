@@ -11,7 +11,7 @@ export default {
 } as ComponentMeta<typeof Post>;
 
 const Template: ComponentStory<typeof Post> = (args) => (
-  <div className="mx-10">
+  <div className="md:mx-10">
     <Post {...args} />
   </div>
 );
@@ -24,7 +24,7 @@ SimplePost.args = {
   postCreationTime: 'vor 11 Minuten',
   src: '/assets/images/profile/r.vogt.jpg',
   content:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut >labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   commentCount: 0,
   isLiked: false,
   likeCount: 0,
@@ -32,7 +32,7 @@ SimplePost.args = {
 };
 
 const TemplateWithImage: ComponentStory<typeof Post> = (args) => (
-  <div className="mx-10">
+  <div className="md:mx-10">
     <Post {...args}>
       <img src="https://cdn.mos.cms.futurecdn.net/CAZ6JXi6huSuN4QGE627NR.jpg" />
     </Post>
@@ -46,7 +46,7 @@ FullPost.args = {
   postCreationTime: 'vor 11 Minuten',
   src: '/assets/images/profile/r.vogt.jpg',
   content:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut >labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   isLiked: true,
   likeCount: 13,
   link: 'Random Link',
@@ -54,7 +54,7 @@ FullPost.args = {
 };
 
 const TemplateWithGif: ComponentStory<typeof Post> = (args) => (
-  <div className="mx-10">
+  <div className="md:mx-10">
     <Post {...args}>
       <img src="https://gifdb.com/images/high/neon-car-synthwave-drive-loop-43ljtbdmd15bzat5.webp" />
     </Post>
