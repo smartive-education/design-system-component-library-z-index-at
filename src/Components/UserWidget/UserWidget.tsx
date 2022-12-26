@@ -11,18 +11,19 @@ export type AvatarSize = 'small' | 'medium' | 'large';
 
 interface UserWidgetProps {
   name: string;
+  username: string;
   src: string;
   size: AvatarSize;
-  edit: boolean;
-  onClick: () => void;
-  onEdit: () => void;
+  edit?: boolean;
+  onClick?: () => void;
+  onEdit?: () => void;
 }
 const defaultProps: Partial<UserWidgetProps> = {
   edit: false,
 };
 
 
-export const UserWidget: FC<UserWidgetProps> = ({ name, src, size, edit, onClick, onEdit }) => {
+export const UserWidget: FC<UserWidgetProps> = ({ name, username, src, size, edit, onClick, onEdit }) => {
   const inputId = uuid();
 
   return (
@@ -30,8 +31,8 @@ export const UserWidget: FC<UserWidgetProps> = ({ name, src, size, edit, onClick
       <div className="p-2 place-content-center flex">
         <ProfilePicture
           name="rvogt"
-          size ='large'
-          src = '/assets/images/profile/r.vogt.jpg'
+          size='large'
+          src='/assets/images/profile/r.vogt.jpg'
         />
       </div>
       <h4 className='p-1 text-3xl font-bold'>
@@ -39,12 +40,12 @@ export const UserWidget: FC<UserWidgetProps> = ({ name, src, size, edit, onClick
        </h4>
       <div className="p-1 place-content-center flex">
         <Interaction
-          iconId = 'profile'
-          label = 'robertvogt'
-          iconColor = {IconColor.Violet}
-          textColor = {TextColor.Violet}
-          iconHoverColor = {IconHoverColor.DarkViolet}
-          textHoverColor ={TextHoverColor.DarkViolet}
+          iconId='profile'
+          label={username}
+          iconColor={IconColor.Violet}
+          textColor={TextColor.Violet}
+          iconHoverColor={IconHoverColor.DarkViolet}
+          textHoverColor={TextHoverColor.DarkViolet}
         />
       </div>
       <div className="pt-2 pb-4">

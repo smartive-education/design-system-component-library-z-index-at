@@ -14,4 +14,5 @@ Widget.args = {
   src: '/assets/images/profile/r.vogt.jpg',
   name: 'Robert Vogt',
   size: 'small',
+  username: 'robertvogt',
 };
