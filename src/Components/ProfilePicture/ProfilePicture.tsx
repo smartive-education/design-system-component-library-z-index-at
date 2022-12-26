@@ -6,11 +6,11 @@ export type AvatarSize = 'small' | 'medium' | 'large';
 
 interface ProfilePictureProps {
   name: string;
-  src: string;
+  src?: string;
   size: AvatarSize;
-  edit: boolean;
-  onClick: () => void;
-  onEdit: () => void;
+  edit?: boolean;
+  onClick?: () => void;
+  onEdit?: () => void;
 }
 const defaultProps: Partial<ProfilePictureProps> = {
   edit: false,
