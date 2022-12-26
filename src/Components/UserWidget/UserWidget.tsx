@@ -27,7 +27,7 @@ export const UserWidget: FC<UserWidgetProps> = ({ name, username, src, size, edi
   const inputId = uuid();
 
   return (
-    <div className="bg-white rounded-2xl relative pt-4 grid place-content-center">
+    <div className="bg-white rounded-2xl relative pt-4 grid place-content-center w-full">
       <div className="p-2 place-content-center flex">
         <ProfilePicture
           name="rvogt"
