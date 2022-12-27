@@ -15,5 +15,5 @@ const Template: ComponentStory<typeof Navigation> = (args) => <Navigation {...ar
 export const Header = Template.bind({});
 
 Header.args = {
-  profilePictureSrc: '/assets/images/profile/r.vogt.jpg',
+  profilePictureSrc: 'assets/images/profile/r.vogt.jpg',
 };

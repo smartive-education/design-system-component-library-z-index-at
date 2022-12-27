@@ -18,7 +18,7 @@ Profile.args = {
   name: 'Robert Vogt',
   userName: 'robertvogt',
   postCreationTime: 'vor 11 Minuten',
-  src: '/assets/images/profile/r.vogt.jpg',
+  src: 'assets/images/profile/r.vogt.jpg',
   location: 'Zürich',
   memberSince: 'Mitglied seit 4 Wochen',
   size: 'medium',

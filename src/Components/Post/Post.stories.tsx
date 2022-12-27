@@ -22,7 +22,7 @@ SimplePost.args = {
   name: 'Robert Vogt',
   userName: 'robertvogt',
   postCreationTime: 'vor 11 Minuten',
-  src: '/assets/images/profile/r.vogt.jpg',
+  src: 'assets/images/profile/r.vogt.jpg',
   content:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   commentCount: 0,
@@ -44,7 +44,7 @@ FullPost.args = {
   name: 'Robert Vogt',
   userName: 'robertvogt',
   postCreationTime: 'vor 11 Minuten',
-  src: '/assets/images/profile/r.vogt.jpg',
+  src: 'assets/images/profile/r.vogt.jpg',
   content:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   isLiked: true,
@@ -66,7 +66,7 @@ PostWithGif.args = {
   name: 'Robert Vogt',
   userName: 'robertvogt',
   postCreationTime: 'vor 11 Minuten',
-  src: '/assets/images/profile/r.vogt.jpg',
+  src: 'assets/images/profile/r.vogt.jpg',
   content:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut >labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   commentCount: 1234,
