@@ -36,7 +36,7 @@ export const Icon: FC<IconProps> = ({ id, size, color, hoverColor, spritePath })
       height={size || 14}
       className={`${color || IconColor.LightGray} ${hoverColor || IconHoverColor.Gray}`}
     >
-      <use href={`${spritePath || '/icons.svg'}#${id}`}></use>
+      <use href={`${spritePath || 'icons.svg'}#${id}`}></use>
     </svg>
   );
 };

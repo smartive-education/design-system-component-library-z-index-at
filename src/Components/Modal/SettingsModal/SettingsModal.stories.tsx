@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof SettingsModal> = (args) => {
   return (
     <div>
       <Navigation
-        profilePictureSrc="/assets/images/profile/r.vogt.jpg"
+        profilePictureSrc="assets/images/profile/r.vogt.jpg"
         navigateToFeed={noop}
         navigateToProfile={noop}
         logout={noop}

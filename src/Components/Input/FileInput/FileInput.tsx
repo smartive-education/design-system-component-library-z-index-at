@@ -1,7 +1,13 @@
 import React, { FC, useRef, useState } from 'react';
 import { Button } from '../../Button/index';
 import { v4 as uuid } from 'uuid';
-import { defaultExtensions, defaultFileSize, isFileExtensionValid, isFileSizeValid } from '../input-validation.helpers';
+import {
+  defaultErrorMessages,
+  defaultExtensions,
+  defaultFileSize,
+  isFileExtensionValid,
+  isFileSizeValid,
+} from '../input-validation.helpers';
 import { Icon, IconColor } from '../../Icon';
 
 export interface FileInputProps {
@@ -9,22 +15,35 @@ export interface FileInputProps {
   restrictions: string;
   label: string;
   addFileFn: (file: File) => void;
+  errorTranslations?: Record<string, string>;
   allowedFileSize?: number;
   allowedExtensions?: RegExp;
+}
+
+interface FileInputState {
+  fileName: string;
+  isFileSelected: boolean;
+  isOverDragArea: boolean;
+  errorMessage: string;
 }
 
 export const FileInput: FC<FileInputProps> = ({
   title,
   restrictions,
   label,
+  errorTranslations = defaultErrorMessages,
   allowedFileSize = defaultFileSize,
   allowedExtensions = defaultExtensions,
   addFileFn,
 }) => {
-  const [fileName, setFileName] = useState('');
-  const [isFileSelected, setIsFileSelected] = useState(false);
-  const [isOverDragArea, setIsOverDragArea] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const defaultFileInputState: FileInputState = {
+    fileName: '',
+    isFileSelected: false,
+    isOverDragArea: false,
+    errorMessage: '',
+  };
+
+  const [fileInputState, setFileInputState] = useState(defaultFileInputState);
   const inputId = uuid();
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -37,13 +56,22 @@ export const FileInput: FC<FileInputProps> = ({
     const file = element.files?.item(0);
     if (file) {
       if (!isFileSizeValid(file, allowedFileSize)) {
-        setErrorMessage(() => 'error.validation.sizeOverflow');
+        setFileInputState((state: FileInputState) => ({
+          ...state,
+          errorMessage: showErrorMessage('error.validation.sizeOverflow'),
+        }));
       } else if (!isFileExtensionValid(element.value, allowedExtensions)) {
-        setErrorMessage(() => 'error.validation.invalidExtension');
+        setFileInputState((state: FileInputState) => ({
+          ...state,
+          errorMessage: showErrorMessage('error.validation.invalidExtension'),
+        }));
       } else {
-        setErrorMessage(() => '');
-        setIsFileSelected(() => true);
-        setFileName(() => element.value);
+        setFileInputState((state: FileInputState) => ({
+          ...state,
+          errorMessage: '',
+          isFileSelected: true,
+          fileName: element.value,
+        }));
         addFileFn(file);
       }
     }
@@ -57,30 +85,53 @@ export const FileInput: FC<FileInputProps> = ({
   const handleDrop = (event: React.DragEvent): void => {
     preventBrowserDefaults(event);
     const files = event.dataTransfer.files;
-    setIsOverDragArea(() => false);
     if (files.length > 1) {
-      setErrorMessage(() => 'error.validation.tooManyFiles');
+      setFileInputState((state: FileInputState) => ({
+        ...state,
+        errorMessage: showErrorMessage('error.validation.tooManyFiles'),
+        isOverDragArea: false,
+      }));
     } else if (!isFileSizeValid(files[0], allowedFileSize)) {
-      setErrorMessage(() => 'error.validation.sizeOverflow');
+      setFileInputState((state: FileInputState) => ({
+        ...state,
+        errorMessage: showErrorMessage('error.validation.sizeOverflow'),
+        isOverDragArea: false,
+      }));
     } else if (!isFileExtensionValid(files[0].name, allowedExtensions)) {
-      setErrorMessage(() => 'error.validation.invalidExtension');
+      setFileInputState((state: FileInputState) => ({
+        ...state,
+        errorMessage: showErrorMessage('error.validation.invalidExtension'),
+        isOverDragArea: false,
+      }));
     } else {
-      setErrorMessage(() => '');
-      setIsFileSelected(() => true);
-      setFileName(() => files[0].name);
+      setFileInputState((state: FileInputState) => ({
+        ...state,
+        errorMessage: '',
+        isFileSelected: true,
+        fileName: files[0].name,
+        isOverDragArea: false,
+      }));
       addFileFn(files[0]);
     }
   };
 
   const handleDragEnter = (event: React.DragEvent): void => {
     preventBrowserDefaults(event);
-    setIsOverDragArea(() => true);
+    setFileInputState((state: FileInputState) => ({
+      ...state,
+      isOverDragArea: true,
+    }));
   };
 
   const handleDragLeave = (event: React.DragEvent): void => {
     preventBrowserDefaults(event);
-    setIsOverDragArea(() => false);
+    setFileInputState((state: FileInputState) => ({
+      ...state,
+      isOverDragArea: false,
+    }));
   };
+
+  const showErrorMessage = (key: string): string => errorTranslations[key] || key;
 
   return (
     <div className="flex flex-col">
@@ -90,10 +141,10 @@ export const FileInput: FC<FileInputProps> = ({
         onDragEnter={handleDragEnter}
         onDragLeave={handleDragLeave}
         className={`flex flex-col border-2 border-dotted rounded-lg mb-4 p-6 ${
-          isOverDragArea ? 'bg-slate-300' : 'bg-slate-100'
+          fileInputState.isOverDragArea ? 'bg-slate-300' : 'bg-slate-100'
         }`}
       >
-        {!isFileSelected ? (
+        {!fileInputState.isFileSelected ? (
           <div className="flex flex-col items-center h-20">
             <div>
               <Icon id="upload" color={IconColor.Gray} size={30} />
@@ -102,11 +153,11 @@ export const FileInput: FC<FileInputProps> = ({
             <p className="text-slate-400">{restrictions}</p>
           </div>
         ) : (
-          <div className="h-20 flex flex-col justify-center items-center">
+          <div className="h-20 flex flex-col justify-center items-center truncate">
             <div className="rounded-lg bg-slate-300 pt-4 px-2 pb-2 mb-2">
               <Icon id="check" color={IconColor.Gray} size={30} />
             </div>
-            <p className="text-slate-600 text-center">{`${fileName} wurde hinzugefügt`}</p>
+            <p className="text-slate-600 text-center">{`${fileInputState.fileName} wurde hinzugefügt`}</p>
           </div>
         )}
       </div>
@@ -122,7 +173,7 @@ export const FileInput: FC<FileInputProps> = ({
         />
         <Button id="upload" label={label} icon="upload" size="M" onClick={forwardInputButtonClick} />
       </div>
-      <span className="self-end text-rose-500 text-xs">{errorMessage}</span>
+      <span className="self-end text-rose-500 text-xs">{fileInputState.errorMessage}</span>
     </div>
   );
 };
