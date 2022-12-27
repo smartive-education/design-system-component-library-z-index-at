@@ -7,6 +7,6 @@ export default {
   component: UserWidgetRow,
 } as ComponentMeta<typeof UserWidgetRow>;
 
-const Template: ComponentStory<typeof UserWidgetRow> = (args) => <UserWidgetRow {...args} />;
+const Template: ComponentStory<typeof UserWidgetRow> = (args) => <UserWidgetRow />;
 
 export const Row = Template.bind({});

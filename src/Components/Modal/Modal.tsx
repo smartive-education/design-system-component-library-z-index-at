@@ -27,7 +27,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, title, closeFn, submitFn, childr
           </div>
           <div className="bg-white p-8 rounded-b-lg">
             <form onSubmit={submitFn} noValidate>
-              <div className='mb-10'>{children}</div>
+              <div className="mb-10">{children}</div>
               <div>
                 <ButtonGroup LLabel="Abbrechen" RLabel="Speichern" LId="cancel" RId="save" LOnClick={closeFn} />
               </div>

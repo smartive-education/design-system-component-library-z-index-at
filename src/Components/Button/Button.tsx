@@ -45,13 +45,13 @@ export const Button: FC<ButtonProps> = ({ label, id, type, color, size, icon, on
   }, [size]);
 
   return (
-    <div className={'flex'}>
+    <div className="flex">
       <button
         id={id}
         type={type}
         onClick={onClick}
         className={`w-full border border-solid border-slate-200 rounded-md
-         text-white
+         text-white text-base
         focus:outline-none focus:border-4
         leading-none ${colorClasses}`}
       >
