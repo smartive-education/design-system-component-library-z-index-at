@@ -22,13 +22,15 @@ const defaultProps: Partial<UserWidgetProps> = {
   edit: false,
 };
 
+const userImage = 'assets/images/profile/r.vogt.jpg'
+
 export const UserWidget: FC<UserWidgetProps> = ({ name, username, src, size, edit, onClick, onEdit }) => {
   const inputId = uuid();
 
   return (
     <div className="bg-white rounded-2xl relative p-4 w-full">
       <div className="p-2 place-content-center flex">
-        <ProfilePicture name="rvogt" size="medium" src="/assets/images/profile/r.vogt.jpg" />
+        <ProfilePicture name="rvogt" size="medium" src={userImage} />
       </div>
       <h4
         className="p-1 text-xl text-center  whitespace-nowrap text-ellipsis overflow-hidden font-semibold"

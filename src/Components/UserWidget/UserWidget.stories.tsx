@@ -29,7 +29,7 @@ const TemplateRow: ComponentStory<typeof UserWidget> = (args) =>
 
 export const Widget = Template.bind({});
 Widget.args = {
-  src: '/assets/images/profile/r.vogt.jpg',
+  src: 'assets/images/profile/r.vogt.jpg',
   name: 'Robert Vogt',
   size: 'small',
   username: 'robertvogt',
