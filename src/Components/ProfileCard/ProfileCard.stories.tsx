@@ -11,7 +11,11 @@ const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...
 
 export const Avatar = Template.bind({});
 Avatar.args = {
-  src: 'assets/images/profile/r.vogt.jpg',
-  name: 'Robert Vogt',
-  size: 'small',
+  profileImage: 'https://cdn.mos.cms.futurecdn.net/CAZ6JXi6huSuN4QGE627NR.jpg',
+  name: 'Damian Caduff',
+  userName: 'damiancaduff',
+  location: 'Chur',
+  calendarText: 'Mitglied seit 35 Jahre',
+  profilePicture: 'assets/images/profile/r.vogt.jpg',
+  profileText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 };
