@@ -9,7 +9,7 @@ interface ProfilePictureProps {
   src: string;
   size: AvatarSize;
   edit?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   onEdit?: () => void;
 }
 
