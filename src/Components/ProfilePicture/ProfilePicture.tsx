@@ -6,14 +6,14 @@ export type AvatarSize = 'small' | 'medium' | 'large';
 
 interface ProfilePictureProps {
   name: string;
-  src: string;
+  src?: string;
   size: AvatarSize;
   edit?: boolean;
   onClick?: () => void;
   onEdit?: () => void;
 }
 
-export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src, size, edit = false, onClick, onEdit }) => {
+export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src = '', size, edit = false, onClick, onEdit }) => {
   const getClasses = useCallback((size: string) => {
     if (size === 'small') {
       return {
@@ -36,9 +36,6 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src, size, edit 
   const getImage = useCallback((src: string, size: string) => {
     if (!src && size === 'large') {
       return 'assets/images/profile/no.image.png';
-    }
-    if (!src) {
-      return undefined;
     }
     return src;
   }, []);
