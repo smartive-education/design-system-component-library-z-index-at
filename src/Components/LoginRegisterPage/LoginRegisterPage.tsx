@@ -12,7 +12,11 @@ const loginFn = () => {};
 const registerFn = () => {};
 
 const getKeyword = (keyword) => {
-  return <div className="text-white animate-textintro">#{keyword}</div>;
+  return (
+    <div className="text-white animate-textintro w-48">
+      #{keyword}<span className='text-pink-300 font-bold text-4xl'>.</span>
+    </div>
+  )
 };
 
 export const LoginRegisterPage: FC<LoginRegisterPageProps> = ({ isRegistered }) => {
@@ -40,7 +44,7 @@ export const LoginRegisterPage: FC<LoginRegisterPageProps> = ({ isRegistered }) 
           </div>
           <h1 className="pt-4 pb-4 text-white font-bold text-6xl text-center">Mumble</h1>
           <h2 className="pt-4 pb-2 text-pink-300 font-bold text-4xl">Find out what's new</h2>
-          <h2 className="text-pink-300 font-bold text-4xl flex justify-center pb-2">in&nbsp;{keyword}.</h2>
+          <h2 className="text-pink-300 font-bold text-4xl flex justify-center pb-2">in&nbsp;{keyword}</h2>
         </div>
       </div>
       <div className="w-full pt-4 md:pt-0 md:w-6/12">
