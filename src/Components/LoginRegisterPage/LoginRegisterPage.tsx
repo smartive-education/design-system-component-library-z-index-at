@@ -12,7 +12,7 @@ const loginFn = () => {};
 const registerFn = () => {};
 
 const getKeyword = (keyword) => {
-  return <span className="text-white">#{keyword}</span>;
+  return <div className="text-white animate-textintro">#{keyword}</div>;
 };
 
 export const LoginRegisterPage: FC<LoginRegisterPageProps> = ({ isRegistered }) => {
@@ -21,13 +21,13 @@ export const LoginRegisterPage: FC<LoginRegisterPageProps> = ({ isRegistered }) 
 
   useEffect(() => {
     const interval = setInterval(() => {
+      setKeyword(<></>);
       setSeconds((seconds) => (seconds < keywords.length - 1 ? seconds + 1 : 0));
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    console.log(seconds);
     setKeyword(getKeyword(keywords[seconds]));
   }, [seconds]);
 
@@ -40,7 +40,7 @@ export const LoginRegisterPage: FC<LoginRegisterPageProps> = ({ isRegistered }) 
           </div>
           <h1 className="pt-4 pb-4 text-white font-bold text-6xl text-center">Mumble</h1>
           <h2 className="pt-4 pb-2 text-pink-300 font-bold text-4xl">Find out what's new</h2>
-          <h2 className="text-pink-300 font-bold text-4xl text-center">in {keyword}.</h2>
+          <h2 className="text-pink-300 font-bold text-4xl flex justify-center">in&nbsp;{keyword}.</h2>
         </div>
       </div>
       <div className="w-6/12 pt-4 md:pt-0">

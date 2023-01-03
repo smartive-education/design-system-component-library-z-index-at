@@ -5,7 +5,20 @@ module.exports = {
     fontFamily: {
       sans: ['Poppins'],
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        textintro: {
+          from: {
+            opacity: 0,
+            transform: 'translateY(100%)',
+          },
+          to: { opacity: 1 },
+        },
+      },
+      animation: {
+        textintro: 'textintro 1s both',
+      },
+    },
   },
   plugins: [],
 };
