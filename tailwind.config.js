@@ -8,15 +8,17 @@ module.exports = {
     extend: {
       keyframes: {
         textintro: {
-          from: {
+          '0%': {
             opacity: 0,
             transform: 'translateY(100%)',
           },
-          to: { opacity: 1 },
+          '60%': { opacity: 0.2 },
+          '90%': { transform: 'translateY(-10%)' },
+          '100%': { transform: 'translateY(0%)', opacity: 1 },
         },
       },
       animation: {
-        textintro: 'textintro 1s both',
+        textintro: 'textintro 0.35s both',
       },
     },
   },

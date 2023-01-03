@@ -23,7 +23,7 @@ export const LoginRegisterPage: FC<LoginRegisterPageProps> = ({ isRegistered }) 
     const interval = setInterval(() => {
       setKeyword(<></>);
       setSeconds((seconds) => (seconds < keywords.length - 1 ? seconds + 1 : 0));
-    }, 4000);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
@@ -33,17 +33,17 @@ export const LoginRegisterPage: FC<LoginRegisterPageProps> = ({ isRegistered }) 
 
   return (
     <div className="flex flex-col md:flex-row items-center h-screen w-screen">
-      <div className="h-full bg-gradient-to-r to-pink-500 from-purple-500 items-center justify-center flex w-screen md:w-6/12">
+      <div className="h-full bg-gradient-to-r to-pink-500 from-violet-600 items-center justify-center flex w-screen md:w-6/12">
         <div>
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-2">
             <Icon id="mumble" size={48} color={IconColor.White} />
           </div>
           <h1 className="pt-4 pb-4 text-white font-bold text-6xl text-center">Mumble</h1>
           <h2 className="pt-4 pb-2 text-pink-300 font-bold text-4xl">Find out what's new</h2>
-          <h2 className="text-pink-300 font-bold text-4xl flex justify-center">in&nbsp;{keyword}.</h2>
+          <h2 className="text-pink-300 font-bold text-4xl flex justify-center pb-2">in&nbsp;{keyword}.</h2>
         </div>
       </div>
-      <div className="w-6/12 pt-4 md:pt-0">
+      <div className="w-full pt-4 md:pt-0 md:w-6/12">
         <EntryForm isRegistered={isRegistered} loginFn={loginFn} registerFn={registerFn} />
       </div>
     </div>
