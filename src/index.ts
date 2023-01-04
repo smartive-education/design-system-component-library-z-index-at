@@ -16,3 +16,4 @@ export * from './Components/Navigation';
 export * from './Components/Modal';
 export * from './Components/Modal/SettingsModal';
 export * from './Components/Modal/FileUploadModal';
+export * from './Components/ProfileCard';
