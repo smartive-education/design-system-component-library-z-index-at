@@ -1,13 +1,11 @@
 import React, { FC } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { ProfilePicture } from '../ProfilePicture';
-import { Interaction, TextColor, TextHoverColor } from '../Interaction';
 import { Button } from '../Button';
+import { Interaction, TextColor, TextHoverColor } from '../Interaction';
+import { AvatarSize, ProfilePicture } from '../ProfilePicture';
 
-import { Icon, IconHoverColor, IconColor } from '../Icon';
-
-export type AvatarSize = 'small' | 'medium' | 'large';
+import { IconColor, IconHoverColor } from '../Icon';
 
 interface UserWidgetProps {
   name: string;
@@ -22,7 +20,7 @@ const defaultProps: Partial<UserWidgetProps> = {
   edit: false,
 };
 
-const userImage = 'assets/images/profile/r.vogt.jpg'
+const userImage = 'assets/images/profile/r.vogt.jpg';
 
 export const UserWidget: FC<UserWidgetProps> = ({ name, username, src, size, edit, onClick, onEdit }) => {
   const inputId = uuid();

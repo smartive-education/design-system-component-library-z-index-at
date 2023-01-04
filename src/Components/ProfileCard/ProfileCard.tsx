@@ -11,9 +11,8 @@ interface ProfileCardProps {
   location: string;
   calendarText: string;
   profileText: string;
+  openProfile: () => void;
 }
-
-const openProfile = () => {};
 
 export const ProfileCard: FC<ProfileCardProps> = ({
   name,
@@ -23,6 +22,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   location,
   calendarText,
   profileText,
+  openProfile,
 }) => {
   return (
     <div className="py-4 px-6 md:py-8 md:px-12 order-1 border-transparent rounded-xl">
