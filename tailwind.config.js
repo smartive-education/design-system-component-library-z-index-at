@@ -10,15 +10,18 @@ module.exports = {
         textintro: {
           '0%': {
             opacity: 0,
-            transform: 'translateY(100%)',
+            transform: 'translateY(30%)',
           },
-          '60%': { opacity: 0.2 },
+          '20%': { opacity: 1, transform: 'translateY(-20%)' },
+          '30%': { transform: 'translateY(10%)' },
+          '35%': { transform: 'translateY(0%)' },
+          '89%': { opacity: 1, transform: 'translateY(0%)' },
           '90%': { transform: 'translateY(-10%)' },
-          '100%': { transform: 'translateY(0%)', opacity: 1 },
+          '100%': { opacity: 0, transform: 'translateY(-50%)' },
         },
       },
       animation: {
-        textintro: 'textintro 0.35s both',
+        textintro: 'textintro 2s ease-in infinite',
       },
     },
   },
