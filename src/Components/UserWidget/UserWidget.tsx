@@ -22,7 +22,7 @@ const defaultProps: Partial<UserWidgetProps> = {
   edit: false,
 };
 
-const userImage = 'assets/images/profile/r.vogt.jpg'
+const userImage = 'assets/images/profile/r.vogt.jpg';
 
 export const UserWidget: FC<UserWidgetProps> = ({ name, username, src, size, edit, onClick, onEdit }) => {
   const inputId = uuid();

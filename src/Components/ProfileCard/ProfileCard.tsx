@@ -15,7 +15,7 @@ interface ProfileCardProps {
   onEdit: () => void;
 }
 
-const openProfile = () => {};
+const openProfile = (): void => {};
 const iconClose = 'close';
 const iconEdit = 'edit';
 
@@ -43,7 +43,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
       text: 'Follow',
     };
   }, [followed]);
-  const [showEditIcon, setShowEditIcon] = useState(false)
+  const [showEditIcon, setShowEditIcon] = useState(false);
 
   return (
     <div className="py-4 px-6 md:py-8 md:px-12 order-1 border-transparent rounded-xl">
@@ -53,7 +53,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           onClick={onEdit}
           onMouseOver={() => setShowEditIcon(true)}
           onMouseOut={() => setShowEditIcon(false)}
-          >
+        >
           <img src={profileImage} alt="" className="ease-in-out duration-200 hover:opacity-50" />
           <div className={`absolute inset-1/2 ${showEditIcon ? '' : 'hidden'}`}>
             <Icon id={iconEdit} size={32} color={IconColor.White} />
