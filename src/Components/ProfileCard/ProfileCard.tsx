@@ -1,8 +1,7 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
 import { Icon, IconColor, IconHoverColor } from '../../Components/Icon';
 import { Interaction, TextColor, TextHoverColor } from '../../Components/Interaction';
-
 interface ProfileCardProps {
   name: string;
   userName: string;
@@ -13,10 +12,12 @@ interface ProfileCardProps {
   profileText: string;
   followed: boolean;
   onFollow: () => void;
+  onEdit: () => void;
 }
 
 const openProfile = () => {};
 const iconClose = 'close';
+const iconEdit = 'edit';
 
 export const ProfileCard: FC<ProfileCardProps> = ({
   name,
@@ -28,6 +29,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   profileText,
   followed,
   onFollow,
+  onEdit,
 }) => {
   const buttonClasses = useMemo(() => {
     if (followed) {
@@ -41,12 +43,21 @@ export const ProfileCard: FC<ProfileCardProps> = ({
       text: 'Follow',
     };
   }, [followed]);
+  const [showEditIcon, setShowEditIcon] = useState(false)
 
   return (
     <div className="py-4 px-6 md:py-8 md:px-12 order-1 border-transparent rounded-xl">
       <div className="relative">
-        <div className="mb-4 max-h-80 object-contain overflow-hidden rounded-xl">
-          <img src={profileImage} alt="" />
+        <div
+          className="mb-4 max-h-80 object-contain relative overflow-hidden rounded-xl cursor-pointer bg-violet-600"
+          onClick={onEdit}
+          onMouseOver={() => setShowEditIcon(true)}
+          onMouseOut={() => setShowEditIcon(false)}
+          >
+          <img src={profileImage} alt="" className="ease-in-out duration-200 hover:opacity-50" />
+          <div className={`absolute inset-1/2 ${showEditIcon ? '' : 'hidden'}`}>
+            <Icon id={iconEdit} size={32} color={IconColor.White} />
+          </div>
         </div>
         <div className="absolute -bottom-20 right-10">
           <ProfilePicture name="unkown" size="large" src={profilePicture} />
