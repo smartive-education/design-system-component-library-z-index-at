@@ -10,6 +10,7 @@ interface ProfileCardProps {
   location: string;
   calendarText: string;
   profileText: string;
+  openProfile: () => void;
   followed: boolean;
   onFollow: () => void;
   onEdit: () => void;
@@ -27,6 +28,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   location,
   calendarText,
   profileText,
+  openProfile,
   followed,
   onFollow,
   onEdit,

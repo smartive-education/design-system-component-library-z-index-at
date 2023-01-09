@@ -45,11 +45,11 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
   };
 
   return (
-    <div>
+    <>
       {showLogin ? (
         <div>
           <form onSubmit={login} className="grid sm:grid-cols-5 mb-6" noValidate>
-            <h1 className="sm:col-start-2 sm:col-end-5 mb-6 font-bold text-5xl">{'Anmelden'}</h1>
+            <h1 className="sm:col-start-2 sm:col-end-5 mb-6 font-bold text-5xl">Anmelden</h1>
             <div className="sm:col-start-2 sm:col-end-5 mb-6">
               <Input
                 key="login-email"
@@ -91,7 +91,7 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
       ) : (
         <div>
           <form onSubmit={register} className="grid sm:grid-cols-5 mb-6" noValidate>
-            <h1 className="sm:col-start-2 sm:col-end-5 mb-6 font-bold text-5xl">{'Registrieren'}</h1>
+            <h1 className="sm:col-start-2 sm:col-end-5 mb-6 font-bold text-5xl">Registrieren</h1>
             <div className="sm:col-start-2 sm:col-end-5 mb-6">
               <Input
                 key="register-name"
@@ -147,6 +147,6 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
