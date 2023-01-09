@@ -1,4 +1,4 @@
-import React, { FC, useState, useCallback } from 'react';
+import React, { FC, useState, useCallback, useEffect } from 'react';
 
 export type State = 'mumbles' | 'likes';
 
@@ -21,7 +21,13 @@ export const MumblesLikes: FC<MumblesLikesProps> = ({ state, onClick }) => {
     [display]
   );
 
-  console.log(expandHover);
+  useEffect(() => {
+    if (state === display) {
+      return;
+    }
+    setDisplay(state);
+  }, [state]);
+
   return (
     <div className="bg-slate-200 border-transparent rounded-xl p-1 flex justify-between max-w-xs">
       <div
