@@ -7,7 +7,7 @@ module.exports = {
     },
     extend: {
       keyframes: {
-        iconrotation: {
+        icontilt: {
           '0%': {
             transform: 'rotate(20deg)',
           },
@@ -30,7 +30,7 @@ module.exports = {
       },
       animation: {
         textintro: 'textintro 2s ease-in infinite',
-        iconrotation: 'iconrotation 1.2s',
+        icontilt: 'icontilt 1.2s',
       },
     },
   },
