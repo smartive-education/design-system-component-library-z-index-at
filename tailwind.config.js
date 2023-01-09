@@ -30,7 +30,7 @@ module.exports = {
       },
       animation: {
         textintro: 'textintro 2s ease-in infinite',
-        iconrotation: 'iconrotation 1.2s ease-out',
+        iconrotation: 'iconrotation 1.2s',
       },
     },
   },
