@@ -16,7 +16,6 @@ interface ProfileCardProps {
   onEdit: () => void;
 }
 
-const openProfile = (): void => {};
 const iconClose = 'close';
 const iconEdit = 'edit';
 
