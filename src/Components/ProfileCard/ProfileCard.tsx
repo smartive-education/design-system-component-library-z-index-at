@@ -16,7 +16,6 @@ interface ProfileCardProps {
   onFollow: () => void;
 }
 
-const openProfile = () => {};
 const iconClose = 'close';
 
 export const ProfileCard: FC<ProfileCardProps> = ({

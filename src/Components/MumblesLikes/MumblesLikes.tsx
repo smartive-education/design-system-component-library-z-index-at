@@ -14,7 +14,7 @@ export const MumblesLikes: FC<MumblesLikesProps> = ({ state, onClick }) => {
   const [display, setDisplay] = useState(state);
   const [expandHover, setExpandHover] = useState(false);
   const handleChange = useCallback(
-    (state) => {
+    (state: State) => {
       setDisplay(state);
       onClick(state);
     },
