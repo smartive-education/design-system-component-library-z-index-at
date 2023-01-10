@@ -7,6 +7,14 @@ module.exports = {
     },
     extend: {
       keyframes: {
+        icontilt: {
+          '0%': {
+            transform: 'rotate(20deg)',
+          },
+          '100%': {
+           transform: 'rotate(0deg)',
+          }
+        },
         textintro: {
           '0%': {
             opacity: 0,
@@ -22,6 +30,7 @@ module.exports = {
       },
       animation: {
         textintro: 'textintro 2s ease-in infinite',
+        icontilt: 'icontilt 1.2s',
       },
     },
   },
