@@ -21,3 +21,4 @@ export * from './Components/Modal/FileUploadModal';
 export * from './Components/WordSpinnerAnimation';
 export * from './Components/LandingPage';
 export * from './Components/MumblesLikes';
+export * from './models';

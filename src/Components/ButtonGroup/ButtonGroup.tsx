@@ -1,23 +1,6 @@
 import React, { FC } from 'react';
-
-import { Button, ButtonType } from '../Button';
-
-interface ButtonGroupProps {
-  LId: string;
-  LType?: ButtonType;
-  LColor?: string;
-  LSize?: string;
-  LLabel: string;
-  LIcon?: string;
-  LOnClick: () => void;
-  RId: string;
-  RType?: ButtonType;
-  RColor?: string;
-  RSize?: string;
-  RLabel: string;
-  RIcon?: string;
-  ROnClick?: () => void;
-}
+import { ButtonGroupProps } from '../../models';
+import { Button } from '../Button';
 
 export const ButtonGroup: FC<ButtonGroupProps> = ({
   LId,
