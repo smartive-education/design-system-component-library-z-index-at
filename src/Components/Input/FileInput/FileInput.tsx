@@ -9,16 +9,7 @@ import {
   isFileSizeValid,
 } from '../input-validation.helpers';
 import { Icon, IconColor } from '../../Icon';
-
-export interface FileInputProps {
-  title: string;
-  restrictions: string;
-  label: string;
-  addFileFn: (file: File) => void;
-  errorTranslations?: Record<string, string>;
-  allowedFileSize?: number;
-  allowedExtensions?: RegExp;
-}
+import { FileInputProps } from '../../../models';
 
 interface FileInputState {
   fileName: string;

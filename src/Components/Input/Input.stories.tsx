@@ -1,6 +1,6 @@
 import React, { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Input } from './Input';
-import { emailPattern, passwordPattern } from './input-validation.helpers';
+import { defaultErrorMessages, emailPattern, passwordPattern } from './input-validation.helpers';
 
 export default {
   title: 'Input',
@@ -36,6 +36,7 @@ EmailInput.args = {
   maxLength: 20,
   pattern: emailPattern,
   placeholder: 'Email address',
+  errorTranslations: defaultErrorMessages,
 };
 
 export const PasswordInput = Template.bind({});
@@ -47,4 +48,5 @@ PasswordInput.args = {
   maxLength: 20,
   pattern: passwordPattern,
   placeholder: 'Password',
+  errorTranslations: defaultErrorMessages,
 };
