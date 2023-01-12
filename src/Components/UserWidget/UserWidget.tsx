@@ -30,15 +30,7 @@ export const UserWidget: FC<UserWidgetProps> = ({ name, username, src, onClick }
         />
       </div>
       <div className="pt-2 pb-4">
-        <Button
-          type="submit"
-          id={inputId}
-          color="Violet"
-          size="M"
-          label="Follow"
-          onClick={onClick}
-          icon="mumble"
-        />
+        <Button type="submit" id={inputId} color="Violet" size="M" label="Follow" onClick={onClick} icon="mumble" />
       </div>
     </div>
   );

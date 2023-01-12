@@ -205,3 +205,10 @@ export interface UserWidgetProps {
   src: string;
   onClick?: () => void;
 }
+
+export interface ToggleProps {
+  isToggleOn: boolean;
+  onLabel: string;
+  offLabel: string;
+  onClick: (isOn: boolean) => void;
+}
