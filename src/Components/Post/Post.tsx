@@ -15,6 +15,7 @@ export interface PostProps {
   isLiked: boolean;
   link: string;
   openProfile: () => void;
+  comment: () => void;
   hashtags?: string[];
   children?: ReactNode;
 }
@@ -29,9 +30,10 @@ export const Post: FC<PostProps> = ({
   likeCount,
   isLiked,
   link,
-  openProfile,
   hashtags,
   children,
+  openProfile,
+  comment,
 }) => {
   return (
     <div className="py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl">
@@ -70,7 +72,7 @@ export const Post: FC<PostProps> = ({
       )}
       <div className="flex md:grid md:grid-cols-12 relative -left-3">
         <div className="md:col-span-4 truncate">
-          <Comment value={commentCount} />
+          <Comment value={commentCount} clickFn={comment} />
         </div>
         <div className="md:col-span-3 truncate">
           <Like value={likeCount} isLiked={isLiked} />

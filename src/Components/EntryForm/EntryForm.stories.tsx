@@ -3,7 +3,7 @@ import React from 'react';
 import { EntryForm } from './EntryForm';
 
 export default {
-  title: 'EntryForm',
+  title: 'Composition/EntryForm',
   component: EntryForm,
 } as ComponentMeta<typeof EntryForm>;
 

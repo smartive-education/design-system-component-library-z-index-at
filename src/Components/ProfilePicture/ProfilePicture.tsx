@@ -1,6 +1,7 @@
 import React, { FC, useCallback } from 'react';
 
-import { Icon, IconColor } from '../Icon';
+import { Icon } from '../Icon';
+import { IconColor } from '../../models';
 
 export type AvatarSize = 'small' | 'medium' | 'large';
 

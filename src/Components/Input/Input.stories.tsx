@@ -1,13 +1,25 @@
 import React, { ComponentMeta, ComponentStory } from '@storybook/react';
+import { InputProps } from '../../models';
 import { Input } from './Input';
 import { defaultErrorMessages, emailPattern, passwordPattern } from './input-validation.helpers';
 
 export default {
-  title: 'Input',
+  title: 'Basic/Input',
   component: Input,
+  argTypes: {
+    type: {
+      control: false,
+    },
+    name: {
+      control: false,
+    },
+    validationTrigger: {
+      control: false,
+    },
+  },
 } as ComponentMeta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+const Template: ComponentStory<typeof Input> = (args: InputProps) => <Input {...args} />;
 
 export const TextInput = Template.bind({});
 TextInput.args = {
@@ -16,6 +28,7 @@ TextInput.args = {
   required: true,
   maxLength: 40,
   placeholder: 'Type in some text',
+  errorTranslations: defaultErrorMessages,
 };
 
 export const TextAreaInput = Template.bind({});
@@ -25,6 +38,7 @@ TextAreaInput.args = {
   required: true,
   maxLength: 200,
   placeholder: 'Type in some text',
+  errorTranslations: defaultErrorMessages,
 };
 
 export const EmailInput = Template.bind({});

@@ -8,8 +8,8 @@ import {
   isFileExtensionValid,
   isFileSizeValid,
 } from '../input-validation.helpers';
-import { Icon, IconColor } from '../../Icon';
-import { FileInputProps } from '../../../models';
+import { Icon } from '../../Icon';
+import { FileInputProps, IconColor } from '../../../models';
 
 interface FileInputState {
   fileName: string;

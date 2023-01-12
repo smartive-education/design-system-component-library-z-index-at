@@ -3,7 +3,7 @@ import React from 'react';
 import { Like } from './Like';
 
 export default {
-  title: 'Like',
+  title: 'Composition/Like',
   component: Like,
 } as ComponentMeta<typeof Like>;
 

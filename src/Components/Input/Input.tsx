@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { Icon, IconColor } from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
 import { defaultErrorMessages, getTranslationKeyForError } from './input-validation.helpers';
-import { InputProps, InputType } from '../../models';
+import { InputProps, InputType, IconColor } from '../../models';
 
 interface InputState {
   value: string;

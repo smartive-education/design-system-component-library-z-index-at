@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import { Interaction } from '../../../Components/Interaction';
+import { IconColor, IconHoverColor, TextColor, TextHoverColor } from '../../../models';
 import { AvatarSize, ProfilePicture } from '../../ProfilePicture';
-import { IconColor, IconHoverColor } from '../../../Components/Icon';
-import { Interaction, TextColor, TextHoverColor } from '../../../Components/Interaction';
 
 export interface ProfileHeaderProps {
   name: string;

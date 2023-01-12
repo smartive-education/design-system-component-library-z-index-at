@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
-import { ButtonProps } from '../../models';
-import { Icon, IconColor } from '../Icon';
+import { ButtonProps, IconColor } from '../../models';
+import { Icon } from '../Icon';
 
 export const Button: FC<ButtonProps> = ({ label, id, type = 'button', color = 'Slate', size = 'L', icon, onClick }) => {
   const colorClasses = useMemo(() => {
@@ -11,7 +11,7 @@ export const Button: FC<ButtonProps> = ({ label, id, type = 'button', color = 'S
       return 'bg-gradient-to-r from-pink-500 to-violet-600 focus:border-violet-200 hover:bg-gradient-to-r hover:from-pink-600 hover:to-violet-700';
     }
     return 'bg-slate-600 focus:border-slate-200 hover:bg-slate-700';
-  }, [type]);
+  }, [color]);
 
   const sizeClasses = useMemo(() => {
     if (size === 'M') {

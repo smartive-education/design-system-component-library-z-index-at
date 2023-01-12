@@ -1,11 +1,10 @@
 import React, { FC } from 'react';
 import { v4 as uuid } from 'uuid';
 
+import { IconColor, IconHoverColor, TextColor, TextHoverColor } from '../../models';
 import { Button } from '../Button';
-import { Interaction, TextColor, TextHoverColor } from '../Interaction';
+import { Interaction } from '../Interaction';
 import { AvatarSize, ProfilePicture } from '../ProfilePicture';
-
-import { IconColor, IconHoverColor } from '../Icon';
 
 interface UserWidgetProps {
   name: string;

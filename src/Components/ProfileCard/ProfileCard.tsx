@@ -1,7 +1,8 @@
 import React, { FC, useMemo, useState } from 'react';
 import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
-import { Icon, IconColor, IconHoverColor } from '../../Components/Icon';
-import { Interaction, TextColor, TextHoverColor } from '../../Components/Interaction';
+import { Icon } from '../../Components/Icon';
+import { Interaction } from '../../Components/Interaction';
+import { IconColor, IconHoverColor, TextColor, TextHoverColor } from '../../models';
 interface ProfileCardProps {
   name: string;
   userName: string;

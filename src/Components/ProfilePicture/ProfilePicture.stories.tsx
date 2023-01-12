@@ -3,7 +3,7 @@ import React from 'react';
 import { ProfilePicture } from './ProfilePicture';
 
 export default {
-  title: 'ProfilePicture',
+  title: 'Basic/ProfilePicture',
   component: ProfilePicture,
 } as ComponentMeta<typeof ProfilePicture>;
 

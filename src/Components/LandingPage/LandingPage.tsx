@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { Icon, IconColor } from '../Icon';
+import { Icon } from '../Icon';
 import { WordSpinnerAnimation } from '../WordSpinnerAnimation';
+import { IconColor } from '../../models';
 
 export const LandingPage: FC = () => {
   return (

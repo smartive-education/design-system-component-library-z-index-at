@@ -1,6 +1,7 @@
 import React, { FC, FormEvent, ReactNode } from 'react';
 import { ButtonGroup } from '../ButtonGroup';
-import { Icon, IconColor } from '../Icon';
+import { Icon } from '../Icon';
+import { IconColor } from '../../models';
 
 export interface ModalProps {
   isOpen: boolean;
