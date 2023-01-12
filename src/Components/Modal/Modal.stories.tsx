@@ -4,10 +4,21 @@ import { Navigation } from '../Navigation';
 import { Modal } from './Modal';
 
 export default {
-  title: 'Modal',
+  title: 'Basic/Modal',
   component: Modal,
   parameters: {
     backgrounds: { default: 'grey' },
+    docs: {
+      description: {
+        component:
+          'Modal opens when Settings (cog) is clicked. Header is not a part of this story, it only serves the interactivity.',
+      },
+    },
+  },
+  argTypes: {
+    isOpen: {
+      control: false,
+    },
   },
 } as ComponentMeta<typeof Modal>;
 
@@ -25,7 +36,7 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         logout={noop}
         openSettings={() => setIsOpen(true)}
       />
-      <Modal {...args} isOpen={isOpen} closeFn={() => setIsOpen(false)} />
+      <Modal {...args} isOpen={isOpen} closeFn={() => setIsOpen(false)} submitFn={() => setIsOpen(false)} />
     </div>
   );
 };
@@ -33,6 +44,4 @@ const Template: ComponentStory<typeof Modal> = (args) => {
 export const ModalFrame = Template.bind({});
 ModalFrame.args = {
   title: 'Modal Frame',
-  closeFn: noop,
-  submitFn: noop,
 };

@@ -16,7 +16,6 @@ export * from './Components/ProfileCard';
 export * from './Components/UserWidget';
 export * from './Components/Navigation';
 export * from './Components/Modal';
-export * from './Components/Modal/SettingsModal';
 export * from './Components/Modal/FileUploadModal';
 export * from './Components/WordSpinnerAnimation';
 export * from './Components/LandingPage';

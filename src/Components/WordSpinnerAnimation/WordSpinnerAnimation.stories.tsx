@@ -3,10 +3,15 @@ import React from 'react';
 import { WordSpinnerAnimation } from './WordSpinnerAnimation';
 
 export default {
-  title: 'WordSpinnerAnimation',
+  title: 'Basic/WordSpinnerAnimation',
   component: WordSpinnerAnimation,
   parameters: {
     backgrounds: { default: 'dark' },
+  },
+  argTypes: {
+    keywords: {
+      control: false,
+    },
   },
 } as ComponentMeta<typeof WordSpinnerAnimation>;
 

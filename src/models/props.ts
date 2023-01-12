@@ -1,3 +1,4 @@
+import { FormEvent, ReactNode } from 'react';
 import {
   ActionBackGroundColor,
   ButtonColor,
@@ -113,4 +114,28 @@ export interface LikeProps {
 
 export interface ShareProps {
   value: string;
+}
+
+export interface ModalProps {
+  isOpen: boolean;
+  title: string;
+  closeFn: () => void;
+  submitFn: (event: FormEvent) => void;
+  children?: ReactNode;
+}
+
+export interface SettingsModalProps {
+  isOpen: boolean;
+  closeFn: () => void;
+  submitFn: () => void;
+}
+
+export interface FileUploadModalProps {
+  isOpen: boolean;
+  header: string;
+  title: string;
+  restrictions: string;
+  label: string;
+  closeFn: () => void;
+  submitFn: (file: File) => void;
 }

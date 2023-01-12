@@ -1,16 +1,7 @@
 import React, { FC, FormEvent, useState } from 'react';
 import { FileInput } from '../../Input/FileInput';
 import { Modal } from '../Modal';
-
-export interface FileUploadModalProps {
-  isOpen: boolean;
-  header: string;
-  title: string;
-  restrictions: string;
-  label: string;
-  closeFn: () => void;
-  submitFn: (file: File) => void;
-}
+import { FileUploadModalProps } from '../../../models';
 
 export const FileUploadModal: FC<FileUploadModalProps> = ({
   isOpen,

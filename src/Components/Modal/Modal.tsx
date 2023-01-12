@@ -1,15 +1,7 @@
-import React, { FC, FormEvent, ReactNode } from 'react';
+import React, { FC } from 'react';
+import { IconColor, ModalProps } from '../../models';
 import { ButtonGroup } from '../ButtonGroup';
 import { Icon } from '../Icon';
-import { IconColor } from '../../models';
-
-export interface ModalProps {
-  isOpen: boolean;
-  title: string;
-  closeFn: () => void;
-  submitFn: (event: FormEvent) => void;
-  children?: ReactNode;
-}
 
 export const Modal: FC<ModalProps> = ({ isOpen, title, closeFn, submitFn, children }) => {
   if (!isOpen) {
