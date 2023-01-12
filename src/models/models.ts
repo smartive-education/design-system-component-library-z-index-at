@@ -4,6 +4,7 @@ export type ButtonColor = 'Slate' | 'Violet' | 'Gradient';
 export type InputType = 'text' | 'password' | 'email' | 'textarea';
 export type InteractionSize = 'small' | 'standard';
 export type EffectSize = 'normal' | 'large';
+export type AvatarSize = 'small' | 'medium' | 'large';
 
 export enum IconColor {
   LightGray = 'fill-slate-400',

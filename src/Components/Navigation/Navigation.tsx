@@ -1,15 +1,7 @@
 import React, { FC } from 'react';
-import { ActionBackGroundColor } from '../../models';
+import { ActionBackGroundColor, NavigationProps } from '../../models';
 import { Effect } from '../Interaction/Effect';
 import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
-
-export interface NavigationProps {
-  profilePictureSrc: string;
-  navigateToFeed: () => void;
-  navigateToProfile: () => void;
-  openSettings: () => void;
-  logout: () => void;
-}
 
 export const Navigation: FC<NavigationProps> = ({
   profilePictureSrc,

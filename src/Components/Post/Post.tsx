@@ -1,24 +1,9 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import { Like } from '../Interaction/Like/Like';
 import { Share } from '../Interaction/Share/Share';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
 import { Comment } from '../Interaction/Comment';
-
-export interface PostProps {
-  name: string;
-  userName: string;
-  postCreationTime: string;
-  src: string;
-  content: string;
-  commentCount: number;
-  likeCount: number;
-  isLiked: boolean;
-  link: string;
-  openProfile: () => void;
-  comment: () => void;
-  hashtags?: string[];
-  children?: ReactNode;
-}
+import { PostProps } from '../../models';
 
 export const Post: FC<PostProps> = ({
   name,

@@ -1,24 +1,8 @@
 import React, { FC, useMemo, useState } from 'react';
-import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
 import { Icon } from '../../Components/Icon';
 import { Interaction } from '../../Components/Interaction';
-import { IconColor, IconHoverColor, TextColor, TextHoverColor } from '../../models';
-interface ProfileCardProps {
-  name: string;
-  userName: string;
-  profileImage: string;
-  profilePicture: string;
-  location: string;
-  calendarText: string;
-  profileText: string;
-  openProfile: () => void;
-  followed: boolean;
-  onFollow: () => void;
-  onEdit: () => void;
-}
-
-const iconClose = 'close';
-const iconEdit = 'edit';
+import { IconColor, IconHoverColor, ProfileCardProps, TextColor, TextHoverColor } from '../../models';
+import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
 
 export const ProfileCard: FC<ProfileCardProps> = ({
   name,
@@ -59,7 +43,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           <img src={profileImage} alt="" className="ease-in-out duration-200 hover:opacity-50" />
           <div className={`absolute inset-1/2 ${showEditIcon ? '' : 'hidden'}`}>
             <div className="animate-icontilt">
-              <Icon id={iconEdit} size={32} color={IconColor.White} />
+              <Icon id="edit" size={32} color={IconColor.White} />
             </div>
           </div>
         </div>
@@ -105,12 +89,12 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         {followed && <div className="pr-4 pt-2 text-slate-400">Du folgst Damian Carduff</div>}
         <button
           onClick={onFollow}
-          className={`border border-solid rounded-md px-4 py-2 flex border-2 border-slate-600 ${buttonClasses.classes}`}
+          className={`border-2 border-solid rounded-md px-4 py-2 flex border-slate-600 ${buttonClasses.classes}`}
         >
           <div className="fwhitespace-nowrap">{buttonClasses.text}</div>
           {followed && (
             <div className="pt-1 pl-4">
-              <Icon id={iconClose} size={16} color={IconColor.White} />
+              <Icon id="close" size={16} color={IconColor.White} />
             </div>
           )}
         </button>

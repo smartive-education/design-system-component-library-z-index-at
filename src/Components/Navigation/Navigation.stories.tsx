@@ -3,7 +3,7 @@ import React from 'react';
 import { Navigation } from './Navigation';
 
 export default {
-  title: 'Navigation',
+  title: 'Composition/Navigation',
   component: Navigation,
   parameters: {
     backgrounds: { default: 'grey' },

@@ -1,6 +1,7 @@
 import { FormEvent, ReactNode } from 'react';
 import {
   ActionBackGroundColor,
+  AvatarSize,
   ButtonColor,
   ButtonSize,
   ButtonType,
@@ -138,4 +139,69 @@ export interface FileUploadModalProps {
   label: string;
   closeFn: () => void;
   submitFn: (file: File) => void;
+}
+
+export interface NavigationProps {
+  profilePictureSrc: string;
+  navigateToFeed: () => void;
+  navigateToProfile: () => void;
+  openSettings: () => void;
+  logout: () => void;
+}
+
+export interface PostProps {
+  name: string;
+  userName: string;
+  postCreationTime: string;
+  src: string;
+  content: string;
+  commentCount: number;
+  likeCount: number;
+  isLiked: boolean;
+  link: string;
+  openProfile: () => void;
+  comment: () => void;
+  hashtags?: string[];
+  children?: ReactNode;
+}
+
+export interface ProfileHeaderProps {
+  name: string;
+  userName: string;
+  src: string;
+  size: AvatarSize;
+  location?: string;
+  memberSince?: string;
+  postCreationTime?: string;
+  openProfile: () => void;
+}
+
+export interface ProfilePictureProps {
+  name: string;
+  src?: string;
+  size: AvatarSize;
+  edit?: boolean;
+  onClick?: () => void;
+  onEdit?: () => void;
+}
+
+export interface ProfileCardProps {
+  name: string;
+  userName: string;
+  profileImage: string;
+  profilePicture: string;
+  location: string;
+  calendarText: string;
+  profileText: string;
+  openProfile: () => void;
+  followed: boolean;
+  onFollow: () => void;
+  onEdit: () => void;
+}
+
+export interface UserWidgetProps {
+  name: string;
+  username: string;
+  src: string;
+  onClick?: () => void;
 }

@@ -5,6 +5,17 @@ import { ProfilePicture } from './ProfilePicture';
 export default {
   title: 'Basic/ProfilePicture',
   component: ProfilePicture,
+  argTypes: {
+    edit: {
+      control: {
+        options: [true, false],
+        type: 'radio',
+      },
+    },
+    src: {
+      control: false,
+    },
+  },
 } as ComponentMeta<typeof ProfilePicture>;
 
 const Template: ComponentStory<typeof ProfilePicture> = (args) => <ProfilePicture {...args} />;
