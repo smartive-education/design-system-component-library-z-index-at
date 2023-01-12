@@ -23,7 +23,7 @@ export const Interaction: FC<InteractionProps> = ({
         size === 'standard' ? 'px-3 py-2 font-semibold max-h-9' : 'mr-4'
       }`}
     >
-      <Icon id={iconId} size={size === 'standard' ? 16 : 12} color={iconColor} hoverColor={iconHoverColor} />
+      <Icon id={iconId} size={size === 'standard' ? 16 : 14} color={iconColor} hoverColor={iconHoverColor} />
       <span className={`inline-block text-inherit ${size === 'standard' ? 'pl-1' : 'pl-0.5 text-base font-semibold'}`}>
         {value}
       </span>

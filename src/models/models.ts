@@ -5,6 +5,7 @@ export type InputType = 'text' | 'password' | 'email' | 'textarea';
 export type InteractionSize = 'small' | 'standard';
 export type EffectSize = 'normal' | 'large';
 export type AvatarSize = 'small' | 'medium' | 'large';
+export type IconSize = 14 | 16 | 20 | 24 | 30 | 40 | 64;
 
 export enum IconColor {
   LightGray = 'fill-slate-400',

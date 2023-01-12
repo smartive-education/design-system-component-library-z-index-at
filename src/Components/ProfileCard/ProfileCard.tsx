@@ -43,7 +43,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           <img src={profileImage} alt="" className="ease-in-out duration-200 hover:opacity-50" />
           <div className={`absolute inset-1/2 ${showEditIcon ? '' : 'hidden'}`}>
             <div className="animate-icontilt">
-              <Icon id="edit" size={32} color={IconColor.White} />
+              <Icon id="edit" size={30} color={IconColor.White} />
             </div>
           </div>
         </div>

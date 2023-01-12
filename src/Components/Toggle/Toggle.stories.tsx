@@ -5,6 +5,11 @@ import { Toggle } from './Toggle';
 export default {
   title: 'Basic/Toggle',
   component: Toggle,
+  argTypes: {
+    isToggleOn: {
+      control: false,
+    },
+  },
 } as ComponentMeta<typeof Toggle>;
 
 const Template: ComponentStory<typeof Toggle> = (args) => <Toggle {...args} />;

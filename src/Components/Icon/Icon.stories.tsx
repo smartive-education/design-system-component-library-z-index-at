@@ -1,6 +1,6 @@
 import React, { ComponentMeta } from '@storybook/react';
 import { Icon } from './Icon';
-import { IconColor, IconHoverColor, IconProps } from '../../models';
+import { IconColor, IconHoverColor, IconProps, IconSize } from '../../models';
 
 export default {
   title: 'Basic/Icon',
@@ -34,7 +34,7 @@ export default {
   },
 } as ComponentMeta<typeof Icon>;
 
-const sizes = [14, 32, 64];
+const sizes: IconSize[] = [14, 30, 64];
 
 const IconVariantTemplate = (args: IconProps) => (
   <ul className="flex group">
@@ -91,7 +91,7 @@ const IconListTemplate = () => (
   <ul>
     {iconIds.map((id) => (
       <li key={id} className="flex items-center pb-2">
-        <Icon size={20} id={id} color={IconColor.Violet} />
+        <Icon size={24} id={id} color={IconColor.Violet} />
         <span className="pl-4">{id}</span>
       </li>
     ))}

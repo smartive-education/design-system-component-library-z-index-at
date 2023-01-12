@@ -8,6 +8,7 @@ import {
   EffectSize,
   IconColor,
   IconHoverColor,
+  IconSize,
   InputType,
   InteractionSize,
   TextColor,
@@ -73,7 +74,7 @@ export interface FileInputProps {
 
 export interface IconProps {
   id: string;
-  size?: number;
+  size?: IconSize;
   color?: IconColor;
   hoverColor?: IconHoverColor;
   spritePath?: string;
