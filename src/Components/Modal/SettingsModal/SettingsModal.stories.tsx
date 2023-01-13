@@ -4,10 +4,21 @@ import { Navigation } from '../../Navigation';
 import { SettingsModal } from './SettingsModal';
 
 export default {
-  title: 'SettingsModal',
+  title: 'Template/SettingsModal',
   component: SettingsModal,
   parameters: {
     backgrounds: { default: 'grey' },
+    docs: {
+      description: {
+        component:
+          'SettingsModal is just a Template, meaning it is not exported from the lib as a standalone component. It only serves presentation and design purposes. Modal opens when Settings (cog) is clicked. Header is not a part of this story, it only serves the interactivity.',
+      },
+    },
+  },
+  argTypes: {
+    isOpen: {
+      control: false,
+    },
   },
 } as ComponentMeta<typeof SettingsModal>;
 
@@ -25,7 +36,7 @@ const Template: ComponentStory<typeof SettingsModal> = (args) => {
         logout={noop}
         openSettings={() => setIsOpen(true)}
       />
-      <SettingsModal {...args} isOpen={isOpen} closeFn={() => setIsOpen(false)} />
+      <SettingsModal {...args} isOpen={isOpen} closeFn={() => setIsOpen(false)} submitFn={() => setIsOpen(false)} />
     </div>
   );
 };

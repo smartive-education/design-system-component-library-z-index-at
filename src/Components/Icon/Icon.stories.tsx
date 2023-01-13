@@ -1,18 +1,46 @@
 import React, { ComponentMeta } from '@storybook/react';
-import { Icon, IconColor } from './Icon';
+import { Icon } from './Icon';
+import { IconColor, IconHoverColor, IconProps, IconSize } from '../../models';
 
 export default {
-  title: 'Icon',
+  title: 'Basic/Icon',
   component: Icon,
+  argTypes: {
+    color: {
+      options: Object.values(IconColor),
+      control: {
+        type: 'radio',
+        labels: Object.keys(IconColor).reduce((result, key: string) => {
+          result[IconColor[key]] = key;
+          return result;
+        }, {}),
+      },
+    },
+    hoverColor: {
+      options: Object.values(IconHoverColor),
+      control: {
+        type: 'radio',
+        labels: Object.keys(IconHoverColor).reduce((result, key: string) => {
+          result[IconHoverColor[key]] = key;
+          return result;
+        }, {}),
+      },
+    },
+    size: {
+      control: {
+        type: 'number',
+      },
+    },
+  },
 } as ComponentMeta<typeof Icon>;
 
-const sizes = [14, 32, 64];
+const sizes: IconSize[] = [14, 30, 64];
 
-const IconVariantTemplate = (args) => (
-  <ul className="flex">
+const IconVariantTemplate = (args: IconProps) => (
+  <ul className="flex group">
     {sizes.map((size) => (
       <li className="px-4 flex">
-        <Icon size={size} id={args.id} color={args.color} />
+        <Icon size={args.size || size} id={args.id} color={args.color} hoverColor={args.hoverColor} />
       </li>
     ))}
   </ul>
@@ -22,11 +50,13 @@ export const Close = IconVariantTemplate.bind({});
 Close.args = {
   id: 'close',
   color: IconColor.Pink,
+  hoverColor: IconHoverColor.DarkPink,
 };
 export const Eyes = IconVariantTemplate.bind({});
 Eyes.args = {
   id: 'eye',
   color: IconColor.Gray,
+  hoverColor: IconHoverColor.DarkPink,
 };
 
 const iconIds = [
@@ -51,7 +81,6 @@ const iconIds = [
   'refresh',
   'share',
   'settings',
-  'profile',
   'time',
   'upload',
   'send',
@@ -61,8 +90,8 @@ const iconIds = [
 const IconListTemplate = () => (
   <ul>
     {iconIds.map((id) => (
-      <li className="flex items-center pb-2">
-        <Icon size={20} id={id} color={IconColor.Violet} />
+      <li key={id} className="flex items-center pb-2">
+        <Icon size={24} id={id} color={IconColor.Violet} />
         <span className="pl-4">{id}</span>
       </li>
     ))}

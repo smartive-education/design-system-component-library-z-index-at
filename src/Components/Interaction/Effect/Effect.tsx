@@ -1,19 +1,13 @@
 import React, { FC } from 'react';
-import { Icon, IconColor, IconHoverColor } from '../../Icon';
-import { BackGroundColor, TextColor, TextHoverColor } from '../Interaction';
-
-export type EffectSize = 'normal' | 'large';
-
-export interface EffectProps {
-  iconId: string;
-  label: string;
-  size: EffectSize;
-  effect: string;
-  squared: boolean;
-  secondaryIcon?: string;
-  backgroundColor?: BackGroundColor;
-  navigate: () => void;
-}
+import {
+  ActionBackGroundColor,
+  EffectProps,
+  IconColor,
+  IconHoverColor,
+  TextColor,
+  TextHoverColor,
+} from '../../../models';
+import { Icon } from '../../Icon';
 
 export const Effect: FC<EffectProps> = ({
   iconId,
@@ -30,7 +24,7 @@ export const Effect: FC<EffectProps> = ({
       onClick={navigate}
       className={`group flex items-center rounded-lg
         ${squared ? 'flex-col' : 'flex-row'}
-        ${backgroundColor || BackGroundColor.None} ${squared ? 'p-3' : ''}
+        ${backgroundColor || ActionBackGroundColor.None} ${squared ? 'p-3' : ''}
       ${TextColor.White} ${TextHoverColor.White}
       ${size === 'large' ? 'text-3xl font-bold' : 'text-base'}`}
     >

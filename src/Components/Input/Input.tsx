@@ -1,23 +1,9 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { Icon, IconColor } from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
 import { defaultErrorMessages, getTranslationKeyForError } from './input-validation.helpers';
+import { InputProps, InputType, IconColor } from '../../models';
 import { Typography } from '../Typography';
-
-export type InputType = 'text' | 'password' | 'email' | 'textarea';
-export interface InputProps {
-  label: string;
-  name: string;
-  type: InputType;
-  required: boolean;
-  validationTrigger: number;
-  errorTranslations?: Record<string, string>;
-  minLength?: number;
-  maxLength?: number;
-  pattern?: string;
-  placeholder?: string;
-}
-
 interface InputState {
   value: string;
   errorMessage: string;

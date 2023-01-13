@@ -3,8 +3,14 @@ import React from 'react';
 import { ProfileHeader } from './ProfileHeader';
 
 export default {
-  title: 'ProfileHeader',
+  title: 'Basic/ProfileHeader',
   component: ProfileHeader,
+  argTypes: {
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'radio' },
+    },
+  },
 } as ComponentMeta<typeof ProfileHeader>;
 
 const Template: ComponentStory<typeof ProfileHeader> = (args) => (

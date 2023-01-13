@@ -22,7 +22,7 @@ export function isFileExtensionValid(selectedFilePath: string, allowedExtensions
 }
 
 export const emailPattern = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$";
-export const passwordPattern = '(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}';
+export const passwordPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$';
 export const defaultFileSize = 5;
 export const defaultExtensions = /(\.jpg|\.jpeg|\.png)$/i;
 

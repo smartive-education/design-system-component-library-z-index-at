@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { BackGroundColor } from '../Interaction';
+import { ActionBackGroundColor } from '../../../models';
 import { Effect } from './Effect';
 
 export default {
-  title: 'Effect',
+  title: 'Composition/Effect',
   component: Effect,
   parameters: {
     backgrounds: { default: 'violet' },
@@ -28,7 +28,7 @@ Settings.args = {
   size: 'normal',
   squared: true,
   effect: 'group-hover:rotate-180 ease-out duration-500',
-  backgroundColor: BackGroundColor.DarkViolet,
+  backgroundColor: ActionBackGroundColor.DarkViolet,
 };
 
 export const Logout = Template.bind({});
@@ -38,6 +38,6 @@ Logout.args = {
   label: 'Logout',
   size: 'normal',
   squared: true,
-  backgroundColor: BackGroundColor.DarkViolet,
+  backgroundColor: ActionBackGroundColor.DarkViolet,
   effect: 'transition-all ease-in duration-800',
 };

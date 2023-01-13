@@ -12,8 +12,8 @@ module.exports = {
             transform: 'rotate(20deg)',
           },
           '100%': {
-           transform: 'rotate(0deg)',
-          }
+            transform: 'rotate(0deg)',
+          },
         },
         textintro: {
           '0%': {

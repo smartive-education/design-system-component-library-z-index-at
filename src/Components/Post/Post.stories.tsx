@@ -3,7 +3,7 @@ import React from 'react';
 import { Post } from './Post';
 
 export default {
-  title: 'Post',
+  title: 'Composition/Post',
   component: Post,
   parameters: {
     backgrounds: { default: 'grey' },

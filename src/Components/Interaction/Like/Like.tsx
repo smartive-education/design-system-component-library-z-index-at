@@ -1,11 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
-import { IconColor, IconHoverColor } from '../../Icon/Icon';
-import { BackGroundColor, Interaction, TextColor, TextHoverColor } from '../Interaction';
-
-export interface LikeProps {
-  value: number;
-  isLiked: boolean;
-}
+import { Interaction } from '../Interaction';
+import {
+  ActionBackGroundColor,
+  IconColor,
+  IconHoverColor,
+  LikeProps,
+  TextColor,
+  TextHoverColor,
+} from '../../../models';
 
 export const Like: FC<LikeProps> = ({ value, isLiked }) => {
   const [currentValue, setCurrentValue] = useState(value);
@@ -40,7 +42,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked }) => {
           textColor={currentValue === 0 ? TextColor.Gray : TextColor.DarkPink}
           iconHoverColor={IconHoverColor.Pink}
           textHoverColor={TextHoverColor.Pink}
-          backgroundColor={BackGroundColor.Pink}
+          backgroundColor={ActionBackGroundColor.Pink}
           size="standard"
           onClickFn={toggleLikedStatus}
         />
@@ -54,7 +56,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked }) => {
           textColor={currentValue === 0 ? TextColor.Gray : TextColor.DarkPink}
           iconHoverColor={IconHoverColor.Pink}
           textHoverColor={TextHoverColor.Pink}
-          backgroundColor={BackGroundColor.Pink}
+          backgroundColor={ActionBackGroundColor.Pink}
           size="standard"
           onClickFn={toggleLikedStatus}
         />

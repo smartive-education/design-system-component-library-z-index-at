@@ -1,30 +1,27 @@
 import React, { FC, FormEvent, useEffect, useState } from 'react';
 import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
-import { emailPattern, passwordPattern } from '../Input/input-validation.helpers';
+import { defaultErrorMessages, emailPattern, passwordPattern } from '../Input/input-validation.helpers';
+import { FormProps } from '../../models';
 import { Typography } from '../Typography';
 
-export interface FormProps {
-  isRegistered: boolean;
-  loginFn: () => void;
-  registerFn: () => void;
-}
-
-// TODO: Translate texts
-export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) => {
-  const [showLogin, setShowLogin] = useState(isRegistered);
+export const EntryForm: FC<FormProps> = ({
+  isRegistered,
+  errorTranslations = defaultErrorMessages,
+  loginFn,
+  registerFn,
+}) => {
+  const [isLogin, setIsLogin] = useState(isRegistered);
   const [validationTrigger, setValidationTrigger] = useState(0);
 
-  useEffect(() => setShowLogin(() => isRegistered), [isRegistered]);
+  useEffect(() => setIsLogin(() => isRegistered), [isRegistered]);
 
   const login = (event: FormEvent): void => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     setValidationTrigger((trigger) => trigger + 1);
     if (form.checkValidity()) {
-      loginFn();
-      console.log(`Email: ${(form.elements.namedItem('login-email') as HTMLInputElement).value}`);
-      console.log(`Password: ${(form.elements.namedItem('login-password') as HTMLInputElement).value}`);
+      loginFn(form);
     }
   };
   const register = (event: FormEvent): void => {
@@ -32,22 +29,18 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
     const form = event.target as HTMLFormElement;
     setValidationTrigger((trigger) => trigger + 1);
     if (form.checkValidity()) {
-      registerFn();
-      console.log(`Name: ${(form.elements.namedItem('register-name') as HTMLInputElement).value}`);
-      console.log(`User: ${(form.elements.namedItem('register-user') as HTMLInputElement).value}`);
-      console.log(`Email: ${(form.elements.namedItem('register-email') as HTMLInputElement).value}`);
-      console.log(`Password: ${(form.elements.namedItem('register-password') as HTMLInputElement).value}`);
+      registerFn(form);
     }
   };
 
   const changeLayout = (): void => {
-    setShowLogin((showLogin) => !showLogin);
+    setIsLogin((isLogin) => !isLogin);
     setValidationTrigger(() => 0);
   };
 
   return (
     <>
-      {showLogin ? (
+      {isLogin ? (
         <div>
           <form onSubmit={login} className="grid sm:grid-cols-5 mb-6" noValidate>
             <h1 className="sm:col-start-2 sm:col-end-5 mb-6 font-bold text-5xl">Anmelden</h1>
@@ -60,6 +53,7 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
                 required={true}
                 validationTrigger={validationTrigger}
                 pattern={emailPattern}
+                errorTranslations={errorTranslations}
               />
               <Input
                 key="login-password"
@@ -69,6 +63,7 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
                 required={true}
                 validationTrigger={validationTrigger}
                 pattern={passwordPattern}
+                errorTranslations={errorTranslations}
               />
             </div>
             <div className="sm:col-start-2 sm:col-end-5">
@@ -101,6 +96,7 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
                 type="text"
                 required={false}
                 validationTrigger={validationTrigger}
+                errorTranslations={errorTranslations}
               />
               <Input
                 key="register-user"
@@ -109,6 +105,7 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
                 type="text"
                 required={true}
                 validationTrigger={validationTrigger}
+                errorTranslations={errorTranslations}
               />
               <Input
                 key="register-email"
@@ -118,6 +115,7 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
                 required={true}
                 validationTrigger={validationTrigger}
                 pattern={emailPattern}
+                errorTranslations={errorTranslations}
               />
               <Input
                 key="register-password"
@@ -127,6 +125,7 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
                 required={true}
                 validationTrigger={validationTrigger}
                 pattern={passwordPattern}
+                errorTranslations={errorTranslations}
               />
             </div>
             <div className="sm:col-start-2 sm:col-end-5">

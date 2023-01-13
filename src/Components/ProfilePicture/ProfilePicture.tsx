@@ -1,17 +1,6 @@
 import React, { FC, useCallback } from 'react';
-
-import { Icon, IconColor } from '../Icon';
-
-export type AvatarSize = 'small' | 'medium' | 'large';
-
-interface ProfilePictureProps {
-  name: string;
-  src?: string;
-  size: AvatarSize;
-  edit?: boolean;
-  onClick?: () => void;
-  onEdit?: () => void;
-}
+import { IconColor, ProfilePictureProps } from '../../models';
+import { Icon } from '../Icon';
 
 export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src = '', size, edit = false, onClick, onEdit }) => {
   const getClasses = useCallback((size: string) => {

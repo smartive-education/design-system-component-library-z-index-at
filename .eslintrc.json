@@ -10,7 +10,7 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "ignorePatterns": ["**/*.stories.tsx", "dist/**/*", "src/**/*.spec.ts"],
+  "ignorePatterns": ["**/*.stories.tsx", "dist/**/*", "src/**/*.spec.ts", "src/Components/Modal/SettingsModal/*"],
   "plugins": ["react"],
   "rules": {
     "@typescript-eslint/strict-boolean-expressions": "off",

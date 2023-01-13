@@ -1,15 +1,7 @@
 import React, { FC } from 'react';
-import { BackGroundColor } from '../Interaction';
+import { ActionBackGroundColor, NavigationProps } from '../../models';
 import { Effect } from '../Interaction/Effect';
 import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
-
-export interface NavigationProps {
-  profilePictureSrc: string;
-  navigateToFeed: () => void;
-  navigateToProfile: () => void;
-  openSettings: () => void;
-  logout: () => void;
-}
 
 export const Navigation: FC<NavigationProps> = ({
   profilePictureSrc,
@@ -51,7 +43,7 @@ export const Navigation: FC<NavigationProps> = ({
             size="normal"
             effect="group-hover:rotate-180 ease-out duration-500"
             squared={true}
-            backgroundColor={BackGroundColor.DarkViolet}
+            backgroundColor={ActionBackGroundColor.DarkViolet}
             navigate={openSettings}
           />
         </div>
@@ -63,7 +55,7 @@ export const Navigation: FC<NavigationProps> = ({
             size="normal"
             effect="transition-all ease-in duration-800"
             squared={true}
-            backgroundColor={BackGroundColor.DarkViolet}
+            backgroundColor={ActionBackGroundColor.DarkViolet}
             navigate={logout}
           />
         </div>
