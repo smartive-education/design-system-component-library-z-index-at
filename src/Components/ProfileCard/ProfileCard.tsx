@@ -2,6 +2,7 @@ import React, { FC, useMemo, useState } from 'react';
 import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
 import { Icon, IconColor, IconHoverColor } from '../../Components/Icon';
 import { Interaction, TextColor, TextHoverColor } from '../../Components/Interaction';
+import { Typography } from '../Typography';
 interface ProfileCardProps {
   name: string;
   userName: string;
@@ -97,7 +98,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           size="small"
         />
       </div>
-      <div className="pt-4 text-slate-400">{profileText}</div>
+      <div className="pt-4"><Typography>{profileText}</Typography></div>
       <div className="flex justify-end pt-10">
         {followed && <div className="pr-4 pt-2 text-slate-400">Du folgst Damian Carduff</div>}
         <button

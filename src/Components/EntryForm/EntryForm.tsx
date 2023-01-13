@@ -2,6 +2,7 @@ import React, { FC, FormEvent, useEffect, useState } from 'react';
 import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
 import { emailPattern, passwordPattern } from '../Input/input-validation.helpers';
+import { Typography } from '../Typography';
 
 export interface FormProps {
   isRegistered: boolean;
@@ -91,7 +92,7 @@ export const EntryForm: FC<FormProps> = ({ isRegistered, loginFn, registerFn }) 
       ) : (
         <div>
           <form onSubmit={register} className="grid sm:grid-cols-5 mb-6" noValidate>
-            <h1 className="sm:col-start-2 sm:col-end-5 mb-6 font-bold text-5xl">Registrieren</h1>
+            <div className="sm:col-start-2 sm:col-end-5 mb-6 "><Typography type="h1">Registrieren</Typography></div>
             <div className="sm:col-start-2 sm:col-end-5 mb-6">
               <Input
                 key="register-name"
