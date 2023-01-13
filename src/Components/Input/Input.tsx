@@ -88,7 +88,7 @@ export const Input: FC<InputProps> = ({
 
   return (
     <div className={`flex flex-col ${inputState.errorMessage ? '' : 'mb-4'}`}>
-      <Typography type="label" htmlFor={inputId}>
+      <Typography type="label-m" htmlFor={inputId}>
         {label}
       </Typography>
       <div className="relative">

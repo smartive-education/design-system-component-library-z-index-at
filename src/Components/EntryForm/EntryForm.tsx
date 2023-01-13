@@ -87,7 +87,9 @@ export const EntryForm: FC<FormProps> = ({
       ) : (
         <div>
           <form onSubmit={register} className="grid sm:grid-cols-5 mb-6" noValidate>
-            <div className="sm:col-start-2 sm:col-end-5 mb-6 "><Typography type="h1">Registrieren</Typography></div>
+            <div className="sm:col-start-2 sm:col-end-5 mb-6 ">
+              <Typography type="h1">Registrieren</Typography>
+            </div>
             <div className="sm:col-start-2 sm:col-end-5 mb-6">
               <Input
                 key="register-name"

@@ -85,7 +85,9 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           size="small"
         />
       </div>
-      <div className="pt-4"><Typography>{profileText}</Typography></div>
+      <div className="pt-4">
+        <Typography>{profileText}</Typography>
+      </div>
       <div className="flex justify-end pt-10">
         {followed && <div className="pr-4 pt-2 text-slate-400">Du folgst Damian Carduff</div>}
         <button
