@@ -1,12 +1,29 @@
 import React, { ComponentMeta, ComponentStory } from '@storybook/react';
+import { FileInputProps } from '../../../models';
 import { FileInput } from './FileInput';
 
 export default {
-  title: 'FileInput',
+  title: 'Basic/FileInput',
   component: FileInput,
+  argTypes: {
+    allowedExtensions: {
+      options: ['.pdf', '.jpg', '.png'],
+      control: {
+        type: 'select',
+      },
+    },
+    allowedFileSize: {
+      control: {
+        type: 'number',
+      },
+    },
+    errorTranslations: {
+      control: false,
+    },
+  },
 } as ComponentMeta<typeof FileInput>;
 
-const Template: ComponentStory<typeof FileInput> = (args) => <FileInput {...args} />;
+const Template: ComponentStory<typeof FileInput> = (args: FileInputProps) => <FileInput {...args} />;
 
 export const DragAndDrop = Template.bind({});
 DragAndDrop.args = {

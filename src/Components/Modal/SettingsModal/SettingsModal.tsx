@@ -2,12 +2,7 @@ import React, { FC, FormEvent, useState } from 'react';
 import { emailPattern, passwordPattern } from '../../../Components/Input/input-validation.helpers';
 import { Input } from '../../Input';
 import { Modal } from '../Modal';
-
-export interface SettingsModalProps {
-  isOpen: boolean;
-  closeFn: () => void;
-  submitFn: () => void;
-}
+import { SettingsModalProps } from '../../../models';
 
 export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, closeFn, submitFn }) => {
   const [validationTrigger, setValidationTrigger] = useState(0);

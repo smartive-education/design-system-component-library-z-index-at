@@ -1,23 +1,9 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import { Like } from '../Interaction/Like/Like';
 import { Share } from '../Interaction/Share/Share';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
 import { Comment } from '../Interaction/Comment';
-
-export interface PostProps {
-  name: string;
-  userName: string;
-  postCreationTime: string;
-  src: string;
-  content: string;
-  commentCount: number;
-  likeCount: number;
-  isLiked: boolean;
-  link: string;
-  openProfile: () => void;
-  hashtags?: string[];
-  children?: ReactNode;
-}
+import { PostProps } from '../../models';
 
 export const Post: FC<PostProps> = ({
   name,
@@ -29,9 +15,10 @@ export const Post: FC<PostProps> = ({
   likeCount,
   isLiked,
   link,
-  openProfile,
   hashtags,
   children,
+  openProfile,
+  comment,
 }) => {
   return (
     <div className="py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl">
@@ -70,7 +57,7 @@ export const Post: FC<PostProps> = ({
       )}
       <div className="flex md:grid md:grid-cols-12 relative -left-3">
         <div className="md:col-span-4 truncate">
-          <Comment value={commentCount} />
+          <Comment value={commentCount} clickFn={comment} />
         </div>
         <div className="md:col-span-3 truncate">
           <Like value={likeCount} isLiked={isLiked} />

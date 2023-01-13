@@ -1,18 +1,7 @@
 import React, { FC } from 'react';
-import { AvatarSize, ProfilePicture } from '../../ProfilePicture';
-import { IconColor, IconHoverColor } from '../../../Components/Icon';
-import { Interaction, TextColor, TextHoverColor } from '../../../Components/Interaction';
-
-export interface ProfileHeaderProps {
-  name: string;
-  userName: string;
-  src: string;
-  size: AvatarSize;
-  location?: string;
-  memberSince?: string;
-  postCreationTime?: string;
-  openProfile: () => void;
-}
+import { Interaction } from '../../../Components/Interaction';
+import { IconColor, IconHoverColor, ProfileHeaderProps, TextColor, TextHoverColor } from '../../../models';
+import { ProfilePicture } from '../../ProfilePicture';
 
 export const ProfileHeader: FC<ProfileHeaderProps> = ({
   name,

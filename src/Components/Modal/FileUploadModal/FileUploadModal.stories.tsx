@@ -4,10 +4,21 @@ import { ProfilePicture } from '../../ProfilePicture/ProfilePicture';
 import { FileUploadModal } from './FileUploadModal';
 
 export default {
-  title: 'FileUploadModal',
+  title: 'Composition/FileUploadModal',
   component: FileUploadModal,
   parameters: {
     backgrounds: { default: 'grey' },
+    docs: {
+      description: {
+        component:
+          'Modal opens when Edit (pen) is clicked. Profile Picture is not a part of this story, it only serves the interactivity.',
+      },
+    },
+  },
+  argTypes: {
+    isOpen: {
+      control: false,
+    },
   },
 } as ComponentMeta<typeof FileUploadModal>;
 

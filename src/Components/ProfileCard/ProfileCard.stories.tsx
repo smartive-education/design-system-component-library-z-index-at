@@ -3,7 +3,7 @@ import React from 'react';
 import { ProfileCard } from './ProfileCard';
 
 export default {
-  title: 'ProfileCard',
+  title: 'Composition/ProfileCard',
   component: ProfileCard,
 } as ComponentMeta<typeof ProfileCard>;
 

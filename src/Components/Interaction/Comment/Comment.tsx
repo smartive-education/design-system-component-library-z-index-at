@@ -1,17 +1,15 @@
 import React, { FC } from 'react';
-import { IconColor, IconHoverColor } from '../../Icon/Icon';
-import { BackGroundColor, Interaction, TextColor, TextHoverColor } from '../Interaction';
+import {
+  ActionBackGroundColor,
+  CommentProps,
+  IconColor,
+  IconHoverColor,
+  TextColor,
+  TextHoverColor,
+} from '../../../models';
+import { Interaction } from '../Interaction';
 
-export interface CommentProps {
-  value: number;
-}
-
-export const Comment: FC<CommentProps> = ({ value }) => {
-  const navigateToComments = (): void => {
-    console.log('Navigate to comments');
-  }; // TODO implement navigation
-
-  // TODO add translation for label
+export const Comment: FC<CommentProps> = ({ value, clickFn }) => {
   return (
     <div>
       <div className="hidden md:block">
@@ -23,9 +21,9 @@ export const Comment: FC<CommentProps> = ({ value }) => {
           textColor={TextColor.Gray}
           iconHoverColor={IconHoverColor.Violet}
           textHoverColor={TextHoverColor.Violet}
-          backgroundColor={BackGroundColor.Violet}
+          backgroundColor={ActionBackGroundColor.Violet}
           size="standard"
-          onClickFn={navigateToComments}
+          onClickFn={clickFn}
         />
       </div>
       <div className="block md:hidden">
@@ -37,9 +35,9 @@ export const Comment: FC<CommentProps> = ({ value }) => {
           textColor={TextColor.Gray}
           iconHoverColor={IconHoverColor.Violet}
           textHoverColor={TextHoverColor.Violet}
-          backgroundColor={BackGroundColor.Violet}
+          backgroundColor={ActionBackGroundColor.Violet}
           size="standard"
-          onClickFn={navigateToComments}
+          onClickFn={clickFn}
         />
       </div>
     </div>

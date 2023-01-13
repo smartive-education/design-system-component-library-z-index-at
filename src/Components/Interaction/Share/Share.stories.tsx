@@ -3,7 +3,7 @@ import React from 'react';
 import { Share } from './Share';
 
 export default {
-  title: 'Share',
+  title: 'Composition/Share',
   component: Share,
 } as ComponentMeta<typeof Share>;
 

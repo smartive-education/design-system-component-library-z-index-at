@@ -1,26 +1,8 @@
 import React, { FC, useMemo } from 'react';
+import { ButtonProps, IconColor } from '../../models';
+import { Icon } from '../Icon';
 
-import { Icon, IconColor } from '../Icon';
-
-export type ButtonType = 'button' | 'submit' | 'reset';
-
-interface ButtonProps {
-  id: string;
-  label: string;
-  icon: string;
-  type?: ButtonType;
-  color?: string;
-  size?: string;
-  onClick?: () => void;
-}
-
-const defaultProps: Partial<ButtonProps> = {
-  type: 'button',
-  color: 'Slate',
-  size: 'L',
-};
-
-export const Button: FC<ButtonProps> = ({ label, id, type, color, size, icon, onClick }) => {
+export const Button: FC<ButtonProps> = ({ label, id, type = 'button', color = 'Slate', size = 'L', icon, onClick }) => {
   const colorClasses = useMemo(() => {
     if (color === 'Violet') {
       return 'bg-violet-600 focus:border-violet-200 hover:bg-violet-700';
@@ -29,7 +11,7 @@ export const Button: FC<ButtonProps> = ({ label, id, type, color, size, icon, on
       return 'bg-gradient-to-r from-pink-500 to-violet-600 focus:border-violet-200 hover:bg-gradient-to-r hover:from-pink-600 hover:to-violet-700';
     }
     return 'bg-slate-600 focus:border-slate-200 hover:bg-slate-700';
-  }, [type]);
+  }, [color]);
 
   const sizeClasses = useMemo(() => {
     if (size === 'M') {
@@ -63,5 +45,3 @@ export const Button: FC<ButtonProps> = ({ label, id, type, color, size, icon, on
     </div>
   );
 };
-
-Button.defaultProps = defaultProps;
