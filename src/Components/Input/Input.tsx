@@ -17,7 +17,7 @@ export const Input: FC<InputProps> = ({
   name,
   type,
   required,
-  validationTrigger,
+  validationTrigger = 0, // Triggers the self-validation of the component from a parent component
   errorTranslations = defaultErrorMessages,
   minLength,
   maxLength,

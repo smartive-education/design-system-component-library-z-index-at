@@ -52,7 +52,7 @@ export interface InputProps {
   name: string;
   type: InputType;
   required: boolean;
-  validationTrigger: number;
+  validationTrigger?: number;
   errorTranslations?: Record<string, string>;
   minLength?: number;
   maxLength?: number;
