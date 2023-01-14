@@ -3,8 +3,13 @@ import React from 'react';
 import { Typography } from './Typography';
 
 export default {
-  title: 'Typography',
+  title: 'Basic/Typography',
   component: Typography,
+  argTypes: {
+    htmlFor: {
+      control: false,
+    },
+  }
 } as ComponentMeta<typeof Typography>;
 
 const Template: ComponentStory<typeof Typography> = (args) => (

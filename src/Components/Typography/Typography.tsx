@@ -1,23 +1,6 @@
 import React, { FC } from 'react';
 
-type Type =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'label-xl'
-  | 'label-l'
-  | 'label-m'
-  | 'label-s'
-  | 'paragraph-l'
-  | 'paragraph-m'
-  | 'placeholder';
-
-interface TypographyProps {
-  type?: Type;
-  children: string;
-  htmlFor?: string;
-}
+import { TypographyProps } from '../../models';
 
 export const Typography: FC<TypographyProps> = ({ type, children, htmlFor }) => {
   switch (type) {
