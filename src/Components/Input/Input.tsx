@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { v4 as uuid } from 'uuid';
 import { Icon } from '../Icon/Icon';
 import { defaultErrorMessages, getTranslationKeyForError } from './input-validation.helpers';
 import { InputProps, InputType, IconColor } from '../../models';
@@ -35,7 +34,7 @@ export const Input: FC<InputProps> = ({
   };
 
   const [inputState, setInputState] = useState(defaultInputState);
-  const inputId = uuid();
+  const inputId = name;
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {

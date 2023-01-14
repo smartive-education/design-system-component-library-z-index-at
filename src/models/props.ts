@@ -17,7 +17,6 @@ import {
 } from './models';
 
 export interface ButtonProps {
-  id: string;
   label: string;
   icon: string;
   type?: ButtonType;
@@ -27,14 +26,12 @@ export interface ButtonProps {
 }
 
 export interface ButtonGroupProps {
-  LId: string;
   LType?: ButtonType;
   LColor?: ButtonColor;
   LSize?: ButtonSize;
   LLabel: string;
   LIcon?: string;
   LOnClick: () => void;
-  RId: string;
   RType?: ButtonType;
   RColor?: ButtonColor;
   RSize?: ButtonSize;
@@ -130,7 +127,7 @@ export interface ModalProps {
 export interface SettingsModalProps {
   isOpen: boolean;
   closeFn: () => void;
-  submitFn: () => void;
+  submitFn: (form: HTMLFormElement) => void;
 }
 
 export interface FileUploadModalProps {

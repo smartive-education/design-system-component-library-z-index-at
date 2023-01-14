@@ -1,6 +1,5 @@
 import React, { FC, useRef, useState } from 'react';
 import { Button } from '../../Button/index';
-import { v4 as uuid } from 'uuid';
 import {
   defaultErrorMessages,
   defaultExtensions,
@@ -35,7 +34,6 @@ export const FileInput: FC<FileInputProps> = ({
   };
 
   const [fileInputState, setFileInputState] = useState(defaultFileInputState);
-  const inputId = uuid();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const forwardInputButtonClick = (): void => {
@@ -155,14 +153,13 @@ export const FileInput: FC<FileInputProps> = ({
       <div>
         <input
           ref={inputRef}
-          id={inputId}
           type="file"
           onChange={handleChange}
           accept="image/png, image/jpeg, image/jpg"
           multiple={false}
           className="hidden"
         />
-        <Button id="upload" label={label} icon="upload" size="M" onClick={forwardInputButtonClick} />
+        <Button label={label} icon="upload" size="M" onClick={forwardInputButtonClick} />
       </div>
       <span className="self-end text-rose-500 text-xs">{fileInputState.errorMessage}</span>
     </div>
