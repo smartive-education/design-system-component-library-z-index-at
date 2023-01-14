@@ -33,7 +33,7 @@ export const Button: FC<ButtonProps> = ({ label, type = 'button', color = 'Slate
         onClick={onClick}
         className={`w-full border border-solid border-slate-200 rounded-md
          text-white text-base
-        focus:outline-none focus:border-4
+        outline-none active:border-4
         leading-none ${colorClasses}`}
       >
         <div className={`flex place-content-center items-center ${sizeClasses.container}`}>
