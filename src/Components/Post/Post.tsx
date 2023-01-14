@@ -4,6 +4,7 @@ import { Share } from '../Interaction/Share/Share';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
 import { Comment } from '../Interaction/Comment';
 import { PostProps } from '../../models';
+import { Typography } from '../Typography';
 
 export const Post: FC<PostProps> = ({
   name,
@@ -42,7 +43,9 @@ export const Post: FC<PostProps> = ({
           openProfile={openProfile}
         />
       </div>
-      <p className="mb-4 md:text-2xl">{content}</p>
+      <div className="mb-4">
+        <Typography type="paragraph-l">{content}</Typography>
+      </div>
       {children && (
         <div className="mb-4 max-h-80 w-full border-1 border-transparent rounded-xl overflow-hidden object-contain">
           {children}

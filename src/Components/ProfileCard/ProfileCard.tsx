@@ -3,6 +3,7 @@ import { Icon } from '../../Components/Icon';
 import { Interaction } from '../../Components/Interaction';
 import { IconColor, IconHoverColor, ProfileCardProps, TextColor, TextHoverColor } from '../../models';
 import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
+import { Typography } from '../Typography';
 
 export const ProfileCard: FC<ProfileCardProps> = ({
   name,
@@ -84,7 +85,9 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           size="small"
         />
       </div>
-      <div className="pt-4 text-slate-400">{profileText}</div>
+      <div className="pt-4">
+        <Typography>{profileText}</Typography>
+      </div>
       <div className="flex justify-end pt-10">
         {followed && <div className="pr-4 pt-2 text-slate-400">Du folgst Damian Carduff</div>}
         <button

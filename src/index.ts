@@ -19,5 +19,5 @@ export * from './Components/Modal';
 export * from './Components/Modal/FileUploadModal';
 export * from './Components/WordSpinnerAnimation';
 export * from './Components/LandingPage';
+export * from './Components/Typography';
 export * from './Components/Toggle/index';
-export * from './models';

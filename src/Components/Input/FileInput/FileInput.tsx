@@ -140,7 +140,7 @@ export const FileInput: FC<FileInputProps> = ({
             <div>
               <Icon id="upload" color={IconColor.Gray} size={30} />
             </div>
-            <h4 className="text-2xl text-slate-500 font-semibold">{title}</h4>
+            <h2 className="text-2xl text-slate-500 font-semibold">{title}</h2>
             <p className="text-slate-400">{restrictions}</p>
           </div>
         ) : (

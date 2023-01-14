@@ -56,3 +56,16 @@ export enum ActionBackGroundColor {
   Gray = 'hover:bg-slate-100',
   None = '',
 }
+
+export type TypographyTypes =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'label-xl'
+  | 'label-l'
+  | 'label-m'
+  | 'label-s'
+  | 'paragraph-l'
+  | 'paragraph-m'
+  | 'placeholder';

@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { Icon } from '../Icon/Icon';
 import { defaultErrorMessages, getTranslationKeyForError } from './input-validation.helpers';
 import { InputProps, InputType, IconColor } from '../../models';
-
+import { Typography } from '../Typography';
 interface InputState {
   value: string;
   errorMessage: string;
@@ -88,9 +88,9 @@ export const Input: FC<InputProps> = ({
 
   return (
     <div className={`flex flex-col ${inputState.errorMessage ? '' : 'mb-4'}`}>
-      <label htmlFor={inputId} className="text-slate-700 font-semibold">
+      <Typography type="label-m" htmlFor={inputId}>
         {label}
-      </label>
+      </Typography>
       <div className="relative">
         {type === 'textarea' ? (
           <textarea
@@ -105,7 +105,7 @@ export const Input: FC<InputProps> = ({
             value={inputState.value}
             rows={4}
             className={`w-full border border-solid border-slate-200
-       bg-slate-50 rounded-md 
+       bg-slate-50 rounded-md
        ${
          !inputState.isValid && inputState.isDirty
            ? 'border-2 border-rose-500 focus:outline-none focus:border-2 focus:border-violet-600'
@@ -129,7 +129,7 @@ export const Input: FC<InputProps> = ({
             onBlur={handleBlur}
             value={inputState.value}
             className={`w-full h-12 border border-solid border-slate-200
-       bg-slate-50 rounded-md 
+       bg-slate-50 rounded-md
        ${
          !inputState.isValid && inputState.isDirty
            ? 'border-2 border-rose-500 focus:outline-none focus:border-2 focus:border-violet-600'

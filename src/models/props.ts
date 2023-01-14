@@ -13,6 +13,7 @@ import {
   InteractionSize,
   TextColor,
   TextHoverColor,
+  TypographyTypes,
 } from './models';
 
 export interface ButtonProps {
@@ -212,4 +213,9 @@ export interface ToggleProps {
   onLabel: string;
   offLabel: string;
   onClick: (isOn: boolean) => void;
+}
+export interface TypographyProps {
+  type?: TypographyTypes;
+  children: string;
+  htmlFor?: string;
 }

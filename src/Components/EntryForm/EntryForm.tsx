@@ -3,6 +3,7 @@ import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
 import { defaultErrorMessages, emailPattern, passwordPattern } from '../Input/input-validation.helpers';
 import { FormProps } from '../../models';
+import { Typography } from '../Typography';
 
 export const EntryForm: FC<FormProps> = ({
   isRegistered,
@@ -86,7 +87,9 @@ export const EntryForm: FC<FormProps> = ({
       ) : (
         <div>
           <form onSubmit={register} className="grid sm:grid-cols-5 mb-6" noValidate>
-            <h1 className="sm:col-start-2 sm:col-end-5 mb-6 font-bold text-5xl">Registrieren</h1>
+            <div className="sm:col-start-2 sm:col-end-5 mb-6 ">
+              <Typography type="h1">Registrieren</Typography>
+            </div>
             <div className="sm:col-start-2 sm:col-end-5 mb-6">
               <Input
                 key="register-name"
