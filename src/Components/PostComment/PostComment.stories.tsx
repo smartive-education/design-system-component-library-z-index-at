@@ -22,5 +22,4 @@ Comment.args = {
     userName: 'robertvogt',
     postCreationTime: 'vor 11 Minuten',
     src: 'assets/images/profile/r.vogt.jpg',
-    link: 'Random Link',
   };
