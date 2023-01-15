@@ -67,14 +67,7 @@ export const EntryForm: FC<FormProps> = ({
               />
             </div>
             <div className="sm:col-start-2 sm:col-end-5">
-              <Button
-                id="login-button"
-                icon="mumble"
-                type="submit"
-                color="Gradient"
-                label="Let's Mumble"
-                size="L"
-              ></Button>
+              <Button icon="mumble" type="submit" color="Gradient" label="Let's Mumble" size="L"></Button>
             </div>
           </form>
           <div className="flex justify-center">
@@ -131,14 +124,7 @@ export const EntryForm: FC<FormProps> = ({
               />
             </div>
             <div className="sm:col-start-2 sm:col-end-5">
-              <Button
-                id="login-button"
-                icon="mumble"
-                type="submit"
-                color="Gradient"
-                label="Let's Mumble"
-                size="L"
-              ></Button>
+              <Button icon="mumble" type="submit" color="Gradient" label="Let's Mumble" size="L"></Button>
             </div>
           </form>
           <div className="flex justify-center">

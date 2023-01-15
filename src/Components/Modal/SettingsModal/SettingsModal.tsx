@@ -12,13 +12,7 @@ export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, closeFn, submitF
     const form = event.target as HTMLFormElement;
     setValidationTrigger((trigger) => trigger + 1);
     if (form.checkValidity()) {
-      submitFn();
-      console.log(`Name: ${(form.elements.namedItem('settings-name') as HTMLInputElement).value}`);
-      console.log(`Email: ${(form.elements.namedItem('settings-email') as HTMLInputElement).value}`);
-      console.log(`Location: ${(form.elements.namedItem('settings-location') as HTMLInputElement).value}`);
-      console.log(`Bio: ${(form.elements.namedItem('settings-bio') as HTMLInputElement).value}`);
-      console.log(`Altes Passwort: ${(form.elements.namedItem('old-password') as HTMLInputElement).value}`);
-      console.log(`Neues Passwort: ${(form.elements.namedItem('new-password') as HTMLInputElement).value}`);
+      submitFn(form);
       closeFn();
     }
   };

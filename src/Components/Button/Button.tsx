@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react';
 import { ButtonProps, IconColor } from '../../models';
 import { Icon } from '../Icon';
 
-export const Button: FC<ButtonProps> = ({ label, id, type = 'button', color = 'Slate', size = 'L', icon, onClick }) => {
+export const Button: FC<ButtonProps> = ({ label, type = 'button', color = 'Slate', size = 'L', icon, onClick }) => {
   const colorClasses = useMemo(() => {
     if (color === 'Violet') {
       return 'bg-violet-600 focus:border-violet-200 hover:bg-violet-700';
@@ -29,12 +29,11 @@ export const Button: FC<ButtonProps> = ({ label, id, type = 'button', color = 'S
   return (
     <div className="flex">
       <button
-        id={id}
         type={type}
         onClick={onClick}
         className={`w-full border border-solid border-slate-200 rounded-md
          text-white text-base
-        focus:outline-none focus:border-4
+        outline-none active:border-4
         leading-none ${colorClasses}`}
       >
         <div className={`flex place-content-center items-center ${sizeClasses.container}`}>
