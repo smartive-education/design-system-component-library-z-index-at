@@ -37,9 +37,5 @@ const Template: ComponentStory<typeof FileUploadModal> = (args) => {
 
 export const FileUpload = Template.bind({});
 FileUpload.args = {
-  header: 'Bild hochladen',
-  label: '... oder Datei auswählen',
-  title: 'Datei hierhin ziehen',
-  restrictions: 'JPEG oder PNG, maximal 5 MB',
   submitFn: (file: File) => console.log(file),
 };
