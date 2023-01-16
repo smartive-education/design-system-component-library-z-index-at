@@ -36,7 +36,19 @@ const Template: ComponentStory<typeof SettingsModal> = (args) => {
         logout={noop}
         openSettings={() => setIsOpen(true)}
       />
-      <SettingsModal {...args} isOpen={isOpen} closeFn={() => setIsOpen(false)} submitFn={() => setIsOpen(false)} />
+      <SettingsModal
+        {...args}
+        isOpen={isOpen}
+        closeFn={() => setIsOpen(false)}
+        submitFn={(form) => {
+          console.log(`Name: ${(form.elements.namedItem('settings-name') as HTMLInputElement).value}`);
+          console.log(`Email: ${(form.elements.namedItem('settings-email') as HTMLInputElement).value}`);
+          console.log(`Location: ${(form.elements.namedItem('settings-location') as HTMLInputElement).value}`);
+          console.log(`Bio: ${(form.elements.namedItem('settings-bio') as HTMLInputElement).value}`);
+          console.log(`Altes Passwort: ${(form.elements.namedItem('old-password') as HTMLInputElement).value}`);
+          console.log(`Neues Passwort: ${(form.elements.namedItem('new-password') as HTMLInputElement).value}`);
+        }}
+      />
     </div>
   );
 };

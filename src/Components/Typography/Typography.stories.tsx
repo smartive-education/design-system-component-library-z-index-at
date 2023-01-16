@@ -9,7 +9,7 @@ export default {
     htmlFor: {
       control: false,
     },
-  }
+  },
 } as ComponentMeta<typeof Typography>;
 
 const Template: ComponentStory<typeof Typography> = (args) => (

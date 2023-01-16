@@ -1,13 +1,10 @@
 import React, { FC } from 'react';
-import { v4 as uuid } from 'uuid';
 import { IconColor, IconHoverColor, TextColor, TextHoverColor, UserWidgetProps } from '../../models';
 import { Button } from '../Button';
 import { Interaction } from '../Interaction';
 import { ProfilePicture } from '../ProfilePicture';
 
 export const UserWidget: FC<UserWidgetProps> = ({ name, username, src, onClick }) => {
-  const inputId = uuid();
-
   return (
     <div className="bg-white rounded-2xl relative p-4 w-full">
       <div className="p-2 place-content-center flex">
@@ -30,7 +27,7 @@ export const UserWidget: FC<UserWidgetProps> = ({ name, username, src, onClick }
         />
       </div>
       <div className="pt-2 pb-4">
-        <Button type="submit" id={inputId} color="Violet" size="M" label="Follow" onClick={onClick} icon="mumble" />
+        <Button type="submit" color="Violet" size="M" label="Follow" onClick={onClick} icon="mumble" />
       </div>
     </div>
   );
