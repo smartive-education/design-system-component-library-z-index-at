@@ -14,7 +14,7 @@ export default {
 } as ComponentMeta<typeof ProfileHeader>;
 
 const Template: ComponentStory<typeof ProfileHeader> = (args) => (
-  <div className="ml-20">
+  <div className="md:ml-20">
     <ProfileHeader {...args} />
   </div>
 );
