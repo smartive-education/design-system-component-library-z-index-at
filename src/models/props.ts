@@ -221,8 +221,9 @@ export interface PostCommentProps {
   userName: string,
   src: string,
   postCreationTime: string,
+  placeholder?: string,
+  LLabel?:string,
+  RLabel?:string,
   openProfile: () => void,
-  ROnClick: () => void,
-  submitFn: () => void,
-  onSubmit: () => void,
+  onSubmit: (file: File | undefined, form: HTMLFormElement) => void,
 }
