@@ -5,10 +5,10 @@ import { FileUploadModalProps } from '../../../models';
 
 export const FileUploadModal: FC<FileUploadModalProps> = ({
   isOpen,
-  header,
-  title,
-  restrictions,
-  label,
+  header = 'Bild hochladen',
+  title = 'Datei hierhin ziehen',
+  restrictions = 'JPEG oder PNG, maximal 5 MB',
+  label = 'oder Datei auswhählen',
   closeFn,
   submitFn,
 }) => {

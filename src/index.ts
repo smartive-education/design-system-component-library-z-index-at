@@ -21,3 +21,4 @@ export * from './Components/WordSpinnerAnimation';
 export * from './Components/LandingPage';
 export * from './Components/Typography';
 export * from './Components/Toggle/index';
+export * from './Components/PostComment';

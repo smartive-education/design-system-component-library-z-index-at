@@ -132,10 +132,10 @@ export interface SettingsModalProps {
 
 export interface FileUploadModalProps {
   isOpen: boolean;
-  header: string;
-  title: string;
-  restrictions: string;
-  label: string;
+  header?: string;
+  title?: string;
+  restrictions?: string;
+  label?: string;
   closeFn: () => void;
   submitFn: (file: File) => void;
 }
@@ -215,4 +215,15 @@ export interface TypographyProps {
   type?: TypographyTypes;
   children: string;
   htmlFor?: string;
+}
+export interface PostCommentProps {
+  name: string,
+  userName: string,
+  src: string,
+  postCreationTime: string,
+  placeholder?: string,
+  LLabel?:string,
+  RLabel?:string,
+  openProfile: () => void,
+  onSubmit: (file: File | undefined, form: HTMLFormElement) => void,
 }
