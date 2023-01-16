@@ -226,4 +226,6 @@ export interface PostCommentProps {
   postCreationTime: string,
   openProfile: () => void,
   ROnClick: () => void,
+  submitFn: () => void,
+  onSubmit: () => void,
 }
