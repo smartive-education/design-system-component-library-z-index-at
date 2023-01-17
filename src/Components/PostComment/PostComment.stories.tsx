@@ -8,6 +8,23 @@ export default {
   parameters: {
     backgrounds: { default: 'grey' },
   },
+  argTypes: {
+    placeholder: {
+      control: {
+        type: 'text',
+      },
+    },
+    RLabel: {
+      control: {
+        type: 'text',
+      },
+    },
+    LLabel: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 } as ComponentMeta<typeof PostComment>;
 
 const Template: ComponentStory<typeof PostComment> = (args) => (
