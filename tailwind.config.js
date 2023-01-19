@@ -3,9 +3,18 @@ module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Poppins'],
+      sans: ['Poppins', 'sans-serif'],
     },
     extend: {
+      spacing: {
+        xxs: '4px',
+        xs: '8px',
+        s: '16px',
+        m: '24px',
+        l: '32px',
+        xl: '48px',
+        xxl: '64px',
+      },
       keyframes: {
         icontilt: {
           '0%': {

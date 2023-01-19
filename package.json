@@ -13,10 +13,11 @@
   "exports": {
     ".": {
       "import": "./dist/index.js"
-    }
+    },
+    "./tailwind": "./dist/tailwind.config.js"
   },
   "scripts": {
-    "build": "npm run format && npm run lint && npm run test && tsc && cp ./public/icons.svg ./dist",
+    "build": "npm run format && npm run lint && npm run test && rm -rf ./dist && tsc && cp ./public/icons.svg ./tailwind.config.js ./dist",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006",
     "format": "prettier --write .",
