@@ -50,6 +50,9 @@ export default {
     backgroundColor: {
       control: false,
     },
+    size: {
+      control: false,
+    },
     value: {
       control: false,
     },
