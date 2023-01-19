@@ -11,7 +11,7 @@ export const PostComment: FC<PostCommentProps> = ({
   src,
   postCreationTime,
   placeholder = 'Was meinst du dazu?',
-  LLabel = 'Build hochladen',
+  LLabel = 'Bild hochladen',
   RLabel = 'Senden',
   openProfile,
   onSubmit,

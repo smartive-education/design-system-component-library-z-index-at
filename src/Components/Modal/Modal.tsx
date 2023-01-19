@@ -11,7 +11,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, title, closeFn, submitFn, childr
   return (
     <div>
       <div className="fixed left-0 top-0 right-0 bottom-0 overflow-y-scroll flex items-center justify-center bg-violet-600/30">
-        <div className="w-3/4 md:w-3/6">
+        <div className="h-3/4 w-3/4 md:w-3/6">
           <div className="flex justify-between items-center p-8 bg-violet-600 h-16 rounded-t-lg text-white">
             <h3 className="text-3xl">{title}</h3>
             <button type="button" onClick={closeFn}>
