@@ -2,8 +2,9 @@
 
 Component library for a Twitter clone project for CAS Advanced Frontend Engineering 2023
 
-The components encapsulate only limited logic, which according to our judgement should be the responsibility of the given component: 
-For example: 
+The components encapsulate only limited logic, which according to our judgement should be the responsibility of the given component:
+For example:
+
 - validation by password or email input fields
 - deletion or type change by password or email input fields
 - validation by file upload input
@@ -23,8 +24,9 @@ Validation logic ist tested with jest.
 - npm run storybook
 
 There are basic components which are highly customizable and used to create the more complex Compositions.
-Components expose their props as controls in storybook. By adjusting these controls you may try and test the different variations of a single component. 
+Components expose their props as controls in storybook. By adjusting these controls you may try and test the different variations of a single component.
 Template components are only for presentation purposes and are also not exported out of the library.
+
 ## Build
 
 - npm run build
