@@ -217,13 +217,13 @@ export interface TypographyProps {
   htmlFor?: string;
 }
 export interface PostCommentProps {
-  name: string,
-  userName: string,
-  src: string,
-  postCreationTime: string,
-  placeholder?: string,
-  LLabel?:string,
-  RLabel?:string,
-  openProfile: () => void,
-  onSubmit: (file: File | undefined, form: HTMLFormElement) => void,
+  name: string;
+  userName: string;
+  src: string;
+  postCreationTime: string;
+  placeholder?: string;
+  LLabel?: string;
+  RLabel?: string;
+  openProfile: () => void;
+  onSubmit: (file: File | undefined, form: HTMLFormElement) => void;
 }
