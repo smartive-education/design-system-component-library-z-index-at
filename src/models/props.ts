@@ -75,7 +75,6 @@ export interface IconProps {
   size?: IconSize;
   color?: IconColor;
   hoverColor?: IconHoverColor;
-  spritePath?: string;
 }
 
 export interface InteractionProps {

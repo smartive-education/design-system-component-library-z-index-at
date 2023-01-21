@@ -17,7 +17,7 @@
     "./tailwind": "./dist/tailwind.config.js"
   },
   "scripts": {
-    "build": "npm run format && npm run lint && npm run test && rm -rf ./dist && tsc && cp ./public/icons.svg ./tailwind.config.js ./dist",
+    "build": "npm run format && npm run lint && npm run test && rm -rf ./dist && tsc && cp ./tailwind.config.js ./dist",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006",
     "format": "prettier --write .",
