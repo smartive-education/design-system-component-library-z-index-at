@@ -18,6 +18,7 @@ export enum IconColor {
   White = 'fill-violet-50',
 }
 
+
 export enum IconHoverColor {
   Gray = 'group-hover:fill-slate-600',
   LightPink = 'group-hover:fill-pink-500',
