@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
+import React from 'react';
 import { Post } from './Post';
 
 export default {
@@ -10,23 +10,11 @@ export default {
   },
 } as ComponentMeta<typeof Post>;
 
-const Template: ComponentStory<typeof Post> = (args) => {
-  const [likeState, setLikeState] = useState({
-    value: args.likeCount,
-    isLiked: args.isLiked,
-  });
-  const setIslikedFn = (isLiked: boolean) => {
-    setLikeState((state) => ({
-      value: isLiked ? state.value + 1 : state.value - 1,
-      isLiked: isLiked,
-    }));
-  };
-  return (
-    <div className="md:mx-10">
-      <Post {...args} likeCount={likeState.value} isLiked={likeState.isLiked} setIsLiked={setIslikedFn} />
-    </div>
-  );
-};
+const Template: ComponentStory<typeof Post> = (args) => (
+  <div className="md:mx-10">
+    <Post {...args} />
+  </div>
+);
 
 export const SimplePost = Template.bind({});
 

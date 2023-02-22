@@ -122,16 +122,8 @@ export const Icon: FC<IconProps> = ({
   };
 
   return (
-    <>
-      {id === 'send' || id === 'logout-start' ? (
-        <svg width={size} height={size} className={`${color} ${hoverColor}`} viewBox="0 0 19 16">
-          {iconMap[id]}
-        </svg>
-      ) : (
-        <svg width={size} height={size} className={`${color} ${hoverColor}`} viewBox="0 0 16 16">
-          {iconMap[id]}
-        </svg>
-      )}
-    </>
+    <svg width={size} height={size} className={`${color} ${hoverColor}`} viewBox="0 0 16 16">
+      {iconMap[id]}
+    </svg>
   );
 };
