@@ -108,6 +108,7 @@ export interface EffectProps {
 export interface LikeProps {
   value: number;
   isLiked: boolean;
+  setIsLiked: (isLiked: boolean) => void;
 }
 
 export interface ShareProps {
@@ -162,6 +163,7 @@ export interface PostProps {
   copiedLabel: string;
   openProfile: () => void;
   comment: () => void;
+  setIsLiked: (isLiked: boolean) => void;
   hashtags?: string[];
   children?: ReactNode;
 }
