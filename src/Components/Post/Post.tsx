@@ -20,9 +20,10 @@ export const Post: FC<PostProps> = ({
   children,
   openProfile,
   comment,
+  setIsLiked,
 }) => {
   return (
-    <div className="py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl lg:max-w-3xl">
+    <div className="relative py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl lg:max-w-3xl">
       <div className="hidden md:block">
         <ProfileHeader
           name={name}
@@ -47,7 +48,7 @@ export const Post: FC<PostProps> = ({
         <Typography type="paragraph-l">{content}</Typography>
       </div>
       {children && (
-        <div className="mb-4 max-h-80 w-full border-1 border-transparent rounded-xl overflow-hidden object-contain">
+        <div className="relative mb-4 max-h-80 w-full border-1 border-transparent rounded-xl overflow-hidden object-contain">
           {children}
         </div>
       )}
@@ -63,7 +64,7 @@ export const Post: FC<PostProps> = ({
           <Comment value={commentCount} clickFn={comment} />
         </div>
         <div className="md:col-span-3 truncate">
-          <Like value={likeCount} isLiked={isLiked} />
+          <Like value={likeCount} isLiked={isLiked} setIsLiked={setIsLiked} />
         </div>
         <div className="md:col-span-4">
           <Share value={link} />

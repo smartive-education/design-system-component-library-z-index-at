@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { Like } from './Like';
 
 export default {
@@ -7,10 +7,23 @@ export default {
   component: Like,
 } as ComponentMeta<typeof Like>;
 
-const Template: ComponentStory<typeof Like> = (args) => <Like {...args} />;
+const Template: ComponentStory<typeof Like> = (args) => {
+  const [likeState, setLikeState] = useState({
+    value: args.value,
+    isLiked: args.isLiked,
+  });
+  const setIslikedFn = (isLiked: boolean) => {
+    setLikeState((state) => ({
+      value: isLiked ? state.value + 1 : state.value - 1,
+      isLiked: isLiked,
+    }));
+  };
+
+  return <Like value={likeState.value} isLiked={likeState.isLiked} setIsLiked={setIslikedFn} />;
+};
 
 export const DynamicLike = Template.bind({});
 DynamicLike.args = {
-  value: 0,
+  value: 1,
   isLiked: false,
 };

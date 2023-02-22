@@ -1,5 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
-import { Interaction } from '../Interaction';
+import React, { FC } from 'react';
 import {
   ActionBackGroundColor,
   IconColor,
@@ -8,38 +7,23 @@ import {
   TextColor,
   TextHoverColor,
 } from '../../../models';
+import { Interaction } from '../Interaction';
 
-export const Like: FC<LikeProps> = ({ value, isLiked }) => {
-  const [currentValue, setCurrentValue] = useState(value);
-  const [isCurrentlyLiked, setIsCurrentlyLiked] = useState(isLiked);
-
+export const Like: FC<LikeProps> = ({ value, isLiked, setIsLiked }) => {
   const toggleLikedStatus = (): void => {
-    setIsCurrentlyLiked(() => !isCurrentlyLiked);
+    setIsLiked(!isLiked);
   };
-
-  useEffect(() => {
-    isCurrentlyLiked ? setCurrentValue(() => currentValue + 1) : setCurrentValue(() => currentValue - 1);
-  }, [isCurrentlyLiked]);
-
-  useEffect(() => setCurrentValue(() => value), [value]);
-  useEffect(() => setIsCurrentlyLiked(() => isLiked), [isLiked]);
 
   // TODO add translation for label
   return (
     <div>
       <div className="hidden md:block">
         <Interaction
-          iconId={currentValue === 0 ? 'heart-empty' : 'heart-full'}
-          label={
-            currentValue === 0 || (currentValue === 1 && !isCurrentlyLiked)
-              ? 'Like'
-              : currentValue === 1 && isCurrentlyLiked
-              ? 'Liked'
-              : 'Likes'
-          }
-          value={currentValue === 1 && isCurrentlyLiked ? undefined : currentValue > 0 ? currentValue : undefined}
-          iconColor={currentValue === 0 ? IconColor.Gray : IconColor.Pink}
-          textColor={currentValue === 0 ? TextColor.Gray : TextColor.DarkPink}
+          iconId={value === 0 ? 'heart-empty' : 'heart-full'}
+          label={value === 0 || (value === 1 && !isLiked) ? 'Like' : value === 1 && isLiked ? 'Liked' : 'Likes'}
+          value={value === 1 && isLiked ? undefined : value > 0 ? value : undefined}
+          iconColor={value === 0 ? IconColor.Gray : IconColor.Pink}
+          textColor={value === 0 ? TextColor.Gray : TextColor.DarkPink}
           iconHoverColor={IconHoverColor.Pink}
           textHoverColor={TextHoverColor.Pink}
           backgroundColor={ActionBackGroundColor.Pink}
@@ -49,11 +33,11 @@ export const Like: FC<LikeProps> = ({ value, isLiked }) => {
       </div>
       <div className="block md:hidden">
         <Interaction
-          iconId={currentValue === 0 ? 'heart-empty' : 'heart-full'}
+          iconId={value === 0 ? 'heart-empty' : 'heart-full'}
           label=""
-          value={currentValue === 1 && isCurrentlyLiked ? undefined : currentValue > 0 ? currentValue : undefined}
-          iconColor={currentValue === 0 ? IconColor.Gray : IconColor.Pink}
-          textColor={currentValue === 0 ? TextColor.Gray : TextColor.DarkPink}
+          value={value === 1 && isLiked ? undefined : value > 0 ? value : undefined}
+          iconColor={value === 0 ? IconColor.Gray : IconColor.Pink}
+          textColor={value === 0 ? TextColor.Gray : TextColor.DarkPink}
           iconHoverColor={IconHoverColor.Pink}
           textHoverColor={TextHoverColor.Pink}
           backgroundColor={ActionBackGroundColor.Pink}
