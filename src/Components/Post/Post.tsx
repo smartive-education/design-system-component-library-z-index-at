@@ -18,6 +18,8 @@ export const Post: FC<PostProps> = ({
   link,
   hashtags,
   children,
+  copyLabel,
+  copiedLabel,
   openProfile,
   comment,
 }) => {
@@ -66,7 +68,7 @@ export const Post: FC<PostProps> = ({
           <Like value={likeCount} isLiked={isLiked} />
         </div>
         <div className="md:col-span-4">
-          <Share value={link} />
+          <Share value={link} label={copyLabel} copiedLabel={copiedLabel} />
         </div>
       </div>
     </div>

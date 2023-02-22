@@ -12,22 +12,19 @@ export const EntryForm: FC<FormProps> = ({
   registerFn,
 }) => {
   const [isLogin, setIsLogin] = useState(isRegistered);
-  const [validationTrigger, setValidationTrigger] = useState(0);
 
   useEffect(() => setIsLogin(() => isRegistered), [isRegistered]);
 
-  const login = (event: FormEvent): void => {
+  const loginHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    setValidationTrigger((trigger) => trigger + 1);
     if (form.checkValidity()) {
       loginFn(form);
     }
   };
-  const register = (event: FormEvent): void => {
+  const registerHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    setValidationTrigger((trigger) => trigger + 1);
     if (form.checkValidity()) {
       registerFn(form);
     }
@@ -35,14 +32,13 @@ export const EntryForm: FC<FormProps> = ({
 
   const changeLayout = (): void => {
     setIsLogin((isLogin) => !isLogin);
-    setValidationTrigger(() => 0);
   };
 
   return (
     <>
       {isLogin ? (
         <div>
-          <form onSubmit={login} className="grid sm:grid-cols-5 mb-6" noValidate>
+          <form onSubmit={loginHandler} className="grid sm:grid-cols-5 mb-6" noValidate>
             <h1 className="sm:col-start-2 sm:col-end-5 mb-6 font-bold text-5xl">Anmelden</h1>
             <div className="sm:col-start-2 sm:col-end-5 mb-6">
               <Input
@@ -51,7 +47,6 @@ export const EntryForm: FC<FormProps> = ({
                 label="Email"
                 type="email"
                 required={true}
-                validationTrigger={validationTrigger}
                 pattern={emailPattern}
                 errorTranslations={errorTranslations}
               />
@@ -61,7 +56,6 @@ export const EntryForm: FC<FormProps> = ({
                 label="Password"
                 type="password"
                 required={true}
-                validationTrigger={validationTrigger}
                 pattern={passwordPattern}
                 errorTranslations={errorTranslations}
               />
@@ -73,13 +67,13 @@ export const EntryForm: FC<FormProps> = ({
           <div className="flex justify-center">
             <span className="mr-1">{'Noch kein Account?'}</span>
             <button className="underline text-violet-600" onClick={changeLayout}>
-              {'Jetzt registrieren'}
+              Jetzt registrieren
             </button>
           </div>
         </div>
       ) : (
         <div>
-          <form onSubmit={register} className="grid sm:grid-cols-5 mb-6" noValidate>
+          <form onSubmit={registerHandler} className="grid sm:grid-cols-5 mb-6" noValidate>
             <div className="sm:col-start-2 sm:col-end-5 mb-6 ">
               <Typography type="h1">Registrieren</Typography>
             </div>
@@ -90,7 +84,6 @@ export const EntryForm: FC<FormProps> = ({
                 label="Name"
                 type="text"
                 required={false}
-                validationTrigger={validationTrigger}
                 errorTranslations={errorTranslations}
               />
               <Input
@@ -99,7 +92,6 @@ export const EntryForm: FC<FormProps> = ({
                 label="User Name"
                 type="text"
                 required={true}
-                validationTrigger={validationTrigger}
                 errorTranslations={errorTranslations}
               />
               <Input
@@ -108,7 +100,6 @@ export const EntryForm: FC<FormProps> = ({
                 label="Email"
                 type="email"
                 required={true}
-                validationTrigger={validationTrigger}
                 pattern={emailPattern}
                 errorTranslations={errorTranslations}
               />
@@ -118,7 +109,6 @@ export const EntryForm: FC<FormProps> = ({
                 label="Password"
                 type="password"
                 required={true}
-                validationTrigger={validationTrigger}
                 pattern={passwordPattern}
                 errorTranslations={errorTranslations}
               />
@@ -130,7 +120,7 @@ export const EntryForm: FC<FormProps> = ({
           <div className="flex justify-center">
             <span className="mr-1">{'Bereits registriert?'}</span>
             <button className="underline text-violet-600" onClick={changeLayout}>
-              {'Jetzt anmelden'}
+              Jetzt anmelden
             </button>
           </div>
         </div>

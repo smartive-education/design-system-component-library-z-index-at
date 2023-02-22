@@ -52,7 +52,6 @@ export interface InputProps {
   name: string;
   type: InputType;
   required: boolean;
-  validationTrigger?: number;
   errorTranslations?: Record<string, string>;
   minLength?: number;
   maxLength?: number;
@@ -113,6 +112,8 @@ export interface LikeProps {
 
 export interface ShareProps {
   value: string;
+  label: string;
+  copiedLabel: string;
 }
 
 export interface ModalProps {
@@ -157,6 +158,8 @@ export interface PostProps {
   likeCount: number;
   isLiked: boolean;
   link: string;
+  copyLabel: string;
+  copiedLabel: string;
   openProfile: () => void;
   comment: () => void;
   hashtags?: string[];

@@ -28,6 +28,8 @@ SimplePost.args = {
   commentCount: 0,
   isLiked: false,
   likeCount: 0,
+  copyLabel: 'Copy Link',
+  copiedLabel: 'Link is copied',
   link: 'Random Link',
 };
 
@@ -50,6 +52,8 @@ FullPost.args = {
   isLiked: true,
   likeCount: 13,
   link: 'Random Link',
+  copyLabel: 'Copy Link',
+  copiedLabel: 'Link is copied',
   hashtags: ['muchart', 'veryphoto', 'soballoons'],
 };
 
@@ -73,5 +77,7 @@ PostWithGif.args = {
   isLiked: true,
   likeCount: 4235,
   link: 'Random Link',
+  copyLabel: 'Copy Link',
+  copiedLabel: 'Link is copied',
   hashtags: ['fast', 'hip', 'retro'],
 };

@@ -1,8 +1,9 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { ActionBackGroundColor, IconColor, ShareProps, TextColor } from '../../../models';
 import { Interaction } from '../Interaction';
 
-export const Share: FC<ShareProps> = ({ value }) => {
+export const Share: FC<ShareProps> = ({ value, label, copiedLabel }) => {
+  const [isCopied, setIsCopied] = useState(false);
   const copyToClipBoard = (): void => {
     if (!isCopied) {
       void navigator.clipboard.writeText(value);
@@ -11,15 +12,19 @@ export const Share: FC<ShareProps> = ({ value }) => {
     }
   };
 
-  const [isCopied, setIsCopied] = useState(false);
+  useEffect(() => {
+    if (isCopied) {
+      const timeoutId = setTimeout(() => setIsCopied(() => false), 3000);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isCopied]);
 
-  // TODO add translation for label
   return (
     <div>
       <div className="hidden md:block">
         <Interaction
           iconId={'share'}
-          label={isCopied ? 'Link is copied' : 'Copy Link'}
+          label={isCopied ? copiedLabel : label}
           iconColor={IconColor.Gray}
           textColor={TextColor.Gray}
           backgroundColor={ActionBackGroundColor.Gray}

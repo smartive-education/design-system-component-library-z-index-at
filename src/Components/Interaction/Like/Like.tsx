@@ -24,7 +24,6 @@ export const Like: FC<LikeProps> = ({ value, isLiked }) => {
   useEffect(() => setCurrentValue(() => value), [value]);
   useEffect(() => setIsCurrentlyLiked(() => isLiked), [isLiked]);
 
-  // TODO add translation for label
   return (
     <div>
       <div className="hidden md:block">
