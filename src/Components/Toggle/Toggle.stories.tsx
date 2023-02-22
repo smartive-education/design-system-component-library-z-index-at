@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
+import React from 'react';
 import { Toggle } from './Toggle';
 
 export default {
@@ -12,10 +12,7 @@ export default {
   },
 } as ComponentMeta<typeof Toggle>;
 
-const Template: ComponentStory<typeof Toggle> = (args) => {
-  const [isOn, setIsOn] = useState(false);
-  return <Toggle {...args} isToggleOn={isOn} onClick={(isOn) => setIsOn(() => isOn)} />;
-};
+const Template: ComponentStory<typeof Toggle> = (args) => <Toggle {...args} />;
 
 export const ProfileActions = Template.bind({});
 ProfileActions.args = {
