@@ -41,7 +41,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           onMouseOver={() => setShowEditIcon(true)}
           onMouseOut={() => setShowEditIcon(false)}
         >
-          <img src={profileImage} alt="" className="ease-in-out duration-200 hover:opacity-50" />
+          <img src={profileImage} alt="profile image" className="ease-in-out duration-200 hover:opacity-50" />
           <div className={`absolute inset-1/2 ${showEditIcon ? '' : 'hidden'}`}>
             <div className="animate-icontilt">
               <Icon id="edit" size={30} color={IconColor.White} />

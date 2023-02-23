@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useRef, useState, ChangeEvent, DragEvent } from 'react';
 import { Button } from '../../Button/index';
 import {
   defaultErrorMessages,
@@ -40,7 +40,7 @@ export const FileInput: FC<FileInputProps> = ({
     inputRef.current?.click();
   };
 
-  const handleChange = (event: React.ChangeEvent): void => {
+  const handleChange = (event: ChangeEvent): void => {
     const element = event.target as HTMLInputElement;
     const file = element.files?.item(0);
     if (file) {
@@ -66,12 +66,12 @@ export const FileInput: FC<FileInputProps> = ({
     }
   };
 
-  const preventBrowserDefaults = (event: React.DragEvent): void => {
+  const preventBrowserDefaults = (event: DragEvent): void => {
     event.preventDefault();
     event.stopPropagation();
   };
 
-  const handleDrop = (event: React.DragEvent): void => {
+  const handleDrop = (event: DragEvent): void => {
     preventBrowserDefaults(event);
     const files = event.dataTransfer.files;
     if (files.length > 1) {
@@ -104,7 +104,7 @@ export const FileInput: FC<FileInputProps> = ({
     }
   };
 
-  const handleDragEnter = (event: React.DragEvent): void => {
+  const handleDragEnter = (event: DragEvent): void => {
     preventBrowserDefaults(event);
     setFileInputState((state: FileInputState) => ({
       ...state,
@@ -112,7 +112,7 @@ export const FileInput: FC<FileInputProps> = ({
     }));
   };
 
-  const handleDragLeave = (event: React.DragEvent): void => {
+  const handleDragLeave = (event: DragEvent): void => {
     preventBrowserDefaults(event);
     setFileInputState((state: FileInputState) => ({
       ...state,

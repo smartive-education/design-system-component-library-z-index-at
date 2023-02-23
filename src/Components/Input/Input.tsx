@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState, ChangeEvent, FocusEvent } from 'react';
 import { Icon } from '../Icon/Icon';
 import { defaultErrorMessages, getTranslationKeyForError } from './input-validation.helpers';
 import { InputProps, InputType, IconColor } from '../../models';
@@ -17,7 +17,6 @@ export const Input: FC<InputProps> = ({
   name,
   type,
   required,
-  validationTrigger = 0, // Triggers the self-validation of the component from a parent component
   errorTranslations = defaultErrorMessages,
   minLength,
   maxLength,
@@ -36,23 +35,24 @@ export const Input: FC<InputProps> = ({
   const [inputState, setInputState] = useState(defaultInputState);
   const inputId = name;
   const inputRef = useRef<HTMLInputElement>(null);
+  const invalidEventListener = (event: Event): void => {
+    setInputState((state: InputState) => ({
+      ...state,
+      isValid: false,
+      isDirty: true,
+      errorMessage: event.target ? showErrorMessage(getTranslationKeyForError(event.target as HTMLInputElement)) : '',
+    }));
+  };
 
   useEffect(() => {
     const input = inputRef.current;
-    if (input && validationTrigger > 0) {
-      const isElementValid = input.checkValidity();
-      setInputState((state: InputState) => ({
-        ...state,
-        isValid: isElementValid,
-        isDirty: true,
-        errorMessage: !isElementValid ? showErrorMessage(getTranslationKeyForError(input)) : '',
-      }));
-    }
-  }, [validationTrigger]);
+    input?.addEventListener('invalid', (event: Event) => invalidEventListener(event));
+    return input?.removeEventListener('invalid', (event: Event) => invalidEventListener(event));
+  }, []);
 
-  const handleChange = (event: React.ChangeEvent): void => {
+  const handleChange = (event: ChangeEvent): void => {
     const element = event.target as HTMLInputElement;
-    const isElementValid = element.checkValidity();
+    const isElementValid = element.validity.valid;
     setInputState((state: InputState) => ({
       ...state,
       isValid: isElementValid,
@@ -62,9 +62,9 @@ export const Input: FC<InputProps> = ({
     }));
   };
 
-  const handleBlur = (event: React.FocusEvent): void => {
+  const handleBlur = (event: FocusEvent): void => {
     const element = event.target as HTMLInputElement;
-    const isElementValid = element.checkValidity();
+    const isElementValid = element.validity.valid;
     setInputState((state: InputState) => ({
       ...state,
       isValid: isElementValid,

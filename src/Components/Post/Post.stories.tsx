@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { Post } from './Post';
 
 export default {
@@ -10,11 +10,23 @@ export default {
   },
 } as ComponentMeta<typeof Post>;
 
-const Template: ComponentStory<typeof Post> = (args) => (
-  <div className="md:mx-10">
-    <Post {...args} />
-  </div>
-);
+const Template: ComponentStory<typeof Post> = (args) => {
+  const [likeState, setLikeState] = useState({
+    value: args.likeCount,
+    isLiked: args.isLiked,
+  });
+  const setIslikedFn = (isLiked: boolean) => {
+    setLikeState((state) => ({
+      value: isLiked ? state.value + 1 : state.value - 1,
+      isLiked: isLiked,
+    }));
+  };
+  return (
+    <div className="md:mx-10">
+      <Post {...args} likeCount={likeState.value} isLiked={likeState.isLiked} setIsLiked={setIslikedFn} />
+    </div>
+  );
+};
 
 export const SimplePost = Template.bind({});
 
@@ -28,6 +40,8 @@ SimplePost.args = {
   commentCount: 0,
   isLiked: false,
   likeCount: 0,
+  copyLabel: 'Copy Link',
+  copiedLabel: 'Link is copied',
   link: 'Random Link',
 };
 
@@ -50,6 +64,8 @@ FullPost.args = {
   isLiked: true,
   likeCount: 13,
   link: 'Random Link',
+  copyLabel: 'Copy Link',
+  copiedLabel: 'Link is copied',
   hashtags: ['muchart', 'veryphoto', 'soballoons'],
 };
 
@@ -73,5 +89,7 @@ PostWithGif.args = {
   isLiked: true,
   likeCount: 4235,
   link: 'Random Link',
+  copyLabel: 'Copy Link',
+  copiedLabel: 'Link is copied',
   hashtags: ['fast', 'hip', 'retro'],
 };

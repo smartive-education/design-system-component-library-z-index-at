@@ -12,4 +12,6 @@ const Template: ComponentStory<typeof Share> = (args) => <Share {...args} />;
 export const CopyLink = Template.bind({});
 CopyLink.args = {
   value: 'Link URL',
+  label: 'Copy Link',
+  copiedLabel: 'Link is copied'
 };
