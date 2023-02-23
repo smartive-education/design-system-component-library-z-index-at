@@ -11,8 +11,8 @@ export const Navigation: FC<NavigationProps> = ({
   logout,
 }) => {
   return (
-    <div className="bg-violet-600 h-20 flex justify-around md:grid md:grid-cols-12 md:content-center">
-      <div className="hidden md:flex items-center md:col-start-3 md:col-end-5 ">
+    <div className="bg-violet-600 h-20 flex justify-around items-center md:grid md:grid-cols-12 md:content-center">
+      <div className="hidden md:flex items-center md:col-start-3 md:col-end-5 lg:col-start-4 lg:col-end-6">
         <Effect
           iconId="mumble"
           label="Mumble"
@@ -32,7 +32,7 @@ export const Navigation: FC<NavigationProps> = ({
           navigate={navigateToFeed}
         />
       </div>
-      <div className="md:col-start-7 md:col-span-4 flex justify-end">
+      <div className="md:col-start-7 md:col-span-4 lg:col-start-6 flex justify-end">
         <div className="flex items-center">
           <ProfilePicture size="small" src={profilePictureSrc} onClick={navigateToProfile} name="Profile Page" />
         </div>
