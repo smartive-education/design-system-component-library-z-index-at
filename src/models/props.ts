@@ -226,6 +226,7 @@ export interface TypographyProps {
 }
 export interface PostCommentProps {
   name: string;
+  profileHeaderType: ProfileHeaderType;
   userName: string;
   src: string;
   postCreationTime: string;
