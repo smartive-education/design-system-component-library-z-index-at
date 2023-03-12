@@ -5,10 +5,12 @@ import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
 
 export const Navigation: FC<NavigationProps> = ({
   profilePictureSrc,
+  settingsLabel = 'Settings',
+  loggedInStatusLabel = 'Log in',
   navigateToFeed,
   navigateToProfile,
   openSettings,
-  logout,
+  changeLoggedInStatus,
 }) => {
   return (
     <div className="bg-violet-600 h-20 flex justify-around items-center md:grid md:grid-cols-12 md:content-center">
@@ -39,7 +41,7 @@ export const Navigation: FC<NavigationProps> = ({
         <div className="flex items-center ml-4">
           <Effect
             iconId="settings"
-            label="Settings"
+            label={settingsLabel}
             size="normal"
             effect="group-hover:rotate-180 ease-out duration-500"
             squared={true}
@@ -51,12 +53,12 @@ export const Navigation: FC<NavigationProps> = ({
           <Effect
             iconId="logout-start"
             secondaryIcon="logout"
-            label="Log out"
+            label={loggedInStatusLabel}
             size="normal"
             effect="transition-all ease-in duration-800"
             squared={true}
             backgroundColor={ActionBackGroundColor.DarkViolet}
-            navigate={logout}
+            navigate={changeLoggedInStatus}
           />
         </div>
       </div>

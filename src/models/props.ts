@@ -11,6 +11,7 @@ import {
   IconSize,
   InputType,
   InteractionSize,
+  ProfileHeaderType,
   TextColor,
   TextHoverColor,
   TypographyTypes,
@@ -143,10 +144,12 @@ export interface FileUploadModalProps {
 
 export interface NavigationProps {
   profilePictureSrc: string;
+  settingsLabel: string;
+  loggedInStatusLabel: string;
   navigateToFeed: () => void;
   navigateToProfile: () => void;
   openSettings: () => void;
-  logout: () => void;
+  changeLoggedInStatus: () => void;
 }
 
 export interface PostProps {
@@ -161,6 +164,7 @@ export interface PostProps {
   link: string;
   copyLabel: string;
   copiedLabel: string;
+  profileHeaderType: ProfileHeaderType;
   openProfile: () => void;
   comment: () => void;
   setIsLiked: (isLiked: boolean) => void;
@@ -169,10 +173,10 @@ export interface PostProps {
 }
 
 export interface ProfileHeaderProps {
+  type: ProfileHeaderType;
   name: string;
   userName: string;
   src: string;
-  size: AvatarSize;
   location?: string;
   memberSince?: string;
   postCreationTime?: string;

@@ -8,6 +8,7 @@ import { Typography } from '../Typography';
 
 export const Post: FC<PostProps> = ({
   name,
+  profileHeaderType,
   userName,
   postCreationTime,
   src,
@@ -29,20 +30,20 @@ export const Post: FC<PostProps> = ({
       <div className="hidden md:block">
         <ProfileHeader
           name={name}
+          type={profileHeaderType}
           userName={userName}
           postCreationTime={postCreationTime}
           src={src}
-          size="medium"
           openProfile={openProfile}
         />
       </div>
       <div className="block md:hidden">
         <ProfileHeader
           name={name}
+          type={'REPLY'}
           userName={userName}
           postCreationTime={postCreationTime}
           src={src}
-          size="small"
           openProfile={openProfile}
         />
       </div>

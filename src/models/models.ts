@@ -69,3 +69,5 @@ export type TypographyTypes =
   | 'paragraph-l'
   | 'paragraph-m'
   | 'placeholder';
+
+export type ProfileHeaderType = 'POST' | 'REPLY' | 'CREATE-POST' | 'CREATE-REPLY' | 'PROFILE';

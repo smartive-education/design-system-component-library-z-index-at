@@ -4,24 +4,35 @@ import { IconColor, IconHoverColor, ProfileHeaderProps, TextColor, TextHoverColo
 import { ProfilePicture } from '../../ProfilePicture';
 
 export const ProfileHeader: FC<ProfileHeaderProps> = ({
+  type = 'POST',
   name,
   userName,
   src,
   location,
   memberSince,
   postCreationTime,
-  size,
   openProfile,
 }) => {
   return (
-    <div className="relative md:-left-20 flex items-center mb-4">
-      {size !== 'large' && <ProfilePicture name={name} onClick={openProfile} src={src} size={size} />}
+    <div
+      className={`relative flex items-center mb-4 ${
+        type === 'POST' || type === 'CREATE-POST' ? 'md:-left-20' : ''
+      }`}
+    >
+      {type !== 'PROFILE' && (
+        <ProfilePicture
+          name={name}
+          onClick={openProfile}
+          src={src}
+          size={type === 'POST' || type === 'CREATE-POST' ? 'medium' : 'small'}
+        />
+      )}
       <div className="ml-4">
         <h4
           className={`${
-            size === 'large'
+            type === 'PROFILE'
               ? 'text-3xl font-bold'
-              : size === 'medium'
+              : type === 'POST' || type === 'CREATE-POST'
               ? 'text-2xl font-semibold'
               : 'font-semibold text-base'
           }`}
@@ -29,17 +40,36 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
           {name}
         </h4>
         <div className="flex">
-          <Interaction
-            iconId="profile"
-            iconColor={IconColor.Violet}
-            textColor={TextColor.Violet}
-            iconHoverColor={IconHoverColor.DarkViolet}
-            textHoverColor={TextHoverColor.DarkViolet}
-            label={userName}
-            size="small"
-            onClickFn={openProfile}
-          />
-          {size === 'large' ? (
+          {type !== 'CREATE-POST' ? (
+            <Interaction
+              iconId="profile"
+              iconColor={IconColor.Violet}
+              textColor={TextColor.Violet}
+              iconHoverColor={IconHoverColor.DarkViolet}
+              textHoverColor={TextHoverColor.DarkViolet}
+              label={userName}
+              size="small"
+              onClickFn={openProfile}
+            />
+          ) : (
+            ''
+          )}
+          {type === 'POST' || type === 'REPLY' ? (
+            <>
+              <Interaction
+                iconId="time"
+                iconColor={IconColor.LightGray}
+                textColor={TextColor.LightGray}
+                iconHoverColor={IconHoverColor.Gray}
+                textHoverColor={TextHoverColor.Gray}
+                label={postCreationTime ?? ''}
+                size="small"
+              />
+            </>
+          ) : (
+            ''
+          )}
+          {type === 'PROFILE' ? (
             <>
               <Interaction
                 iconId="location"
@@ -61,17 +91,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
               />
             </>
           ) : (
-            size === 'medium' && (
-              <Interaction
-                iconId="time"
-                iconColor={IconColor.LightGray}
-                textColor={TextColor.LightGray}
-                iconHoverColor={IconHoverColor.Gray}
-                textHoverColor={TextHoverColor.Gray}
-                label={postCreationTime ?? ''}
-                size="small"
-              />
-            )
+            ''
           )}
         </div>
       </div>
