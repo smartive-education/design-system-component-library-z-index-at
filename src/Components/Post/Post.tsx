@@ -47,8 +47,11 @@ export const Post: FC<PostProps> = ({
           openProfile={openProfile}
         />
       </div>
-      <div className="mb-4">
+      <div className={`mb-4 ${profileHeaderType === 'POST' ? 'md:block' : 'hidden'}`}>
         <Typography type="paragraph-l">{content}</Typography>
+      </div>
+      <div className={`mb-4 ${profileHeaderType === 'REPLY' ? 'md:block' : 'hidden'}`}>
+        <Typography type="paragraph-m">{content}</Typography>
       </div>
       {children && (
         <div className="relative mb-4 h-80 w-full border-1 border-transparent rounded-xl overflow-hidden object-contain">

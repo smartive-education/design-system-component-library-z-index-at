@@ -38,6 +38,8 @@ export const Typography: FC<TypographyProps> = ({ type, children, htmlFor }) => 
       );
     case 'paragraph-l':
       return <p className="text-inherit text-xl md:text-2xl">{children}</p>;
+      case 'paragraph-m':
+        return <p className="text-inherit text-base md:text-lg">{children}</p>;
     case 'placeholder':
       return <p className="text-slate-300 text-base">{children}</p>;
     default:
