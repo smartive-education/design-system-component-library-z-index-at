@@ -26,7 +26,11 @@ export const Post: FC<PostProps> = ({
   setIsLiked,
 }) => {
   return (
-    <div className="relative py-4 px-6 mt-4 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl lg:max-w-3xl">
+    <div
+      className={`relative py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl lg:max-w-3xl ${
+        profileHeaderType === 'POST' ? 'mt-4' : ''
+      }`}
+    >
       <div className="hidden md:block">
         <ProfileHeader
           name={name}
