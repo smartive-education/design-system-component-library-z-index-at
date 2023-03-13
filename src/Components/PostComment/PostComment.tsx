@@ -7,6 +7,7 @@ import { Input } from '../Input';
 
 export const PostComment: FC<PostCommentProps> = ({
   name,
+  profileHeaderType,
   userName,
   src,
   postCreationTime,
@@ -34,7 +35,7 @@ export const PostComment: FC<PostCommentProps> = ({
             userName={userName}
             postCreationTime={postCreationTime}
             src={src}
-            size="medium"
+            type={profileHeaderType}
             openProfile={openProfile}
           />
         </div>
@@ -44,7 +45,7 @@ export const PostComment: FC<PostCommentProps> = ({
             userName={userName}
             postCreationTime={postCreationTime}
             src={src}
-            size="small"
+            type={'CREATE-REPLY'}
             openProfile={openProfile}
           />
         </div>

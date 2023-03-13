@@ -8,6 +8,7 @@ import { Typography } from '../Typography';
 
 export const Post: FC<PostProps> = ({
   name,
+  profileHeaderType,
   userName,
   postCreationTime,
   src,
@@ -25,29 +26,36 @@ export const Post: FC<PostProps> = ({
   setIsLiked,
 }) => {
   return (
-    <div className="relative py-4 px-6 mt-4 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl lg:max-w-3xl">
+    <div
+      className={`relative py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl lg:max-w-3xl ${
+        profileHeaderType === 'POST' ? 'mt-4' : ''
+      }`}
+    >
       <div className="hidden md:block">
         <ProfileHeader
           name={name}
+          type={profileHeaderType}
           userName={userName}
           postCreationTime={postCreationTime}
           src={src}
-          size="medium"
           openProfile={openProfile}
         />
       </div>
       <div className="block md:hidden">
         <ProfileHeader
           name={name}
+          type={'REPLY'}
           userName={userName}
           postCreationTime={postCreationTime}
           src={src}
-          size="small"
           openProfile={openProfile}
         />
       </div>
-      <div className="mb-4">
+      <div className={`mb-4 ${profileHeaderType === 'POST' ? 'md:block' : 'hidden'}`}>
         <Typography type="paragraph-l">{content}</Typography>
+      </div>
+      <div className={`mb-4 ${profileHeaderType === 'REPLY' ? 'md:block' : 'hidden'}`}>
+        <Typography type="paragraph-m">{content}</Typography>
       </div>
       {children && (
         <div className="relative mb-4 h-80 w-full border-1 border-transparent rounded-xl overflow-hidden object-contain">
