@@ -15,9 +15,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
 }) => {
   return (
     <div
-      className={`relative flex items-center mb-4 ${
-        type === 'POST' || type === 'CREATE-POST' ? 'md:-left-20' : ''
-      }`}
+      className={`relative flex items-center mb-4 ${type === 'POST' || type === 'CREATE-POST' ? 'md:-left-20' : ''}`}
     >
       {type !== 'PROFILE' && (
         <ProfilePicture
@@ -40,7 +38,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
           {name}
         </h4>
         <div className="flex">
-          {type !== 'CREATE-POST' ? (
+          {type !== 'CREATE-POST' && (
             <Interaction
               iconId="profile"
               iconColor={IconColor.Violet}
@@ -51,25 +49,22 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
               size="small"
               onClickFn={openProfile}
             />
-          ) : (
-            ''
           )}
-          {type === 'POST' || type === 'REPLY' ? (
-            <>
-              <Interaction
-                iconId="time"
-                iconColor={IconColor.LightGray}
-                textColor={TextColor.LightGray}
-                iconHoverColor={IconHoverColor.Gray}
-                textHoverColor={TextHoverColor.Gray}
-                label={postCreationTime ?? ''}
-                size="small"
-              />
-            </>
-          ) : (
-            ''
-          )}
-          {type === 'PROFILE' ? (
+          {type === 'POST' ||
+            (type === 'REPLY' && (
+              <>
+                <Interaction
+                  iconId="time"
+                  iconColor={IconColor.LightGray}
+                  textColor={TextColor.LightGray}
+                  iconHoverColor={IconHoverColor.Gray}
+                  textHoverColor={TextHoverColor.Gray}
+                  label={postCreationTime ?? ''}
+                  size="small"
+                />
+              </>
+            ))}
+          {type === 'PROFILE' && (
             <>
               <Interaction
                 iconId="location"
@@ -90,8 +85,6 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
                 size="small"
               />
             </>
-          ) : (
-            ''
           )}
         </div>
       </div>
