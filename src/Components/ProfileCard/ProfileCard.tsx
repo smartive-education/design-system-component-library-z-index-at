@@ -1,9 +1,27 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Icon } from '../../Components/Icon';
 import { Interaction } from '../../Components/Interaction';
 import { IconColor, IconHoverColor, ProfileCardProps, TextColor, TextHoverColor } from '../../models';
 import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
 import { Typography } from '../Typography';
+
+interface ButtonClasses {
+  classes: string,
+  text: string,
+}
+
+  const buttonClasses = (followed: boolean):ButtonClasses => {
+    if (followed) {
+      return {
+        classes: 'text-white bg-slate-600',
+        text: 'Unfollow',
+      };
+    }
+    return {
+      classes: 'text-black',
+      text: 'Follow',
+    };
+  };
 
 export const ProfileCard: FC<ProfileCardProps> = ({
   name,
@@ -18,18 +36,6 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   onFollow,
   onEdit,
 }) => {
-  const buttonClasses = useMemo(() => {
-    if (followed) {
-      return {
-        classes: 'text-white bg-slate-600',
-        text: 'Unfollow',
-      };
-    }
-    return {
-      classes: 'text-black',
-      text: 'Follow',
-    };
-  }, [followed]);
   const [showEditIcon, setShowEditIcon] = useState(false);
 
   return (
@@ -92,9 +98,9 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         {followed && <div className="pr-4 pt-2 text-slate-400">Du folgst Damian Carduff</div>}
         <button
           onClick={onFollow}
-          className={`border-2 border-solid rounded-md px-4 py-2 flex border-slate-600 ${buttonClasses.classes}`}
+          className={`border-2 border-solid rounded-md px-4 py-2 flex border-slate-600 ${buttonClasses(followed).classes}`}
         >
-          <div className="fwhitespace-nowrap">{buttonClasses.text}</div>
+          <div className="fwhitespace-nowrap">{buttonClasses(followed).text}</div>
           {followed && (
             <div className="pt-1 pl-4">
               <Icon id="close" size={16} color={IconColor.White} />
