@@ -27,7 +27,7 @@ export const PostComment: FC<PostCommentProps> = ({
     const comment = (form.elements.namedItem('post-comment') as HTMLInputElement).value;
     onSubmit(file, comment)
       .then(() => {
-        (form.elements.namedItem('post-comment') as HTMLInputElement).value = '';
+        ((formRef.current as HTMLFormElement).elements.namedItem('post-comment') as HTMLInputElement).value = '';
         setFile(() => undefined);
       })
       .catch((error) => {
