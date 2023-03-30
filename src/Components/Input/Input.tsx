@@ -4,7 +4,7 @@ import { defaultErrorMessages, getTranslationKeyForError } from './input-validat
 import { InputProps, InputType, IconColor } from '../../models';
 import { Typography } from '../Typography';
 interface InputState {
-  value: string;
+  inputValue: string;
   errorMessage: string;
   isValid: boolean;
   isDirty: boolean;
@@ -24,7 +24,7 @@ export const Input: FC<InputProps> = ({
   placeholder,
 }) => {
   const defaultInputState: InputState = {
-    value: '',
+    inputValue: '',
     errorMessage: '',
     isValid: false,
     isDirty: false,
@@ -46,6 +46,7 @@ export const Input: FC<InputProps> = ({
 
   useEffect(() => {
     const input = inputRef.current;
+    input?.addEventListener('reset', () => resetValue());
     input?.addEventListener('invalid', (event: Event) => invalidEventListener(event));
     return input?.removeEventListener('invalid', (event: Event) => invalidEventListener(event));
   }, []);
@@ -58,7 +59,7 @@ export const Input: FC<InputProps> = ({
       isValid: isElementValid,
       isDirty: true,
       errorMessage: !isElementValid ? state.errorMessage : '',
-      value: element.value,
+      inputValue: element.value,
     }));
   };
 
@@ -69,14 +70,14 @@ export const Input: FC<InputProps> = ({
       ...state,
       isValid: isElementValid,
       errorMessage: !isElementValid && state.isDirty ? showErrorMessage(getTranslationKeyForError(element)) : '',
-      value: element.value,
+      inputValue: element.value,
     }));
   };
 
   const resetValue = (): void =>
     setInputState((state: InputState) => ({
       ...state,
-      value: '',
+      inputValue: '',
     }));
   const toggleType = (): void =>
     setInputState((state: InputState) => ({
@@ -101,7 +102,7 @@ export const Input: FC<InputProps> = ({
             placeholder={placeholder}
             onChange={handleChange}
             onBlur={handleBlur}
-            value={inputState.value}
+            value={inputState.inputValue}
             rows={4}
             className={`w-full border border-solid border-slate-200
        bg-slate-50 rounded-md
@@ -126,7 +127,7 @@ export const Input: FC<InputProps> = ({
             placeholder={placeholder}
             onChange={handleChange}
             onBlur={handleBlur}
-            value={inputState.value}
+            value={inputState.inputValue}
             className={`w-full h-12 border border-solid border-slate-200
        bg-slate-50 rounded-md
        ${
@@ -145,9 +146,10 @@ export const Input: FC<InputProps> = ({
           onClick={inputState.originalType === 'email' ? resetValue : toggleType}
         >
           {inputState.originalType === 'password' && <Icon size={16} id={'eye'} color={IconColor.Gray} />}
-          {inputState.originalType === 'email' && !inputState.isValid && inputState.isDirty && inputState.value && (
-            <Icon size={14} id={'close'} color={IconColor.LightPink} />
-          )}
+          {inputState.originalType === 'email' &&
+            !inputState.isValid &&
+            inputState.isDirty &&
+            inputState.inputValue && <Icon size={14} id={'close'} color={IconColor.LightPink} />}
         </button>
       </div>
       <span className="self-end text-rose-500 text-xs">{inputState.errorMessage}</span>
