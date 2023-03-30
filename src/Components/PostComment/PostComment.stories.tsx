@@ -43,5 +43,6 @@ Comment.args = {
   onSubmit: (file: File, text: string) => {
     console.log(file);
     console.log(text);
+    return Promise.resolve();
   },
 };
