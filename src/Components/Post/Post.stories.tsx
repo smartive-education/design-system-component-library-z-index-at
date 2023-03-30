@@ -67,6 +67,7 @@ FullPost.args = {
   copyLabel: 'Copy Link',
   copiedLabel: 'Link is copied',
   hashtags: ['muchart', 'veryphoto', 'soballoons'],
+  profileHeaderType: 'POST'
 };
 
 const TemplateWithGif: ComponentStory<typeof Post> = (args) => (
