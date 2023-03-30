@@ -27,7 +27,11 @@ export const PostComment: FC<PostCommentProps> = ({
   };
 
   return (
-    <div className="py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl lg:max-w-3xl">
+    <div
+      className={`py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent lg:max-w-3xl ${
+        profileHeaderType !== 'CREATE-REPLY' ? 'rounded-xl mt-4' : 'rounded-t-xl mt-4 border-b-2 border-slate-300'
+      }`}
+    >
       <form onSubmit={handleSubmit} noValidate>
         <div className="hidden md:block">
           <ProfileHeader
