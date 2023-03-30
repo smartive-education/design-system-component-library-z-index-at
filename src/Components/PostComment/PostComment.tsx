@@ -20,6 +20,7 @@ export const PostComment: FC<PostCommentProps> = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [file, setFile] = useState<File>();
   const formRef = useRef<HTMLFormElement>(null);
+  const [form, resetForm] = useState(false); // otherwise no re-render is triggered when form is reset
 
   const handleSubmit = (event: FormEvent): void => {
     event.preventDefault();
@@ -27,8 +28,8 @@ export const PostComment: FC<PostCommentProps> = ({
     const comment = (form.elements.namedItem('post-comment') as HTMLInputElement).value;
     onSubmit(file, comment)
       .then(() => {
-        ((formRef.current as HTMLFormElement).elements.namedItem('post-comment') as HTMLInputElement).value = '';
-        setFile(() => undefined);
+        setFile(undefined);
+        resetForm((state) => !state);
       })
       .catch((error) => {
         throw error;
@@ -36,8 +37,8 @@ export const PostComment: FC<PostCommentProps> = ({
   };
 
   useEffect(() => {
-    if (!file) ((formRef.current as HTMLFormElement).elements.namedItem('post-comment') as HTMLInputElement).value = '';
-  }, [file]);
+    ((formRef.current as HTMLFormElement).elements.namedItem('post-comment') as HTMLInputElement).value = '';
+  }, [form]);
 
   return (
     <div
