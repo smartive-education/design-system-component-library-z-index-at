@@ -25,9 +25,14 @@ export const PostComment: FC<PostCommentProps> = ({
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const comment = (form.elements.namedItem('post-comment') as HTMLInputElement).value;
-    onSubmit(file, comment);
-    (form.elements.namedItem('post-comment') as HTMLInputElement).value = '';
-    setFile(() => undefined);
+    onSubmit(file, comment)
+      .then(() => {
+        (form.elements.namedItem('post-comment') as HTMLInputElement).value = '';
+        setFile(() => undefined);
+      })
+      .catch((error) => {
+        throw error;
+      });
   };
 
   useEffect(() => {
