@@ -1,9 +1,9 @@
-import React, { FC, FormEvent, useState } from 'react';
-import { ProfileHeader } from '../Post/ProfileHeader';
-import { ButtonGroup } from '../ButtonGroup';
-import { FileUploadModal } from '../Modal/FileUploadModal';
+import React, { FC, FormEvent, useEffect, useRef, useState } from 'react';
 import { PostCommentProps } from '../../models';
+import { ButtonGroup } from '../ButtonGroup';
 import { Input } from '../Input';
+import { FileUploadModal } from '../Modal/FileUploadModal';
+import { ProfileHeader } from '../Post/ProfileHeader';
 
 export const PostComment: FC<PostCommentProps> = ({
   name,
@@ -19,12 +19,20 @@ export const PostComment: FC<PostCommentProps> = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [file, setFile] = useState<File>();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (event: FormEvent): void => {
-    const form = event.target as HTMLFormElement;
     event.preventDefault();
-    onSubmit(file, form);
+    const form = event.target as HTMLFormElement;
+    const comment = (form.elements.namedItem('post-comment') as HTMLInputElement).value;
+    onSubmit(file, comment);
+    (form.elements.namedItem('post-comment') as HTMLInputElement).value = '';
+    setFile(() => undefined);
   };
+
+  useEffect(() => {
+    if (!file) ((formRef.current as HTMLFormElement).elements.namedItem('post-comment') as HTMLInputElement).value = '';
+  }, [file]);
 
   return (
     <div
@@ -32,7 +40,7 @@ export const PostComment: FC<PostCommentProps> = ({
         profileHeaderType !== 'CREATE-REPLY' ? 'rounded-xl mt-4' : 'rounded-t-xl mt-4 border-b-2 border-slate-300'
       }`}
     >
-      <form onSubmit={handleSubmit} noValidate>
+      <form ref={formRef} onSubmit={handleSubmit} noValidate>
         <div className="hidden md:block">
           <ProfileHeader
             name={name}

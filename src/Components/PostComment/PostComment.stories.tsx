@@ -40,8 +40,8 @@ Comment.args = {
   postCreationTime: 'vor 11 Minuten',
   src: 'assets/images/profile/r.vogt.jpg',
   openProfile: () => {},
-  onSubmit: (file: File, form: HTMLFormElement) => {
+  onSubmit: (file: File, text: string) => {
     console.log(file);
-    console.log(`Name: ${(form.elements.namedItem('post-comment') as HTMLInputElement).value}`);
+    console.log(text);
   },
 };

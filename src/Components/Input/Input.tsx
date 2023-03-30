@@ -145,9 +145,10 @@ export const Input: FC<InputProps> = ({
           onClick={inputState.originalType === 'email' ? resetValue : toggleType}
         >
           {inputState.originalType === 'password' && <Icon size={16} id={'eye'} color={IconColor.Gray} />}
-          {inputState.originalType === 'email' && !inputState.isValid && inputState.isDirty && inputState.value && (
-            <Icon size={14} id={'close'} color={IconColor.LightPink} />
-          )}
+          {inputState.originalType === 'email' &&
+            !inputState.isValid &&
+            inputState.isDirty &&
+            inputState.value && <Icon size={14} id={'close'} color={IconColor.LightPink} />}
         </button>
       </div>
       <span className="self-end text-rose-500 text-xs">{inputState.errorMessage}</span>

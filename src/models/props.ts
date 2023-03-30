@@ -234,5 +234,5 @@ export interface PostCommentProps {
   LLabel?: string;
   RLabel?: string;
   openProfile: () => void;
-  onSubmit: (file: File | undefined, form: HTMLFormElement) => void;
+  onSubmit: (file: File | undefined, text: string) => void;
 }
