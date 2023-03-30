@@ -27,8 +27,10 @@ export const Post: FC<PostProps> = ({
 }) => {
   return (
     <div
-      className={`relative py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl lg:max-w-3xl ${
-        profileHeaderType === 'POST' ? 'mt-4' : ''
+      className={`relative py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent lg:max-w-3xl ${
+        profileHeaderType === 'POST' || profileHeaderType === 'CREATE-POST'
+          ? 'mt-4 rounded-xl'
+          : 'border-b-2 border-slate-300'
       }`}
     >
       <div className="hidden md:block">
@@ -58,7 +60,7 @@ export const Post: FC<PostProps> = ({
         <Typography type="paragraph-m">{content}</Typography>
       </div>
       {children && (
-        <div className="relative mb-4 h-80 w-full border-1 border-transparent rounded-xl overflow-hidden object-contain">
+        <div className="relative mb-4 aspect-video border-1 border-transparent rounded-xl overflow-hidden object-contain">
           {children}
         </div>
       )}

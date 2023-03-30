@@ -30,6 +30,7 @@ export const Button: FC<ButtonProps> = ({ label, type = 'button', color = 'Slate
     <div className="flex">
       <button
         type={type}
+        aria-label={label}
         onClick={onClick}
         className={`w-full border border-solid border-slate-200 rounded-md
          text-white text-base
