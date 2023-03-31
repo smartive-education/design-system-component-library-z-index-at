@@ -1,5 +1,4 @@
 import React, { FC, FormEvent, useEffect, useRef, useState } from 'react';
-import ReactDOM from 'react-dom';
 import { PostCommentProps } from '../../models';
 import { Button } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
