@@ -23,22 +23,12 @@ export interface ButtonProps {
   type?: ButtonType;
   color?: ButtonColor;
   size?: ButtonSize;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
 export interface ButtonGroupProps {
-  LType?: ButtonType;
-  LColor?: ButtonColor;
-  LSize?: ButtonSize;
-  LLabel: string;
-  LIcon?: string;
-  LOnClick: () => void;
-  RType?: ButtonType;
-  RColor?: ButtonColor;
-  RSize?: ButtonSize;
-  RLabel: string;
-  RIcon?: string;
-  ROnClick?: () => void;
+  children?: ReactNode;
 }
 
 export interface FormProps {
@@ -121,6 +111,8 @@ export interface ShareProps {
 export interface ModalProps {
   isOpen: boolean;
   title: string;
+  LLable?: string;
+  RLable?: string;
   closeFn: () => void;
   submitFn: (event: FormEvent) => void;
   children?: ReactNode;

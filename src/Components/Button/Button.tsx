@@ -13,34 +13,43 @@ const colorClasses = (color: string): string => {
 };
 
 interface SizeClasses {
-  text: string,
-  container: string,
+  text: string;
+  container: string;
 }
 
 const sizeClasses = (size: string): SizeClasses => {
-  if(size === 'M') {
+  if (size === 'M') {
     return {
       text: 'pr-2',
-      container: 'px-4 py-2'
-    }
+      container: 'px-4 py-2',
+    };
   }
   return {
     text: 'pr-4',
     container: 'px-8 py-4',
-  }
-}
+  };
+};
 
-export const Button: FC<ButtonProps> = ({ label, type = 'button', color = 'Slate', size = 'L', icon, onClick }) => {
+export const Button: FC<ButtonProps> = ({
+  label,
+  type = 'button',
+  color = 'Slate',
+  size = 'L',
+  icon,
+  disabled = false,
+  onClick,
+}) => {
   return (
     <div className="flex">
       <button
         type={type}
         aria-label={label}
         onClick={onClick}
+        disabled={disabled}
         className={`w-full border border-solid border-slate-200 rounded-md
          text-white text-base
         outline-none active:border-4
-        leading-none ${colorClasses(color)}`}
+        leading-none disabled:pointer-events-none disabled:border-1 disabled:opacity-75 ${colorClasses(color)}`}
       >
         <div className={`flex place-content-center items-center ${sizeClasses(size).container}`}>
           <div className={`fwhitespace-nowrap ${sizeClasses(size).text}`}>{label}</div>

@@ -34,7 +34,11 @@ export const Toggle: FC<ToggleProps> = ({ isToggleOn, onLabel, offLabel, onClick
       </div>
       <div
         className={`absolute top-0 bottom-0 rounded-xl m-1 bg-white z-10
-          ${isToggleOn ? 'left-0 duration-150 translate-x-0 w-[10.8rem]' : 'duration-150 translate-x-[11.4rem] w-[7.8rem]'}
+          ${
+            isToggleOn
+              ? 'left-0 duration-150 translate-x-0 w-[10.8rem]'
+              : 'duration-150 translate-x-[11.4rem] w-[7.8rem]'
+          }
           ${expandHoverClasses}`}
       ></div>
     </div>

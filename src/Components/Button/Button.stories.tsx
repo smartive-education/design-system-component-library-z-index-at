@@ -16,4 +16,5 @@ SlateL.args = {
   label: 'E-mail',
   color: 'Slate',
   size: 'L',
+  disabled: false,
 };

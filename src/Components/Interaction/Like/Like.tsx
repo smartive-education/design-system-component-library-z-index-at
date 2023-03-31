@@ -13,7 +13,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked, setIsLiked }) => {
   const toggleLikedStatus = (): void => {
     setIsLiked(!isLiked);
   };
-  
+
   return (
     <div>
       <div className="hidden md:block">
