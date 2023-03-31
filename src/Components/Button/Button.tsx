@@ -2,7 +2,15 @@ import React, { FC, useMemo } from 'react';
 import { ButtonProps, IconColor } from '../../models';
 import { Icon } from '../Icon';
 
-export const Button: FC<ButtonProps> = ({ label, type = 'button', color = 'Slate', size = 'L', icon, onClick }) => {
+export const Button: FC<ButtonProps> = ({
+  label,
+  type = 'button',
+  color = 'Slate',
+  size = 'L',
+  icon,
+  disabled = false,
+  onClick,
+}) => {
   const colorClasses = useMemo(() => {
     if (color === 'Violet') {
       return 'bg-violet-600 focus:border-violet-200 hover:bg-violet-700';
@@ -31,11 +39,12 @@ export const Button: FC<ButtonProps> = ({ label, type = 'button', color = 'Slate
       <button
         type={type}
         aria-label={label}
+        disabled={disabled}
         onClick={onClick}
         className={`w-full border border-solid border-slate-200 rounded-md
          text-white text-base
         outline-none active:border-4
-        leading-none ${colorClasses}`}
+        leading-none disabled:pointer-events-none disabled:border-1 disabled:opacity-75 ${colorClasses}`}
       >
         <div className={`flex place-content-center items-center ${sizeClasses.container}`}>
           <div className={`fwhitespace-nowrap ${sizeClasses.text}`}>{label}</div>

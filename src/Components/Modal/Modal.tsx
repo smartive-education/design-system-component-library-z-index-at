@@ -1,9 +1,18 @@
 import React, { FC } from 'react';
 import { IconColor, ModalProps } from '../../models';
+import { Button } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
 import { Icon } from '../Icon';
 
-export const Modal: FC<ModalProps> = ({ isOpen, title, closeFn, submitFn, children }) => {
+export const Modal: FC<ModalProps> = ({
+  isOpen,
+  title,
+  RLable = 'Speichern',
+  LLable = 'Abbrechen',
+  closeFn,
+  submitFn,
+  children,
+}) => {
   if (!isOpen) {
     return null;
   }
@@ -22,7 +31,10 @@ export const Modal: FC<ModalProps> = ({ isOpen, title, closeFn, submitFn, childr
             <form onSubmit={submitFn} noValidate>
               <div className="mb-10">{children}</div>
               <div>
-                <ButtonGroup LLabel="Abbrechen" RLabel="Speichern" LOnClick={closeFn} />
+                <ButtonGroup>
+                  <Button label={LLable} icon="close" color="Slate" size="M" onClick={closeFn}></Button>
+                  <Button label={RLable} icon="check" color="Violet" size="M" type="submit"></Button>
+                </ButtonGroup>
               </div>
             </form>
           </div>

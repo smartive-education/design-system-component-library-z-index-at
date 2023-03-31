@@ -13,5 +13,5 @@ export const CopyLink = Template.bind({});
 CopyLink.args = {
   value: 'Link URL',
   label: 'Copy Link',
-  copiedLabel: 'Link is copied'
+  copiedLabel: 'Link is copied',
 };

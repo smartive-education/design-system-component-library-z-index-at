@@ -1,5 +1,7 @@
 import React, { FC, FormEvent, useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { PostCommentProps } from '../../models';
+import { Button } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
 import { Input } from '../Input';
 import { FileUploadModal } from '../Modal/FileUploadModal';
@@ -21,17 +23,21 @@ export const PostComment: FC<PostCommentProps> = ({
   const [file, setFile] = useState<File>();
   const formRef = useRef<HTMLFormElement>(null);
   const [form, resetForm] = useState(false); // otherwise no re-render is triggered when form is reset
+  const [disabled, setDisabled] = useState(false);
 
   const handleSubmit = (event: FormEvent): void => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const comment = (form.elements.namedItem('post-comment') as HTMLInputElement).value;
+    setDisabled(() => true);
     onSubmit(file, comment)
       .then(() => {
-        setFile(undefined);
+        setFile(() => undefined);
+        setDisabled(() => false);
         resetForm((state) => !state);
       })
       .catch((error) => {
+        setDisabled(() => false);
         throw error;
       });
   };
@@ -71,7 +77,10 @@ export const PostComment: FC<PostCommentProps> = ({
           <Input type="textarea" label="Textarea" name="post-comment" placeholder={placeholder} required></Input>
         </div>
         <div>
-          <ButtonGroup LLabel={LLabel} RLabel={RLabel} LOnClick={() => setIsModalOpen(true)} />
+          <ButtonGroup>
+            <Button label={LLabel} icon="upload" color="Slate" size="M" onClick={() => setIsModalOpen(true)}></Button>
+            <Button label={RLabel} icon="send" color="Violet" size="M" type="submit" disabled={disabled}></Button>
+          </ButtonGroup>
         </div>
       </form>
       <FileUploadModal isOpen={isModalOpen} closeFn={() => setIsModalOpen(false)} submitFn={(file) => setFile(file)} />
