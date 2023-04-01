@@ -215,6 +215,7 @@ export interface TypographyProps {
   type?: TypographyTypes;
   children: string;
   htmlFor?: string;
+  color?: string;
 }
 export interface PostCommentProps {
   name: string;
