@@ -33,8 +33,10 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         profilePictureSrc="assets/images/profile/r.vogt.jpg"
         navigateToFeed={noop}
         navigateToProfile={noop}
-        logout={noop}
+        changeLoggedInStatus={noop}
         openSettings={() => setIsOpen(true)}
+        settingsLabel='Settings'
+        loggedInStatusLabel='Logout'
       />
       <Modal {...args} isOpen={isOpen} closeFn={() => setIsOpen(false)} submitFn={() => setIsOpen(false)} />
     </div>

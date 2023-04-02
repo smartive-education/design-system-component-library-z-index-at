@@ -9,6 +9,8 @@ export const Modal: FC<ModalProps> = ({
   title,
   RLable = 'Speichern',
   LLable = 'Abbrechen',
+  RIcon = 'close',
+  LIcon = 'check',
   closeFn,
   submitFn,
   children,
@@ -32,8 +34,8 @@ export const Modal: FC<ModalProps> = ({
               <div className="mb-10">{children}</div>
               <div>
                 <ButtonGroup>
-                  <Button label={LLable} icon="close" color="Slate" size="M" onClick={closeFn}></Button>
-                  <Button label={RLable} icon="check" color="Violet" size="M" type="submit"></Button>
+                  <Button label={LLable} icon={LIcon} color="Slate" size="M" onClick={closeFn}></Button>
+                  <Button label={RLable} icon={RIcon} color="Violet" size="M" type="submit"></Button>
                 </ButtonGroup>
               </div>
             </form>

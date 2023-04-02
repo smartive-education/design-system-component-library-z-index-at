@@ -113,6 +113,8 @@ export interface ModalProps {
   title: string;
   LLable?: string;
   RLable?: string;
+  LIcon?: string;
+  RIcon?: string;
   closeFn: () => void;
   submitFn: (event: FormEvent) => void;
   children?: ReactNode;

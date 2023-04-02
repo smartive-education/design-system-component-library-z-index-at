@@ -31,14 +31,12 @@ export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, closeFn, submitF
           label="Name Vorname"
           type="text"
           required={false}
-          validationTrigger={validationTrigger}
         />
         <Input
           name="settings-email"
           label="Email Addresse"
           type="email"
           required={true}
-          validationTrigger={validationTrigger}
           pattern={emailPattern}
         />
         <Input
@@ -46,14 +44,12 @@ export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, closeFn, submitF
           label="Ortschaft"
           type="text"
           required={false}
-          validationTrigger={validationTrigger}
         />
         <Input
           name="settings-bio"
           label="Biografie"
           type="textarea"
           required={false}
-          validationTrigger={validationTrigger}
         />
       </div>
       <div>
@@ -63,7 +59,6 @@ export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, closeFn, submitF
           label="Altes Passwort"
           type="password"
           required={true}
-          validationTrigger={validationTrigger}
           pattern={passwordPattern}
         />
         <Input
@@ -71,7 +66,6 @@ export const SettingsModal: FC<SettingsModalProps> = ({ isOpen, closeFn, submitF
           label="Neues Passwort"
           type="password"
           required={true}
-          validationTrigger={validationTrigger}
           pattern={passwordPattern}
         />
       </div>
