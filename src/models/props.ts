@@ -111,6 +111,7 @@ export interface ShareProps {
 export interface ModalProps {
   isOpen: boolean;
   title: string;
+  isSingleButton: boolean;
   LLable?: string;
   RLable?: string;
   LIcon?: string;

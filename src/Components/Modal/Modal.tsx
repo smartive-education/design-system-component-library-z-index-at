@@ -7,10 +7,11 @@ import { Icon } from '../Icon';
 export const Modal: FC<ModalProps> = ({
   isOpen,
   title,
+  isSingleButton = false,
   RLable = 'Speichern',
   LLable = 'Abbrechen',
-  RIcon = 'close',
-  LIcon = 'check',
+  RIcon = 'check',
+  LIcon = 'close',
   closeFn,
   submitFn,
   children,
@@ -33,10 +34,14 @@ export const Modal: FC<ModalProps> = ({
             <form onSubmit={submitFn} noValidate>
               <div className="mb-10">{children}</div>
               <div>
-                <ButtonGroup>
+                {isSingleButton ? (
                   <Button label={LLable} icon={LIcon} color="Slate" size="M" onClick={closeFn}></Button>
-                  <Button label={RLable} icon={RIcon} color="Violet" size="M" type="submit"></Button>
-                </ButtonGroup>
+                ) : (
+                  <ButtonGroup>
+                    <Button label={LLable} icon={LIcon} color="Slate" size="M" onClick={closeFn}></Button>
+                    <Button label={RLable} icon={RIcon} color="Violet" size="M" type="submit"></Button>
+                  </ButtonGroup>
+                )}
               </div>
             </form>
           </div>
