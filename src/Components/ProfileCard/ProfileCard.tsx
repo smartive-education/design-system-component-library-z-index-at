@@ -6,22 +6,22 @@ import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
 import { Typography } from '../Typography';
 
 interface ButtonClasses {
-  classes: string,
-  text: string,
+  classes: string;
+  text: string;
 }
 
-  const buttonClasses = (followed: boolean):ButtonClasses => {
-    if (followed) {
-      return {
-        classes: 'text-white bg-slate-600',
-        text: 'Unfollow',
-      };
-    }
+const buttonClasses = (followed: boolean): ButtonClasses => {
+  if (followed) {
     return {
-      classes: 'text-black',
-      text: 'Follow',
+      classes: 'text-white bg-slate-600',
+      text: 'Unfollow',
     };
+  }
+  return {
+    classes: 'text-black',
+    text: 'Follow',
   };
+};
 
 export const ProfileCard: FC<ProfileCardProps> = ({
   name,
@@ -98,7 +98,9 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         {followed && <div className="pr-4 pt-2 text-slate-400">Du folgst Damian Carduff</div>}
         <button
           onClick={onFollow}
-          className={`border-2 border-solid rounded-md px-4 py-2 flex border-slate-600 ${buttonClasses(followed).classes}`}
+          className={`border-2 border-solid rounded-md px-4 py-2 flex border-slate-600 ${
+            buttonClasses(followed).classes
+          }`}
         >
           <div className="fwhitespace-nowrap">{buttonClasses(followed).text}</div>
           {followed && (

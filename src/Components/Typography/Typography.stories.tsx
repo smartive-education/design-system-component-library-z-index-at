@@ -14,7 +14,9 @@ export default {
 
 const Template: ComponentStory<typeof Typography> = (args) => (
   <div>
-    <Typography type="h1" color="text-violet-600">Headline H1</Typography>
+    <Typography type="h1" color="text-violet-600">
+      Headline H1
+    </Typography>
     <br />
     <Typography type="h2">Headline H2</Typography>
     <br />

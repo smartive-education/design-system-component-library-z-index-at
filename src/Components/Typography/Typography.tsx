@@ -13,29 +13,13 @@ export const Typography: FC<TypographyProps> = ({ type, children, htmlFor, color
     case 'h4':
       return <h4 className={`font-bold text-base md:text-2xl ${color}`}>{children}</h4>;
     case 'label-xl':
-      return (
-        <label className={`font-semibold  text-lg md:text-2xl" htmlFor={htmlFor}`}>
-          {children}
-        </label>
-      );
+      return <label className={`font-semibold  text-lg md:text-2xl" htmlFor={htmlFor}`}>{children}</label>;
     case 'label-l':
-      return (
-        <label className={`font-semibold text-base md:text-xl htmlFor={htmlFor}`}>
-          {children}
-        </label>
-      );
+      return <label className={`font-semibold text-base md:text-xl htmlFor={htmlFor}`}>{children}</label>;
     case 'label-m':
-      return (
-        <label className={`font-semibold tex-sm md:text-lg" htmlFor={htmlFor}`}>
-          {children}
-        </label>
-      );
+      return <label className={`font-semibold tex-sm md:text-lg" htmlFor={htmlFor}`}>{children}</label>;
     case 'label-s':
-      return (
-        <label className={`font-semibold text-xs" htmlFor={htmlFor}`}>
-          {children}
-        </label>
-      );
+      return <label className={`font-semibold text-xs" htmlFor={htmlFor}`}>{children}</label>;
     case 'paragraph-l':
       return <p className={`text-xl md:text-2xl ${color}`}>{children}</p>;
     case 'placeholder':

@@ -35,8 +35,8 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         navigateToProfile={noop}
         changeLoggedInStatus={noop}
         openSettings={() => setIsOpen(true)}
-        settingsLabel='Settings'
-        loggedInStatusLabel='Logout'
+        settingsLabel="Settings"
+        loggedInStatusLabel="Logout"
       />
       <Modal {...args} isOpen={isOpen} closeFn={() => setIsOpen(false)} submitFn={() => setIsOpen(false)} />
     </div>
