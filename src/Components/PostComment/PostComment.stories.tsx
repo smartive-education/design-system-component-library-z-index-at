@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { PostComment } from './PostComment';
 
 export default {
@@ -27,11 +27,29 @@ export default {
   },
 } as ComponentMeta<typeof PostComment>;
 
-const Template: ComponentStory<typeof PostComment> = (args) => (
-  <div className="md:mx-10">
-    <PostComment {...args} />
-  </div>
-);
+const Template: ComponentStory<typeof PostComment> = (args) => {
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [fileValue, setFileValue] = useState(undefined);
+  const [textValue, setTextValue] = useState('');
+
+  return (
+    <div className="md:mx-10">
+      <PostComment
+        {...args}
+        fileValue={fileValue}
+        textValue={textValue}
+        isDisabled={isDisabled}
+        onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
+          setIsDisabled(!event.target.value);
+        }}
+        onSubmit={(file: File | undefined, text: string) => {
+          console.log(file);
+          console.log(text);
+        }}
+      />
+    </div>
+  );
+};
 
 export const Comment = Template.bind({});
 Comment.args = {
@@ -39,10 +57,6 @@ Comment.args = {
   userName: 'robertvogt',
   postCreationTime: 'vor 11 Minuten',
   src: 'assets/images/profile/r.vogt.jpg',
+  isDisabled: true,
   openProfile: () => {},
-  onSubmit: (file: File, text: string) => {
-    console.log(file);
-    console.log(text);
-    return Promise.resolve();
-  },
 };

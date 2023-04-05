@@ -1,4 +1,4 @@
-import { FormEvent, ReactNode } from 'react';
+import { ChangeEvent, FormEvent, ReactNode } from 'react';
 import {
   ActionBackGroundColor,
   AvatarSize,
@@ -222,13 +222,17 @@ export interface TypographyProps {
 }
 export interface PostCommentProps {
   name: string;
+  textValue: string;
+  fileValue?: File;
   profileHeaderType: ProfileHeaderType;
   userName: string;
   src: string;
   postCreationTime: string;
+  isDisabled: boolean;
   placeholder?: string;
   LLabel?: string;
   RLabel?: string;
+  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   openProfile: () => void;
-  onSubmit: (file: File | undefined, text: string) => Promise<void>;
+  onSubmit: (file: File | undefined, text: string) => void;
 }

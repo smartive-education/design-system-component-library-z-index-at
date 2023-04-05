@@ -1,49 +1,46 @@
-import React, { FC, FormEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
 import { PostCommentProps } from '../../models';
 import { Button } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
-import { Input } from '../Input';
 import { FileUploadModal } from '../Modal/FileUploadModal';
 import { ProfileHeader } from '../Post/ProfileHeader';
 
 export const PostComment: FC<PostCommentProps> = ({
   name,
+  textValue,
+  fileValue,
   profileHeaderType,
   userName,
   src,
   postCreationTime,
+  isDisabled,
   placeholder = 'Was meinst du dazu?',
   LLabel = 'Bild hochladen',
   RLabel = 'Senden',
+  onChange,
   openProfile,
   onSubmit,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [file, setFile] = useState<File>();
-  const formRef = useRef<HTMLFormElement>(null);
-  const [form, resetForm] = useState(false); // otherwise no re-render is triggered when form is reset
-  const [disabled, setDisabled] = useState(false);
+  const [file, setFile] = useState<File | undefined>(fileValue);
+  const [text, setText] = useState<string>(textValue);
 
   const handleSubmit = (event: FormEvent): void => {
     event.preventDefault();
-    const form = event.target as HTMLFormElement;
-    const comment = (form.elements.namedItem('post-comment') as HTMLInputElement).value;
-    setDisabled(() => true);
-    onSubmit(file, comment)
-      .then(() => {
-        setFile(() => undefined);
-        setDisabled(() => false);
-        resetForm((state) => !state);
-      })
-      .catch((error) => {
-        setDisabled(() => false);
-        throw error;
-      });
+    onSubmit(file, text);
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+    setText(event.target.value);
+    onChange(event);
   };
 
   useEffect(() => {
-    ((formRef.current as HTMLFormElement).elements.namedItem('post-comment') as HTMLInputElement).value = '';
-  }, [form]);
+    setFile(fileValue);
+  }, [fileValue]);
+  useEffect(() => {
+    setText(textValue);
+  }, [textValue]);
 
   return (
     <div
@@ -51,7 +48,7 @@ export const PostComment: FC<PostCommentProps> = ({
         profileHeaderType !== 'CREATE-REPLY' ? 'rounded-xl mt-4' : 'rounded-t-xl mt-4 border-b-2 border-slate-300'
       }`}
     >
-      <form ref={formRef} onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit} noValidate>
         <div className="hidden md:block">
           <ProfileHeader
             name={name}
@@ -73,12 +70,21 @@ export const PostComment: FC<PostCommentProps> = ({
           />
         </div>
         <div className="mb-4">
-          <Input type="textarea" label="" name="post-comment" placeholder={placeholder} required></Input>
+          <textarea
+            value={text}
+            onChange={handleChange}
+            rows={4}
+            name="post-comment"
+            placeholder={placeholder}
+            required
+            className="w-full border-solid border-slate-200
+       bg-slate-50 rounded-md p-4 leading-none border-2 hover:border-2 hover:border-violet-600 focus:outline-none focus:border-2 focus:border-violet-600"
+          />
         </div>
         <div>
           <ButtonGroup>
             <Button label={LLabel} icon="upload" color="Slate" size="M" onClick={() => setIsModalOpen(true)}></Button>
-            <Button label={RLabel} icon="send" color="Violet" size="M" type="submit" disabled={disabled}></Button>
+            <Button label={RLabel} icon="send" color="Violet" size="M" type="submit" disabled={isDisabled}></Button>
           </ButtonGroup>
         </div>
       </form>

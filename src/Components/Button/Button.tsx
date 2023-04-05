@@ -46,9 +46,9 @@ export const Button: FC<ButtonProps> = ({
         aria-label={label}
         onClick={onClick}
         disabled={disabled}
-        className={`w-full border border-solid border-slate-200 rounded-md
+        className={`w-full rounded-md
          text-white text-base
-        outline-none active:border-4
+        active:outline-4 active:outline outline-slate-200
         leading-none disabled:pointer-events-none disabled:border-1 disabled:opacity-75 ${colorClasses(color)}`}
       >
         <div className={`flex place-content-center items-center ${sizeClasses(size).container}`}>
