@@ -73,7 +73,7 @@ export const PostComment: FC<PostCommentProps> = ({
           />
         </div>
         <div className="mb-4">
-          <Input type="textarea" label="Textarea" name="post-comment" placeholder={placeholder} required></Input>
+          <Input type="textarea" label="" name="post-comment" placeholder={placeholder} required></Input>
         </div>
         <div>
           <ButtonGroup>
