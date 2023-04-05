@@ -6,7 +6,7 @@ export const Share: FC<ShareProps> = ({ value, label, copiedLabel }) => {
   const [isCopied, setIsCopied] = useState(false);
   const copyToClipBoard = (): void => {
     if (!isCopied) {
-      void navigator.clipboard.writeText(value);
+      void navigator.clipboard.writeText(`${window.location.origin}value`);
       setIsCopied(() => true);
       setTimeout(() => setIsCopied(() => false), 3000);
     }

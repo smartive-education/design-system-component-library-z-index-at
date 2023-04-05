@@ -7,9 +7,9 @@ export const Typography: FC<TypographyProps> = ({ type, children, htmlFor, color
     case 'h1':
       return <h1 className={`font-bold text-3xl md:text-5xl ${color}`}>{children}</h1>;
     case 'h2':
-      return <h2 className={`font-bold text-2xl text-xl md:text-4xl ${color}`}>{children}</h2>;
+      return <h2 className={`font-bold text-2xl md:text-4xl ${color}`}>{children}</h2>;
     case 'h3':
-      return <h2 className={`font-bold text-lg text-xl md:text-3xl ${color}`}>{children}</h2>;
+      return <h2 className={`font-bold text-lg md:text-3xl ${color}`}>{children}</h2>;
     case 'h4':
       return <h4 className={`font-bold text-base md:text-2xl ${color}`}>{children}</h4>;
     case 'label-xl':
