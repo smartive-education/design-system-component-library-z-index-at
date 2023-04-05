@@ -195,10 +195,10 @@ export interface ProfileCardProps {
   location: string;
   calendarText: string;
   profileText: string;
-  openProfile: () => void;
-  followed: boolean;
-  onFollow: () => void;
-  onEdit: () => void;
+  openProfile?: () => void;
+  followed?: boolean;
+  onFollow?: () => void;
+  onEdit?: () => void;
 }
 
 export interface UserWidgetProps {

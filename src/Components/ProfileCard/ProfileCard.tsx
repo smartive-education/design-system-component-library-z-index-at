@@ -5,24 +5,6 @@ import { IconColor, IconHoverColor, ProfileCardProps, TextColor, TextHoverColor 
 import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
 import { Typography } from '../Typography';
 
-interface ButtonClasses {
-  classes: string;
-  text: string;
-}
-
-const buttonClasses = (followed: boolean): ButtonClasses => {
-  if (followed) {
-    return {
-      classes: 'text-white bg-slate-600',
-      text: 'Unfollow',
-    };
-  }
-  return {
-    classes: 'text-black',
-    text: 'Follow',
-  };
-};
-
 export const ProfileCard: FC<ProfileCardProps> = ({
   name,
   profileImage,
@@ -32,14 +14,12 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   calendarText,
   profileText,
   openProfile,
-  followed,
-  onFollow,
   onEdit,
 }) => {
   const [showEditIcon, setShowEditIcon] = useState(false);
 
   return (
-    <div className="py-4 px-6 md:py-8 md:px-12 order-1 border-transparent rounded-xl lg:max-w-3xl">
+    <div className="order-1 border-transparent rounded-xl lg:max-w-3xl">
       <div className="relative">
         <div
           className="mb-4 max-h-80 object-contain relative overflow-hidden rounded-xl cursor-pointer bg-violet-600"
@@ -92,23 +72,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         />
       </div>
       <div className="pt-4">
-        <Typography>{profileText}</Typography>
-      </div>
-      <div className="flex justify-end pt-10">
-        {followed && <div className="pr-4 pt-2 text-slate-400">Du folgst Damian Carduff</div>}
-        <button
-          onClick={onFollow}
-          className={`border-2 border-solid rounded-md px-4 py-2 flex border-slate-600 ${
-            buttonClasses(followed).classes
-          }`}
-        >
-          <div className="fwhitespace-nowrap">{buttonClasses(followed).text}</div>
-          {followed && (
-            <div className="pt-1 pl-4">
-              <Icon id="close" size={16} color={IconColor.White} />
-            </div>
-          )}
-        </button>
+        <Typography type='paragraph-l' color='text-slate-400'>{profileText}</Typography>
       </div>
     </div>
   );

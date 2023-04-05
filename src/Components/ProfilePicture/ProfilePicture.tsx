@@ -41,7 +41,7 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src = '', size, 
             src={getImage(src, size)}
             alt={name}
             onClick={onClick}
-            className="hover:scale-125 duration-700 ease-in-out"
+            className="hover:scale-125 duration-700 ease-in-out h-full"
           />
         )}
       </div>
