@@ -5,8 +5,7 @@ import { IconColor } from '../../models';
 
 export const LandingPage: FC = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center h-screen w-screen">
-      <div className="h-full bg-gradient-to-r to-pink-500 from-violet-600 items-center justify-center flex w-screen">
+      <div className="min-h-[50vh] md:min-h-screen bg-gradient-to-r to-pink-500 from-violet-600 items-center justify-center flex">
         <div>
           <div className="flex justify-center pt-2">
             <Icon id="mumble" size={64} color={IconColor.White} />
@@ -19,6 +18,5 @@ export const LandingPage: FC = () => {
           </h2>
         </div>
       </div>
-    </div>
   );
 };
