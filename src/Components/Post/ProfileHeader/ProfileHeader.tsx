@@ -50,20 +50,19 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
               onClickFn={openProfile}
             />
           )}
-          {type === 'POST' ||
-            (type === 'REPLY' && (
-              <>
-                <Interaction
-                  iconId="time"
-                  iconColor={IconColor.LightGray}
-                  textColor={TextColor.LightGray}
-                  iconHoverColor={IconHoverColor.Gray}
-                  textHoverColor={TextHoverColor.Gray}
-                  label={postCreationTime ?? ''}
-                  size="small"
-                />
-              </>
-            ))}
+          {(type === 'POST' || type === 'REPLY') && (
+            <>
+              <Interaction
+                iconId="time"
+                iconColor={IconColor.LightGray}
+                textColor={TextColor.LightGray}
+                iconHoverColor={IconHoverColor.Gray}
+                textHoverColor={TextHoverColor.Gray}
+                label={postCreationTime ?? ''}
+                size="small"
+              />
+            </>
+          )}
           {type === 'PROFILE' && (
             <>
               <Interaction
