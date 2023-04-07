@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { ProfilePicture } from '../ProfilePicture';
 
 export interface SekeletonProps {
-  isProfile: boolean;
+  isProfile?: boolean;
 }
 
 export const Skeleton: FC<SekeletonProps> = ({ isProfile = false }) => {
