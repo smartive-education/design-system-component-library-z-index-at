@@ -8,7 +8,7 @@ export const UserWidget: FC<UserWidgetProps> = ({ name, username, src, onClick }
   return (
     <div className="bg-white rounded-2xl relative p-4 w-full">
       <div className="p-2 place-content-center flex">
-        <ProfilePicture name="rvogt" size="medium" src={src} />
+        <ProfilePicture name={name} size="medium" src={src} />
       </div>
       <h4
         className="p-1 text-xl text-center  whitespace-nowrap text-ellipsis overflow-hidden font-semibold"
