@@ -27,7 +27,7 @@ export const Post: FC<PostProps> = ({
 }) => {
   return (
     <div
-      className={`relative py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent lg:max-w-3xl ${
+      className={`relative py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent ${
         profileHeaderType === 'POST' || profileHeaderType === 'CREATE-POST'
           ? 'mt-4 rounded-xl'
           : 'border-b-2 border-slate-300'

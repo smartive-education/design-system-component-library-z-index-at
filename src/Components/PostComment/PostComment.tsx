@@ -44,7 +44,7 @@ export const PostComment: FC<PostCommentProps> = ({
 
   return (
     <div
-      className={`py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent lg:max-w-3xl ${
+      className={`py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent ${
         profileHeaderType !== 'CREATE-REPLY' ? 'rounded-xl mt-4' : 'rounded-t-xl mt-4 border-b-2 border-slate-300'
       }`}
     >

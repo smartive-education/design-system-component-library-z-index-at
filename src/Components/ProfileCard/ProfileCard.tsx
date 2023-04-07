@@ -19,7 +19,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   const [showEditIcon, setShowEditIcon] = useState(false);
 
   return (
-    <div className="order-1 border-transparent rounded-xl lg:max-w-3xl">
+    <div className="order-1 border-transparent rounded-xl">
       <div className="relative">
         <div
           className="mb-4 max-h-80 object-contain relative overflow-hidden rounded-xl cursor-pointer bg-violet-600"
