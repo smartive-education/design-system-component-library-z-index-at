@@ -5,7 +5,7 @@ export interface SekeletonProps {
   isProfile: boolean;
 }
 
-export const Skeleton: FC<SekeletonProps> = ({ isProfile }) => {
+export const Skeleton: FC<SekeletonProps> = ({ isProfile = false }) => {
   return (
     <>
       {isProfile ? (
