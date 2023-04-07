@@ -18,31 +18,15 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src = '', size, 
     }
     return {
       size: 'h-40 w-40',
-      div: 'outline outline-8 outline-slate-100',
+      div: 'outline outline-8 outline-slate-100 h-40',
     };
-  }, []);
-
-  const getImage = useCallback((src: string, size: string) => {
-    if (!src && size === 'large') {
-      return 'assets/images/profile/no.image.png';
-    }
-    return src;
   }, []);
 
   return (
     <div className={`relative ${getClasses(size).size}`}>
-      <div
-        className={`cursor-pointer rounded-full object-cover overflow-hidden ${getClasses(size).div} ${
-          getImage(src, size) ? '' : 'bg-violet-100'
-        }`}
-      >
-        {getImage(src, size) && (
-          <img
-            src={getImage(src, size)}
-            alt={name}
-            onClick={onClick}
-            className="hover:scale-125 duration-700 ease-in-out h-full"
-          />
+      <div className={`cursor-pointer rounded-full object-cover overflow-hidden bg-violet-100 ${getClasses(size).div}`}>
+        {src && (
+          <img src={src} alt={name} onClick={onClick} className="hover:scale-125 duration-700 ease-in-out h-full" />
         )}
       </div>
       {edit && size === 'large' && (
