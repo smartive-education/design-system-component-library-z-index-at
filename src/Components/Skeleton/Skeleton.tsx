@@ -9,8 +9,8 @@ export const Skeleton: FC<SekeletonProps> = ({ isProfile = false }) => {
   return (
     <>
       {isProfile ? (
-        <div className="relative py-4 px-6 mt-4 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl lg:max-w-3xl">
-          <div className="w-full h-96 border-1 border-transparent rounded-xl ">
+        <div className="relative bg-white border-1 border-transparent rounded-xl lg:max-w-3xl">
+          <div className="w-full border-1 border-transparent rounded-xl ">
             <div className="relative mb-8">
               <div className="w-full h-80 bg-slate-300 rounded-xl"></div>
               <div className="relative flex flex-col w-3/4 mb-4 mt-4">
