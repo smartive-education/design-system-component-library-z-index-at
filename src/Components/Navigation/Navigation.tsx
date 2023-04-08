@@ -14,7 +14,7 @@ export const Navigation: FC<NavigationProps> = ({
 }) => {
   return (
     <div className="bg-violet-600 h-20 flex justify-around items-center md:grid md:grid-cols-12 md:content-center">
-      <div className="hidden md:flex items-center md:col-start-3 md:col-end-5 lg:col-start-4 lg:col-end-6">
+      <div className="hidden md:flex items-center md:col-start-3 md:col-end-5 lg:col-start-4 lg:col-end-6 2xl:col-start-5 2xl:col-end-9">
         <Effect
           iconId="mumble"
           label="Mumble"
