@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, ReactNode } from 'react';
+import { ChangeEvent, FormEvent, ReactNode, Ref, RefObject } from 'react';
 import {
   ActionBackGroundColor,
   AvatarSize,
@@ -160,8 +160,8 @@ export interface PostProps {
   copyLabel: string;
   copiedLabel: string;
   profileHeaderType: ProfileHeaderType;
-  openProfile: () => void;
-  comment: () => void;
+  openProfile: (ref: RefObject<HTMLDivElement>) => void;
+  comment: (ref: RefObject<HTMLDivElement>) => void;
   setIsLiked: (isLiked: boolean) => void;
   hashtags?: string[];
   children?: ReactNode;

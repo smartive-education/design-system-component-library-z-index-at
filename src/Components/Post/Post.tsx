@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import { Like } from '../Interaction/Like/Like';
 import { Share } from '../Interaction/Share/Share';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
@@ -25,8 +25,16 @@ export const Post: FC<PostProps> = ({
   comment,
   setIsLiked,
 }) => {
+  const ref = useRef(null);
+  const handleOpenProfile = (): void => {
+    openProfile(ref)
+  }
+  const handleComment = (): void => {
+    comment(ref)
+  }
   return (
     <div
+      ref={ref}
       className={`relative py-4 px-6 md:py-8 md:px-12 bg-white border-1 border-transparent ${
         profileHeaderType === 'POST' || profileHeaderType === 'CREATE-POST'
           ? 'mt-4 rounded-xl'
@@ -40,7 +48,7 @@ export const Post: FC<PostProps> = ({
           userName={userName}
           postCreationTime={postCreationTime}
           src={src}
-          openProfile={openProfile}
+          openProfile={handleOpenProfile}
         />
       </div>
       <div className="block md:hidden">
@@ -50,7 +58,7 @@ export const Post: FC<PostProps> = ({
           userName={userName}
           postCreationTime={postCreationTime}
           src={src}
-          openProfile={openProfile}
+          openProfile={handleOpenProfile}
         />
       </div>
       <div className={`mb-4 ${profileHeaderType === 'POST' ? 'md:block' : 'hidden'}`}>
@@ -73,7 +81,7 @@ export const Post: FC<PostProps> = ({
       )}
       <div className="flex md:grid md:grid-cols-12 relative -left-3">
         <div className="md:col-span-4 truncate">
-          <Comment value={commentCount} clickFn={comment} />
+          <Comment value={commentCount} clickFn={handleComment} />
         </div>
         <div className="md:col-span-3 truncate">
           <Like value={likeCount} isLiked={isLiked} setIsLiked={setIsLiked} />
