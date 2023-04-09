@@ -72,7 +72,9 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         />
       </div>
       <div className="pt-4">
-        <Typography type='paragraph-l' color='text-slate-400'>{profileText}</Typography>
+        <Typography type="paragraph-l" color="text-slate-400">
+          {profileText}
+        </Typography>
       </div>
     </div>
   );

@@ -148,12 +148,12 @@ export interface NavigationProps {
 }
 
 export interface PostProps {
-  name: string;
-  userName: string;
+  name?: string;
+  userName?: string;
   postCreationTime: string;
   src: string;
   content: string;
-  commentCount: number;
+  commentCount?: number;
   likeCount: number;
   isLiked: boolean;
   link: string;
