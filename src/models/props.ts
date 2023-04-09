@@ -225,9 +225,9 @@ export interface PostCommentProps {
   textValue: string;
   fileValue?: File;
   profileHeaderType: ProfileHeaderType;
-  userName: string;
+  userName?: string;
   src: string;
-  postCreationTime: string;
+  postCreationTime?: string;
   isDisabled: boolean;
   placeholder?: string;
   LLabel?: string;
