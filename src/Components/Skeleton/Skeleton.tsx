@@ -10,9 +10,9 @@ export const Skeleton: FC<SekeletonProps> = ({ isProfile = false }) => {
     <>
       {isProfile ? (
         <div className="relative bg-white border-1 border-transparent rounded-xl">
-          <div className="w-full h-80 border-1 border-transparent rounded-xl ">
+          <div className="w-full border-1 border-transparent rounded-xl ">
             <div className="relative mb-8">
-              <div className="w-full h-60 bg-slate-300 rounded-xl"></div>
+              <div className="w-full h-80 bg-slate-300 rounded-xl"></div>
               <div className="relative flex flex-col w-3/4 mb-4 mt-4">
                 <div className="w-1/2 h-4 animate-skeleton ml-6 my-2"></div>
                 <div className="relative w-full">
