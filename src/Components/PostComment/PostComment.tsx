@@ -18,7 +18,7 @@ export const PostComment: FC<PostCommentProps> = ({
   LLabel = 'Bild hochladen',
   RLabel = 'Senden',
   onChange,
-  openProfile,
+  openProfile = () => {},
   onSubmit,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

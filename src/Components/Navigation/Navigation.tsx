@@ -9,7 +9,7 @@ export const Navigation: FC<NavigationProps> = ({
   loggedInStatusLabel = 'Log in',
   navigateToFeed,
   navigateToProfile,
-  openSettings,
+  openSettings = () => {},
   changeLoggedInStatus,
 }) => {
   return (

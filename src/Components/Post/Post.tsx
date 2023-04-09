@@ -60,7 +60,9 @@ export const Post: FC<PostProps> = ({
         <Typography type="paragraph-m">{content}</Typography>
       </div>
       {children && (
-        <div className="relative flex justify-center mb-4 border-1 border-transparent rounded-xl overflow-hidden bg-violet-100">{children}</div>
+        <div className="relative flex justify-center mb-4 border-1 border-transparent rounded-xl overflow-hidden bg-violet-100">
+          {children}
+        </div>
       )}
       {hashtags && (
         <div className="mb-4">
