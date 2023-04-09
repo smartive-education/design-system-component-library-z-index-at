@@ -7,7 +7,7 @@ export const FileUploadModal: FC<FileUploadModalProps> = ({
   isOpen,
   header = 'Bild hochladen',
   title = 'Datei hierhin ziehen',
-  restrictions = 'JPEG oder PNG, maximal 5 MB',
+  restrictions = 'JPEG PNG oder GIF, maximal 10 MB',
   label = 'oder Datei auswhählen',
   closeFn,
   submitFn,
