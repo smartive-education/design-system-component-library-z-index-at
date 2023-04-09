@@ -143,7 +143,7 @@ export interface NavigationProps {
   loggedInStatusLabel: string;
   navigateToFeed: () => void;
   navigateToProfile: () => void;
-  openSettings: () => void;
+  openSettings?: () => void;
   changeLoggedInStatus: () => void;
 }
 
@@ -233,6 +233,6 @@ export interface PostCommentProps {
   LLabel?: string;
   RLabel?: string;
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  openProfile: () => void;
+  openProfile?: () => void;
   onSubmit: (file: File | undefined, text: string) => void;
 }
