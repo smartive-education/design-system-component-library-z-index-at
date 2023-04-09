@@ -27,11 +27,11 @@ export const Post: FC<PostProps> = ({
 }) => {
   const ref = useRef(null);
   const handleOpenProfile = (): void => {
-    openProfile(ref)
-  }
+    openProfile(ref);
+  };
   const handleComment = (): void => {
-    comment(ref)
-  }
+    comment(ref);
+  };
   return (
     <div
       ref={ref}

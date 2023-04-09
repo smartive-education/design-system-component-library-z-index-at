@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, ReactNode, Ref, RefObject } from 'react';
+import { ChangeEvent, FormEvent, ReactNode, RefObject } from 'react';
 import {
   ActionBackGroundColor,
   AvatarSize,
