@@ -9,25 +9,16 @@ export const Skeleton: FC<SekeletonProps> = ({ isProfile = false }) => {
   return (
     <>
       {isProfile ? (
-        <div className="relative bg-white border-1 border-transparent rounded-xl">
+        <div className="relative border-1 border-transparent rounded-xl">
           <div className="w-full border-1 border-transparent rounded-xl ">
             <div className="relative mb-8">
-              <div className="w-full h-80 bg-slate-300 rounded-xl"></div>
-              <div className="relative flex flex-col w-3/4 mb-4 mt-4">
-                <div className="w-1/2 h-4 animate-skeleton ml-6 my-2"></div>
-                <div className="relative w-full">
-                  <span className="inline-block w-1/3 h-4 animate-skeleton ml-6"></span>
-                  <span className="inline-block w-1/3 h-4 animate-skeleton ml-6"></span>
-                </div>
+              <div className="w-full h-56 md:h-80 xl:h-[30rem] bg-slate-300 rounded-xl"></div>
+              <div className="hidden md:flex z-1 absolute right-10 -bottom-20">
+                <ProfilePicture name="" size="large" />
               </div>
-              <div className="z-1 absolute right-8 bottom-[-0.5rem]">
-                <ProfilePicture name="" size="large"></ProfilePicture>
+              <div className="md:hidden flex absolute -bottom-8 right-10">
+                <ProfilePicture name="" size="medium" />
               </div>
-            </div>
-            <div className="relative flex flex-col w-full mb-2">
-              <div className="w-full h-4 animate-skeleton mb-2"></div>
-              <div className="w-full h-4 animate-skeleton mb-2"></div>
-              <div className="w-full h-4 animate-skeleton mb-2"></div>
             </div>
           </div>
         </div>

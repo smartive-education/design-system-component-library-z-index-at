@@ -39,29 +39,29 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
         </h4>
         <div className="flex">
           {type !== 'CREATE-POST' && (
-            <Interaction
-              iconId="profile"
-              iconColor={IconColor.Violet}
-              textColor={TextColor.Violet}
-              iconHoverColor={IconHoverColor.DarkViolet}
-              textHoverColor={TextHoverColor.DarkViolet}
-              label={userName}
-              size="small"
-              onClickFn={openProfile}
-            />
+            <div className="hidden md:block">
+              <Interaction
+                iconId="profile"
+                iconColor={IconColor.Violet}
+                textColor={TextColor.Violet}
+                iconHoverColor={IconHoverColor.DarkViolet}
+                textHoverColor={TextHoverColor.DarkViolet}
+                label={userName}
+                size="small"
+                onClickFn={openProfile}
+              />
+            </div>
           )}
           {(type === 'POST' || type === 'REPLY') && (
-            <>
-              <Interaction
-                iconId="time"
-                iconColor={IconColor.LightGray}
-                textColor={TextColor.LightGray}
-                iconHoverColor={IconHoverColor.Gray}
-                textHoverColor={TextHoverColor.Gray}
-                label={postCreationTime ?? ''}
-                size="small"
-              />
-            </>
+            <Interaction
+              iconId="time"
+              iconColor={IconColor.LightGray}
+              textColor={TextColor.LightGray}
+              iconHoverColor={IconHoverColor.Gray}
+              textHoverColor={TextHoverColor.Gray}
+              label={postCreationTime ?? ''}
+              size="small"
+            />
           )}
           {type === 'PROFILE' && (
             <>

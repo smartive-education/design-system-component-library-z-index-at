@@ -68,7 +68,7 @@ export const Post: FC<PostProps> = ({
         <Typography type="paragraph-m">{content}</Typography>
       </div>
       {children && (
-        <div className="relative h-80 flex justify-center mb-4 border-1 border-transparent rounded-xl overflow-hidden bg-violet-100">
+        <div className="relative h-56 md:h-80 xl:h-[30rem] flex justify-center mb-4 border-1 border-transparent rounded-xl overflow-hidden bg-violet-100">
           {children}
         </div>
       )}

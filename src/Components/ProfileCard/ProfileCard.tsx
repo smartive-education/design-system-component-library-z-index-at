@@ -22,7 +22,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
     <div className="order-1 border-transparent rounded-xl">
       <div className="relative">
         <div
-          className="mb-4 max-h-80 object-contain relative overflow-hidden rounded-xl cursor-pointer bg-violet-600"
+          className="flex justify-center mb-4 h-56 md:h-80 xl:h-[30rem] object-contain relative overflow-hidden rounded-xl cursor-pointer bg-violet-100"
           onClick={onEdit}
           onMouseOver={() => setShowEditIcon(true)}
           onMouseOut={() => setShowEditIcon(false)}
@@ -34,8 +34,11 @@ export const ProfileCard: FC<ProfileCardProps> = ({
             </div>
           </div>
         </div>
-        <div className="absolute -bottom-20 right-10">
+        <div className="hidden md:flex absolute -bottom-20 right-10">
           <ProfilePicture name="unkown" size="large" src={profilePicture} />
+        </div>
+        <div className="md:hidden flex absolute -bottom-8 right-10">
+          <ProfilePicture name="unkown" size="medium" src={profilePicture} />
         </div>
       </div>
       <h4 className="pt-5 text-3xl whitespace-nowrap text-ellipsis overflow-hidden font-semibold" title={name}>
@@ -61,15 +64,17 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           label={location}
           size="small"
         />
-        <Interaction
-          iconId="calendar"
-          iconColor={IconColor.LightGray}
-          textColor={TextColor.LightGray}
-          iconHoverColor={IconHoverColor.Gray}
-          textHoverColor={TextHoverColor.Gray}
-          label={calendarText}
-          size="small"
-        />
+        <div className='hidden md:block'>
+          <Interaction
+            iconId="calendar"
+            iconColor={IconColor.LightGray}
+            textColor={TextColor.LightGray}
+            iconHoverColor={IconHoverColor.Gray}
+            textHoverColor={TextHoverColor.Gray}
+            label={calendarText}
+            size="small"
+          />
+        </div>
       </div>
       <div className="pt-4">
         <Typography type="paragraph-l" color="text-slate-400">
