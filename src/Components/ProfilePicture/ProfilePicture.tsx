@@ -6,28 +6,33 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src = '', size, 
   const getClasses = useCallback((size: string) => {
     if (size === 'small') {
       return {
-        size: 'h-10 w-10',
-        div: 'h-10',
+        size: 'h-auto w-10',
+        div: '',
+        height: 'h-10',
       };
     }
     if (size === 'medium') {
       return {
-        size: 'h-16 w-16',
-        div: 'outline outline-8 outline-slate-100 h-16',
+        size: 'h-auto w-16',
+        div: 'outline outline-8 outline-slate-100',
+        height: 'h-16',
       };
     }
     return {
-      size: 'h-40 w-40',
-      div: 'outline outline-8 outline-slate-100 h-40',
+      size: 'h-auto w-40',
+      div: 'outline outline-8 outline-slate-100',
+      height: 'h-40',
     };
   }, []);
 
   return (
     <div className={`relative ${getClasses(size).size}`}>
-      <div className={`cursor-pointer rounded-full object-cover overflow-hidden bg-violet-100 ${getClasses(size).div}`}>
-        {src && (
-          <img src={src} alt={name} onClick={onClick} className="hover:scale-125 duration-700 ease-in-out h-full" />
-        )}
+      <div
+        className={`cursor-pointer rounded-full object-cover overflow-hidden bg-violet-100 ${getClasses(size).div} ${
+          !src ? getClasses(size).height : ''
+        }`}
+      >
+        {src && <img src={src} alt={name} onClick={onClick} className="hover:scale-125 duration-700 ease-in-out" />}
       </div>
       {edit && size === 'large' && (
         <div className="absolute bottom-0 cursor-pointer right-0 bg-slate-600 p-4 rounded-full" onClick={onEdit}>
