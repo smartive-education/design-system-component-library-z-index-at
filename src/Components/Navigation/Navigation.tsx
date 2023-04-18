@@ -34,7 +34,7 @@ export const Navigation: FC<NavigationProps> = ({
           navigate={navigateToFeed}
         />
       </div>
-      <div className="md:col-start-7 md:col-span-4 lg:col-start-6 2xl:col-end-9 flex justify-end">
+      <div className="md:col-start-7 md:col-span-4 lg:col-start-6 3xl:col-end-9 flex justify-end">
         <div className="flex items-center">
           <ProfilePicture size="small" src={profilePictureSrc} onClick={navigateToProfile} name="Profile Page" />
         </div>
