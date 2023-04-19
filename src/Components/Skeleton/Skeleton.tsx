@@ -14,10 +14,14 @@ export const Skeleton: FC<SekeletonProps> = ({ isProfile = false }) => {
             <div className="relative mb-8">
               <div className="w-full h-56 md:h-80 xl:h-[30rem] bg-slate-300 rounded-xl"></div>
               <div className="hidden md:flex z-1 absolute right-10 -bottom-20">
-                <ProfilePicture name="" size="large" />
+                <div
+                  className={`relative cursor-pointer rounded-full bg-violet-100 outline outline-8 outline-slate-100 h-40 w-40`}
+                ></div>
               </div>
               <div className="md:hidden flex absolute -bottom-8 right-10">
-                <ProfilePicture name="" size="medium" />
+                <div
+                  className={`relative cursor-pointer rounded-full bg-violet-100 outline outline-8 outline-slate-100 h-16 w-16`}
+                ></div>
               </div>
             </div>
           </div>
@@ -25,7 +29,9 @@ export const Skeleton: FC<SekeletonProps> = ({ isProfile = false }) => {
       ) : (
         <div className="relative py-4 px-6 mt-4 md:py-8 md:px-12 bg-white border-1 border-transparent rounded-xl">
           <div className="relative flex items-center md:-left-20">
-            <ProfilePicture name="" size="medium"></ProfilePicture>
+            <div
+              className={`relative cursor-pointer rounded-full bg-violet-100 outline outline-8 outline-slate-100 h-16 w-16`}
+            ></div>
             <div className="relative flex flex-col w-3/4 mb-4">
               <div className="w-1/2 h-4 animate-skeleton ml-6 my-2"></div>
               <div className="relative w-full">
