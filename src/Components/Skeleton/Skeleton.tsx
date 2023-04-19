@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { ProfilePicture } from '../ProfilePicture';
 
 export interface SekeletonProps {
   isProfile?: boolean;
