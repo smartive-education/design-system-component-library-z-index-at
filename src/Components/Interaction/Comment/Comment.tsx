@@ -30,6 +30,7 @@ export const Comment: FC<CommentProps> = ({ value, clickFn }) => {
         <Interaction
           iconId={value === 0 ? 'chat-empty' : 'chat-full'}
           label=""
+          aria-label={value && value > 1 ? 'Comments' : 'Comment'}
           value={value > 0 ? value : undefined}
           iconColor={value === 0 ? IconColor.Gray : IconColor.Violet}
           textColor={TextColor.Gray}

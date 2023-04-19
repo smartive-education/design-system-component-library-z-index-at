@@ -34,6 +34,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked, setIsLiked }) => {
         <Interaction
           iconId={value === 0 ? 'heart-empty' : 'heart-full'}
           label=""
+          aria-label={value === 0 || (value === 1 && !isLiked) ? 'Like' : value === 1 && isLiked ? 'Liked' : 'Likes'}
           value={value === 1 && isLiked ? undefined : value > 0 ? value : undefined}
           iconColor={value === 0 ? IconColor.Gray : IconColor.Pink}
           textColor={value === 0 ? TextColor.Gray : TextColor.DarkPink}

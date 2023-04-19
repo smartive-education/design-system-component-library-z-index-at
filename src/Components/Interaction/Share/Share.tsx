@@ -25,6 +25,7 @@ export const Share: FC<ShareProps> = ({ value, label, copiedLabel }) => {
         <Interaction
           iconId={'share'}
           label={isCopied ? copiedLabel : label}
+          aria-label={isCopied ? copiedLabel : label}
           iconColor={IconColor.Gray}
           textColor={TextColor.Gray}
           backgroundColor={ActionBackGroundColor.Gray}
@@ -36,6 +37,7 @@ export const Share: FC<ShareProps> = ({ value, label, copiedLabel }) => {
         <Interaction
           iconId={'share'}
           label=""
+          aria-label={isCopied ? copiedLabel : label}
           iconColor={IconColor.Gray}
           textColor={TextColor.Gray}
           backgroundColor={ActionBackGroundColor.Gray}
