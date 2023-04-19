@@ -3,30 +3,26 @@ import { IconColor, ProfilePictureProps } from '../../models';
 import { Icon } from '../Icon';
 
 export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src = '', size, edit = false, onClick, onEdit }) => {
-  const getClasses = useCallback((size: string) => {
+  const getContainerSize = useCallback((size: string) => {
     if (size === 'small') {
-      return {
-        size: 'h-10 w-10',
-        div: 'h-10',
-      };
+      return 'h-10 max-w-[2.5rem]';
     }
     if (size === 'medium') {
-      return {
-        size: 'h-16 w-16',
-        div: 'outline outline-8 outline-slate-100 h-16',
-      };
+      return 'outline outline-8 outline-slate-100 h-16 max-w-[4rem]';
     }
-    return {
-      size: 'h-40 w-40',
-      div: 'outline outline-8 outline-slate-100 h-40',
-    };
+    return 'outline outline-8 outline-slate-100 h-40 max-w-[10rem]';
   }, []);
 
   return (
-    <div className={`relative ${getClasses(size).size}`}>
-      <div className={`cursor-pointer rounded-full object-cover overflow-hidden bg-violet-100 ${getClasses(size).div}`}>
+    <div className={`relative cursor-pointer rounded-full ${getContainerSize(size)}`}>
+      <div className={`rounded-full overflow-hidden bg-violet-100 ${getContainerSize(size)}`}>
         {src && (
-          <img src={src} alt={name} onClick={onClick} className="hover:scale-125 duration-700 ease-in-out h-full" />
+          <img
+            src={src}
+            alt={name}
+            onClick={onClick}
+            className="h-full w-full hover:scale-125 duration-700 ease-in-out object-cover"
+          />
         )}
       </div>
       {edit && size === 'large' && (
