@@ -22,7 +22,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
     <div className="order-1 border-transparent rounded-xl">
       <div className="relative">
         <div
-          className="block mb-4 h-56 md:h-80 xl:h-[30rem] object-cover relative overflow-hidden rounded-xl cursor-pointer bg-violet-100"
+          className="flex justify-center mb-4 h-56 md:h-80 xl:h-[30rem] object-cover relative overflow-hidden rounded-xl cursor-pointer bg-violet-100"
           onClick={onEdit}
           onMouseOver={() => setShowEditIcon(true)}
           onMouseOut={() => setShowEditIcon(false)}
@@ -64,7 +64,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           label={location}
           size="small"
         />
-        <div className='hidden md:block'>
+        <div className="hidden md:block">
           <Interaction
             iconId="calendar"
             iconColor={IconColor.LightGray}
