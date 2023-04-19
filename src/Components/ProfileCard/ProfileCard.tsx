@@ -7,12 +7,12 @@ import { Typography } from '../Typography';
 
 export const ProfileCard: FC<ProfileCardProps> = ({
   name,
-  profileImage,
   profilePicture,
   userName,
   location,
   calendarText,
   profileText,
+  children,
   openProfile,
   onEdit,
 }) => {
@@ -22,12 +22,12 @@ export const ProfileCard: FC<ProfileCardProps> = ({
     <div className="order-1 border-transparent rounded-xl">
       <div className="relative">
         <div
-          className="mb-4 h-56 md:h-80 xl:h-[30rem] object-cover relative overflow-hidden rounded-xl cursor-pointer bg-violet-100"
+          className="mb-4 h-56 md:h-80 xl:h-[30rem] relative overflow-hidden rounded-xl cursor-pointer bg-violet-100"
           onClick={onEdit}
           onMouseOver={() => setShowEditIcon(true)}
           onMouseOut={() => setShowEditIcon(false)}
         >
-          <img src={profileImage} alt="profile image" className="h-full w-full ease-in-out duration-200 hover:opacity-50" />
+          {children}
           <div className={`absolute inset-1/2 ${showEditIcon ? '' : 'hidden'}`}>
             <div className="animate-icontilt">
               <Icon id="edit" size={30} color={IconColor.White} />

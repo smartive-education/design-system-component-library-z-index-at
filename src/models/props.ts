@@ -190,11 +190,11 @@ export interface ProfilePictureProps {
 export interface ProfileCardProps {
   name: string;
   userName: string;
-  profileImage: string;
   profilePicture: string;
   location: string;
   calendarText: string;
   profileText: string;
+  children?: ReactNode;
   openProfile?: () => void;
   followed?: boolean;
   onFollow?: () => void;
