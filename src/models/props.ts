@@ -110,14 +110,15 @@ export interface ShareProps {
 
 export interface ModalProps {
   isOpen: boolean;
-  title: string;
+  isLoadingSpinner?: boolean;
+  title?: string;
   isSingleButton?: boolean;
   LLable?: string;
   RLable?: string;
   LIcon?: string;
   RIcon?: string;
   closeFn: () => void;
-  submitFn: (event: FormEvent) => void;
+  submitFn?: (event: FormEvent) => void;
   children?: ReactNode;
 }
 

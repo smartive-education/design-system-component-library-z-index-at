@@ -47,11 +47,20 @@ module.exports = {
             backgroundImage: 'linear-gradient(to right, #cbd5e1 , #cbd5e1, #94a3b8)',
           },
         },
+        spinner: {
+          '0%': {
+            transform: 'rotate(0deg)',
+          },
+          '100%': {
+            transform: 'rotate(360deg)',
+          },
+        },
       },
       animation: {
         textintro: 'textintro 2s ease-in infinite',
         icontilt: 'icontilt 1.2s',
         skeleton: 'skeleton 0.75s linear infinite',
+        spinner: 'spinner 1.5s ease-in-out infinite'
       },
     },
   },

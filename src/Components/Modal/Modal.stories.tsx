@@ -47,3 +47,8 @@ export const ModalFrame = Template.bind({});
 ModalFrame.args = {
   title: 'Modal Frame',
 };
+
+export const LoadingSpinner = Template.bind({});
+LoadingSpinner.args = {
+  isLoadingSpinner: true,
+};
