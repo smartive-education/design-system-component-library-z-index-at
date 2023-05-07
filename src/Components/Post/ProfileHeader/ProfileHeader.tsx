@@ -21,6 +21,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
       {type !== 'PROFILE' && (
         <ProfilePicture
           name={name}
+          testId={testId}
           onClick={openProfile}
           src={src}
           size={type === 'POST' || type === 'CREATE-POST' ? 'medium' : 'small'}
@@ -49,7 +50,6 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
                 textHoverColor={TextHoverColor.DarkViolet}
                 label={userName}
                 size="small"
-                data-testid={testId}
                 onClickFn={openProfile}
               />
             </div>

@@ -80,6 +80,7 @@ export interface InteractionProps {
   backgroundColor?: ActionBackGroundColor;
   size?: InteractionSize;
   value?: number;
+  testId?: string;
   onClickFn?: () => void;
 }
 

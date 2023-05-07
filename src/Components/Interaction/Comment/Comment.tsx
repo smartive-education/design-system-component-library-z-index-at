@@ -22,7 +22,7 @@ export const Comment: FC<CommentProps> = ({ value, testId, clickFn }) => {
           iconHoverColor={IconHoverColor.Violet}
           textHoverColor={TextHoverColor.Violet}
           backgroundColor={ActionBackGroundColor.Violet}
-          data-testid={testId}
+          testId={testId}
           size="standard"
           onClickFn={clickFn}
         />
@@ -38,7 +38,7 @@ export const Comment: FC<CommentProps> = ({ value, testId, clickFn }) => {
           iconHoverColor={IconHoverColor.Violet}
           textHoverColor={TextHoverColor.Violet}
           backgroundColor={ActionBackGroundColor.Violet}
-          data-testid={testId}
+          testId={testId}
           size="standard"
           onClickFn={clickFn}
         />

@@ -26,7 +26,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked, testId, setIsLiked }) => {
           iconHoverColor={IconHoverColor.Pink}
           textHoverColor={TextHoverColor.Pink}
           backgroundColor={ActionBackGroundColor.Pink}
-          data-testid={testId}
+          testId={testId}
           size="standard"
           onClickFn={toggleLikedStatus}
         />
@@ -42,7 +42,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked, testId, setIsLiked }) => {
           iconHoverColor={IconHoverColor.Pink}
           textHoverColor={TextHoverColor.Pink}
           backgroundColor={ActionBackGroundColor.Pink}
-          data-testid={testId}
+          testId={testId}
           size="standard"
           onClickFn={toggleLikedStatus}
         />

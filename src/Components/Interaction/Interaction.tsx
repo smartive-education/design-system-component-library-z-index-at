@@ -12,11 +12,13 @@ export const Interaction: FC<InteractionProps> = ({
   backgroundColor,
   size,
   value,
+  testId,
   onClickFn,
 }) => {
   return (
     <button
       onClick={onClickFn}
+      data-testid={testId}
       className={`group flex items-center hover:border-1 hover:border-solid rounded-full
       ${textColor || TextColor.LightGray} ${textHoverColor || TextHoverColor.Gray}
       ${backgroundColor || ActionBackGroundColor.None} ${
