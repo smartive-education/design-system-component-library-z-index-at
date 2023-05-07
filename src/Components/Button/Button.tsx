@@ -36,6 +36,7 @@ export const Button: FC<ButtonProps> = ({
   color = 'Slate',
   size = 'L',
   icon,
+  testId = label,
   disabled = false,
   onClick,
 }) => {
@@ -44,6 +45,7 @@ export const Button: FC<ButtonProps> = ({
       <button
         type={type}
         aria-label={label}
+        data-testid={testId}
         onClick={onClick}
         disabled={disabled}
         className={`w-full rounded-md

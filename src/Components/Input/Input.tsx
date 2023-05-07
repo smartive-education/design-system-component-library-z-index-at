@@ -22,6 +22,7 @@ export const Input: FC<InputProps> = ({
   maxLength,
   pattern,
   placeholder,
+  testId = label,
 }) => {
   const defaultInputState: InputState = {
     value: '',
@@ -102,6 +103,7 @@ export const Input: FC<InputProps> = ({
             onChange={handleChange}
             onBlur={handleBlur}
             value={inputState.value}
+            data-testid={testId}
             rows={4}
             className={`w-full border border-solid border-slate-200
        bg-slate-50 rounded-md
@@ -127,6 +129,7 @@ export const Input: FC<InputProps> = ({
             onChange={handleChange}
             onBlur={handleBlur}
             value={inputState.value}
+            data-testid={testId}
             className={`w-full h-12 border border-solid border-slate-200
        bg-slate-50 rounded-md
        ${

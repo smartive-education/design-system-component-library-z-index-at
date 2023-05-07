@@ -9,7 +9,7 @@ import {
 } from '../../../models';
 import { Interaction } from '../Interaction';
 
-export const Comment: FC<CommentProps> = ({ value, clickFn }) => {
+export const Comment: FC<CommentProps> = ({ value, testId, clickFn }) => {
   return (
     <div>
       <div className="hidden md:block">
@@ -22,6 +22,7 @@ export const Comment: FC<CommentProps> = ({ value, clickFn }) => {
           iconHoverColor={IconHoverColor.Violet}
           textHoverColor={TextHoverColor.Violet}
           backgroundColor={ActionBackGroundColor.Violet}
+          data-testid={testId}
           size="standard"
           onClickFn={clickFn}
         />
@@ -37,6 +38,7 @@ export const Comment: FC<CommentProps> = ({ value, clickFn }) => {
           iconHoverColor={IconHoverColor.Violet}
           textHoverColor={TextHoverColor.Violet}
           backgroundColor={ActionBackGroundColor.Violet}
+          data-testid={testId}
           size="standard"
           onClickFn={clickFn}
         />

@@ -9,6 +9,7 @@ export const FileUploadModal: FC<FileUploadModalProps> = ({
   title = 'Datei hierhin ziehen',
   restrictions = 'JPEG PNG oder GIF, maximal 10 MB',
   label = 'oder Datei auswhählen',
+  testId = label,
   closeFn,
   submitFn,
 }) => {
@@ -33,6 +34,7 @@ export const FileUploadModal: FC<FileUploadModalProps> = ({
         label={label}
         title={title}
         restrictions={restrictions}
+        testId={testId}
         addFileFn={(file: File) => setFile(() => file)}
       />
     </Modal>

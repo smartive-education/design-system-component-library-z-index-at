@@ -24,6 +24,7 @@ export interface ButtonProps {
   color?: ButtonColor;
   size?: ButtonSize;
   disabled?: boolean;
+  testId?: string;
   onClick?: () => void;
 }
 
@@ -48,6 +49,7 @@ export interface InputProps {
   maxLength?: number;
   pattern?: string;
   placeholder?: string;
+  testId?: string;
 }
 
 export interface FileInputProps {
@@ -57,6 +59,7 @@ export interface FileInputProps {
   errorTranslations?: Record<string, string>;
   allowedFileSize?: number;
   allowedExtensions?: RegExp;
+  testId?: string;
   addFileFn: (file: File) => void;
 }
 
@@ -82,6 +85,7 @@ export interface InteractionProps {
 
 export interface CommentProps {
   value: number;
+  testId?: string;
   clickFn: () => void;
 }
 
@@ -99,6 +103,7 @@ export interface EffectProps {
 export interface LikeProps {
   value: number;
   isLiked: boolean;
+  testId?: string;
   setIsLiked: (isLiked: boolean) => void;
 }
 
@@ -134,6 +139,7 @@ export interface FileUploadModalProps {
   title?: string;
   restrictions?: string;
   label?: string;
+  testId?: string;
   closeFn: () => void;
   submitFn: (file: File) => void;
 }
@@ -184,6 +190,7 @@ export interface ProfilePictureProps {
   src?: string;
   size: AvatarSize;
   edit?: boolean;
+  testId?: string;
   onClick?: () => void;
   onEdit?: () => void;
 }
@@ -213,6 +220,7 @@ export interface ToggleProps {
   isToggleOn: boolean;
   onLabel: string;
   offLabel: string;
+  testId?: string;
   onClick: (isOn: boolean) => void;
 }
 export interface TypographyProps {

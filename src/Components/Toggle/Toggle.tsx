@@ -1,7 +1,7 @@
 import React, { FC, useMemo, useState } from 'react';
 import { ToggleProps } from '../../models';
 
-export const Toggle: FC<ToggleProps> = ({ isToggleOn, onLabel, offLabel, onClick }) => {
+export const Toggle: FC<ToggleProps> = ({ isToggleOn, onLabel, offLabel, testId, onClick }) => {
   const [expandHover, setExpandHover] = useState(false);
   const toggleIsOn = (): void => {
     onClick(!isToggleOn);
@@ -15,7 +15,7 @@ export const Toggle: FC<ToggleProps> = ({ isToggleOn, onLabel, offLabel, onClick
   }, [isToggleOn, expandHover]);
 
   return (
-    <div className="bg-slate-200 border-transparent rounded-xl p-1 flex justify-between max-w-xs relative z-0">
+    <div data-testid={testId} className="bg-slate-200 border-transparent rounded-xl p-1 flex justify-between max-w-xs relative z-0">
       <div
         className={`${isToggleOn ? 'text-violet-600' : ''} p-2 cursor-pointer text-xl z-20`}
         onClick={toggleIsOn}

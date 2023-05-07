@@ -9,7 +9,7 @@ import {
 } from '../../../models';
 import { Interaction } from '../Interaction';
 
-export const Like: FC<LikeProps> = ({ value, isLiked, setIsLiked }) => {
+export const Like: FC<LikeProps> = ({ value, isLiked, testId, setIsLiked }) => {
   const toggleLikedStatus = (): void => {
     setIsLiked(!isLiked);
   };
@@ -26,6 +26,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked, setIsLiked }) => {
           iconHoverColor={IconHoverColor.Pink}
           textHoverColor={TextHoverColor.Pink}
           backgroundColor={ActionBackGroundColor.Pink}
+          data-testid={testId}
           size="standard"
           onClickFn={toggleLikedStatus}
         />
@@ -41,6 +42,7 @@ export const Like: FC<LikeProps> = ({ value, isLiked, setIsLiked }) => {
           iconHoverColor={IconHoverColor.Pink}
           textHoverColor={TextHoverColor.Pink}
           backgroundColor={ActionBackGroundColor.Pink}
+          data-testid={testId}
           size="standard"
           onClickFn={toggleLikedStatus}
         />

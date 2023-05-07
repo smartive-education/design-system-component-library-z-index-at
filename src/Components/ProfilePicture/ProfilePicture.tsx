@@ -2,7 +2,7 @@ import React, { FC, useCallback } from 'react';
 import { IconColor, ProfilePictureProps } from '../../models';
 import { Icon } from '../Icon';
 
-export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src = '', size, edit = false, onClick, onEdit }) => {
+export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src = '', size, edit = false, testId = name, onClick, onEdit }) => {
   const getContainerSize = useCallback((size: string) => {
     if (size === 'small') {
       return 'h-10 max-w-[2.5rem]';
@@ -21,6 +21,7 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ name, src = '', size, 
             src={src}
             alt={name}
             onClick={onClick}
+            data-testid={testId}
             className="h-full w-full hover:scale-125 duration-700 ease-in-out object-cover"
           />
         )}

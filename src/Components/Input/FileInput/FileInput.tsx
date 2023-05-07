@@ -24,6 +24,7 @@ export const FileInput: FC<FileInputProps> = ({
   errorTranslations = defaultErrorMessages,
   allowedFileSize = defaultFileSize,
   allowedExtensions = defaultExtensions,
+  testId = label,
   addFileFn,
 }) => {
   const defaultFileInputState: FileInputState = {
@@ -159,7 +160,7 @@ export const FileInput: FC<FileInputProps> = ({
           multiple={false}
           className="hidden"
         />
-        <Button label={label} icon="upload" size="M" onClick={forwardInputButtonClick} />
+        <Button label={label} testId={testId} icon="upload" size="M" onClick={forwardInputButtonClick} />
       </div>
       <span className="self-end text-rose-500 text-xs">{fileInputState.errorMessage}</span>
     </div>
