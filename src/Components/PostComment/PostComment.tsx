@@ -17,6 +17,7 @@ export const PostComment: FC<PostCommentProps> = ({
   placeholder = 'Was meinst du dazu?',
   LLabel = 'Bild hochladen',
   RLabel = 'Senden',
+  testId = name,
   onChange,
   openProfile = () => {},
   onSubmit,
@@ -56,6 +57,7 @@ export const PostComment: FC<PostCommentProps> = ({
             postCreationTime={postCreationTime}
             src={src}
             type={profileHeaderType}
+            testId={`${testId}-profile-header`}
             openProfile={openProfile}
           />
         </div>
@@ -66,6 +68,7 @@ export const PostComment: FC<PostCommentProps> = ({
             postCreationTime={postCreationTime}
             src={src}
             type={'CREATE-REPLY'}
+            testId={`${testId}-profile-header`}
             openProfile={openProfile}
           />
         </div>
@@ -77,18 +80,19 @@ export const PostComment: FC<PostCommentProps> = ({
             name="post-comment"
             placeholder={placeholder}
             required
+            data-testid={`${testId}-textarea`}
             className="w-full border-solid border-slate-200
        bg-slate-50 rounded-md p-4 leading-none border-2 hover:border-2 hover:border-violet-600 focus:outline-none focus:border-2 focus:border-violet-600"
           />
         </div>
         <div>
           <ButtonGroup>
-            <Button label={LLabel} icon="upload" color="Slate" size="M" onClick={() => setIsModalOpen(true)}></Button>
-            <Button label={RLabel} icon="send" color="Violet" size="M" type="submit" disabled={isDisabled}></Button>
+            <Button label={LLabel} icon="upload" color="Slate" size="M" onClick={() => setIsModalOpen(true)} testId={`${testId}-left-button`}></Button>
+            <Button label={RLabel} icon="send" color="Violet" size="M" type="submit" disabled={isDisabled} testId={`${testId}-right-button`}></Button>
           </ButtonGroup>
         </div>
       </form>
-      <FileUploadModal isOpen={isModalOpen} closeFn={() => setIsModalOpen(false)} submitFn={(file) => setFile(file)} />
+      <FileUploadModal isOpen={isModalOpen} closeFn={() => setIsModalOpen(false)} submitFn={(file) => setFile(file)} testId={`${testId}-upload-button`} />
     </div>
   );
 };

@@ -11,6 +11,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
   location,
   memberSince,
   postCreationTime,
+  testId,
   openProfile,
 }) => {
   return (
@@ -48,6 +49,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
                 textHoverColor={TextHoverColor.DarkViolet}
                 label={userName}
                 size="small"
+                data-testid={testId}
                 onClickFn={openProfile}
               />
             </div>

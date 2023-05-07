@@ -21,6 +21,7 @@ export const Post: FC<PostProps> = ({
   children,
   copyLabel,
   copiedLabel,
+  testId = name,
   openProfile,
   comment,
   setIsLiked,
@@ -48,6 +49,7 @@ export const Post: FC<PostProps> = ({
           userName={userName}
           postCreationTime={postCreationTime}
           src={src}
+          testId={`${testId}-profile-header`}
           openProfile={handleOpenProfile}
         />
       </div>
@@ -58,6 +60,7 @@ export const Post: FC<PostProps> = ({
           userName={userName}
           postCreationTime={postCreationTime}
           src={src}
+          testId={`${testId}-profile-header`}
           openProfile={handleOpenProfile}
         />
       </div>
@@ -81,10 +84,10 @@ export const Post: FC<PostProps> = ({
       )}
       <div className="flex md:grid md:grid-cols-12 relative -left-3">
         <div className="md:col-span-4 truncate">
-          <Comment value={commentCount} clickFn={handleComment} />
+          <Comment value={commentCount} clickFn={handleComment} testId={`${testId}-comment`} />
         </div>
         <div className="md:col-span-3 truncate">
-          <Like value={likeCount} isLiked={isLiked} setIsLiked={setIsLiked} />
+          <Like value={likeCount} isLiked={isLiked} setIsLiked={setIsLiked} testId={`${testId}-like`} />
         </div>
         <div className="md:col-span-4">
           <Share value={link} label={copyLabel} copiedLabel={copiedLabel} />

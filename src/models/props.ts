@@ -171,6 +171,7 @@ export interface PostProps {
   comment: (ref: RefObject<HTMLDivElement>) => void;
   setIsLiked: (isLiked: boolean) => void;
   hashtags?: string[];
+  testId?: string;
   children?: ReactNode;
 }
 
@@ -182,6 +183,7 @@ export interface ProfileHeaderProps {
   location?: string;
   memberSince?: string;
   postCreationTime?: string;
+  testId?: string;
   openProfile: () => void;
 }
 
@@ -241,6 +243,7 @@ export interface PostCommentProps {
   placeholder?: string;
   LLabel?: string;
   RLabel?: string;
+  testId?: string;
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   openProfile?: () => void;
   onSubmit: (file: File | undefined, text: string) => void;
